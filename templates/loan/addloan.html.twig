@@ -1,0 +1,114 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+	{{ encore_entry_link_tags('styleformpret') }}
+{% endblock %}
+
+{% block body %}
+    <div class="container-form">
+    <div class="row g-4 align-items-end mb-4">
+        <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+            <p class="d-inline-block border rounded text-primary fw-semi-bold py-1 px-3">Liste des banques</p>
+            <label for="bank-select" class="animate__animated animate__fadeInDown">Sélectionnez une banque :</label>
+            <select id="bank-select" class="animate__animated animate__fadeInDown">
+                <option value="" disabled selected>Sélectionnez une banque</option>
+                <option value="bank1">Banque 1</option>
+                <option value="bank2">Banque 2</option>
+                <option value="bank3">Banque 3</option>
+            </select>
+            
+            <div id="loan-form-modal" class="modal animate__animated animate__zoomIn">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Loan application form</h2>
+                    <div id="loan-application">
+                        {{ form_start(p, {'attr': {'novalidate': 'novalidate'}}) }}
+                            <div id="dashboard" style="margin-left: 5%; margin-top: 20px; border: 1px solid #ccc;padding: 20px;border-radius: 5px;text-align: center;max-width: 600px;">
+                                <div id="bank-stats">
+                                <!-- Les statistiques des banques seront ajoutées ici dynamiquement -->
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="full-name">Full name :</label>
+                                {{form_row(p.fname)}}
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email"> email adress :</label>
+                                {{form_row(p.email)}}
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Phone number :</label>
+                                {{form_row(p.phonenum)}}
+                            </div>
+
+                            <div class="form-group">
+                                <label for="amount">Amount of the loan :</label>
+                                {{form_row(p.amount)}}
+                            </div>
+
+                            <div class="form-group">
+                                <label for="duration">Loan duration (in months):</label>
+                                {{form_row(p.duration)}}
+                            </div>                        
+                        {{ form_end(p) }}
+                    </div>
+                </div>
+            </div>
+            <div class="border rounded p-4 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="row g-4">
+                    <div class="col-lg-4 wow fadeIn" data-wow-delay="0.1s">
+                        <div class="h-100">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0 btn-lg-square rounded-circle bg-primary">
+                                    <i class="fa fa-times text-white"></i>
+                                </div>
+                                <div class="ps-3">
+                                    <h4>No Hidden Cost</h4>
+                                </div>
+                                <div class="border-end d-none d-lg-block"></div>
+                            </div>
+                            <div class="border-bottom mt-4 d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 wow fadeIn" data-wow-delay="0.3s">
+                        <div class="h-100">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0 btn-lg-square rounded-circle bg-primary">
+                                    <i class="fa fa-users text-white"></i>
+                                </div>
+                                <div class="ps-3">
+                                    <h4>Dedicated Team</h4>
+                                </div>
+                                <div class="border-end d-none d-lg-block"></div>
+                            </div>
+                            <div class="border-bottom mt-4 d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 wow fadeIn" data-wow-delay="0.5s">
+                        <div class="h-100">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0 btn-lg-square rounded-circle bg-primary">
+                                    <i class="fa fa-phone text-white"></i>
+                                </div>
+                                <div class="ps-3">
+                                    <h4>24/7 Available</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+        <!-- About End -->
+{% endblock %}
+{% block javascripts %}
+    {{ encore_entry_script_tags('formpretaff') }}
+{% endblock %}
+
