@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('styletableBank') }}
+{% endblock %}
+
+{% block body %}
+<div class="table-container">
+        <h1>Our loans</h1>
+<table border="1">
+    <tr>
+        <th>Id</th>
+        <th>Nom</th>
+        <th>email</th>
+        <th>phone</th>
+        <th>amount</th>
+        <th>duration</th>
+    </tr>
+    <tr>  {% for a in pret %} </tr>
+    <td>{{ a.id }}</td>
+    <td>{{ a.fname }}</td>
+    <td> {{ a.email }}</td>
+    <td> {{ a.phonenum }}</td>
+    <td> {{ a.amount }}</td>
+    <td> {{ a.duration }}</td>
+
+
+    <td><a href="{{ path('app_editloan', {'id': a.id}) }}">edit</a></td>
+    <td><a href="{{ path('app_deleteloan', {'id': a.id}) }}">delete</a></td>
+
+
+    {% endfor %}
+</table>
+</div>
+{% endblock %}

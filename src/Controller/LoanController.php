@@ -12,6 +12,7 @@ use App\Form\PretType;
 use App\Repository\PretRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\ORM\EntityManagerInterface;
+use App\Repository\BankRepository;
 
 
 class LoanController extends AbstractController
@@ -34,11 +35,9 @@ class LoanController extends AbstractController
             $em = $doctrine->getManager();
             $em->persist($Loan);
             $em->flush();
-
             return $this->redirectToRoute("app_afficherlisteloan");
         }
-
-        return $this->render('loan/addloan.html.twig', ['p' => $form->createView()]);
+        return $this->render('front_office/loan/addloan.html.twig', ['loan' => $form->createView()]);
     }
 
 
@@ -46,7 +45,7 @@ class LoanController extends AbstractController
     public function ShowPr(PretRepository $repository)
     {
         $pret=$repository->findall();
-        return $this->render('loan/affichepret.html.twig',['pret'=>$pret]);
+        return $this->render('front_office/loan/affichepret.html.twig',['pret'=>$pret]);
     }
 
     #[Route('/editloan/{id}', name: 'app_editloan')]
@@ -63,8 +62,8 @@ class LoanController extends AbstractController
             return $this->redirectToRoute("app_afficherlisteloan");
         }
 
-        return $this->render('loan/editpret.html.twig', [
-            'p' => $form->createView(),
+        return $this->render('front_office/loan/editpret.html.twig', [
+            'loan' => $form->createView(),
         ]);
     }
 
@@ -82,5 +81,12 @@ class LoanController extends AbstractController
         $em->flush();
         return $this->redirectToRoute('app_afficherlisteloan');
 } 
+
+    #[Route('/AfficherlistBank', name: 'app_afficherlistebank')]
+        public function Show(BankRepository $repository)
+        {
+            $Bank=$repository->findall();
+            return $this->render('front_office/loan/bankshow.html.twig',['Bank'=>$Bank]);
+        }
 
 }

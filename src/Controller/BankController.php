@@ -42,7 +42,7 @@ class BankController extends AbstractController
 
     }
 
-#[Route('/Afficherlistebank', name: 'app_afficherlistebank')]
+    #[Route('/Afficherlistebank', name: 'app_afficherlistebank')]
     public function Show(BankRepository $repository)
     {
         $Bank=$repository->findall();

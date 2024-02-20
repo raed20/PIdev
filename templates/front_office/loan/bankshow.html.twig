@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('styletableBank') }}
+{% endblock %}
+
+{% block body %}
+<div class="table-container">
+        <h1>List Bank</h1>
+        <table border="1">
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Adresse</th>
+            </tr>
+            {% for a in Bank %}
+            <tr>
+                <td>{{ a.id }}</td>
+                <td>{{ a.Nom }}</td>
+                <td>{{ a.Adresse }}</td>
+                <td><a href="{{ path('app_AddLoan', {'id': a.id}) }}">demander</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+</div>
+{% endblock %}

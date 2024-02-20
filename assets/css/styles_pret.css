@@ -1,102 +1,25 @@
-/* Customized Bootstrap */
-:root{
-    --primary: #4663AB;
-    --secondary: #E93C05;
-    --tertiary: #555555;
-    --light: #DFE4FD;
-    --dark: #011A41;
-    --body-color: var(--tertiary);
-    --headings-color: var(--dark);
-    --border-color: var(--light);
-    --input-border-color: var(--light);
-}
-    
-.darkmode{
-    --primary: #DFE4FD;
-    --secondary: #E93C05;
-    --tertiary: #E1F1FD;
-    --light: #011A41;
-    --dark: #DFE4FD;
-    --body-color: var(--tertiary);
-    --headings-color: var(--light);
-    --border-color: var(--dark);
-    --input-border-color: var(--dark);
-}
-
-/* Ajoutez le CSS de la modal */
-.container-form{
-    justify-content: center;   
-    margin-left: 40%;
-    margin-top: 5%;    
-}
-/* Ajoutez ces styles CSS pour aligner les éléments dans une ligne */
-.row.g-4 {
+/* Styles pour le formulaire */
+.container-form {
     display: flex;
-    justify-content: space-between;
-    margin-top: 30px; /* Ajoute un espacement en haut */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4);
-}
-
-.modal-content {
-    text-align: center;
-    background-color: var(--light);
-    margin: 15% auto;
+.form-container {
+    background-color: #f9f9f9;
+    border-radius: 10px;
     padding: 20px;
-    border: 1px solid var(--light);
-    width: 50%;
-    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 400px;
 }
-
-/* Modifier le style du texte dans la modal */
-
-/* Titre dans la modal */
-.modal-content h2 {
-    font-family: 'Arial', sans-serif;
-    font-size: 32px;
-    color: var(--tertiary); /* Gris foncé */
-    margin-bottom: 20px;
+.pret_logo{
+    width: 35%;
 }
-
-/* Libellés des champs dans la modal */
-.modal-content label {
-    font-family: 'Arial', sans-serif;
-    font-size: 18px;
-    color: var(--tertiary); /* Gris foncé */
-}
-
-/* Bouton Soumettre dans la modal */
-.modal-content button {
-    font-family: 'Arial', sans-serif;
-    font-size: 18px;
-    color: var(--light); /* Blanc */
-    background-color: var(--primary);
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.modal-content button:hover {
-    background-color: var(--primary); /* Couleur légèrement plus foncée au survol */
-}
-
-/* Styles CSS pour le formulaire */
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 label {
@@ -109,40 +32,24 @@ input[type="text"],
 input[type="email"],
 input[type="tel"],
 input[type="number"] {
-    width: 70%;
+    width: 100%;
     padding: 10px;
-    border: 1px solid var(--light);
+    border: 1px solid #ccc;
     border-radius: 5px;
+    box-sizing: border-box; /* Permet de garder la largeur à 100% sans ajouter de padding ou de bordure */
 }
 
 button {
     padding: 10px 20px;
-    background-color: var(--primary);
-    color: var(--light);
+    background-color: #4663AB;
+    color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-}
-
-#bank-stats {
-    color: var(--dark);
+    width: 100%;
 }
 
 button:hover {
-    background-color: var(--primary);
-}
-
-.close {
-    color: var(--light);
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: var(--dark);
-    text-decoration: none;
-    cursor: pointer;
+    background-color: #344e94;
 }

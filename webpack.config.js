@@ -14,13 +14,13 @@ Encore
     .addStyleEntry('styles', './assets/css/style.css')
     .addStyleEntry('stylePretaccueil','./assets/css/stylePaccueil.css')
     .addStyleEntry('styleformpret', './assets/css/styles_pret.css')
+    .addStyleEntry('styletableBank','./assets/css/bankShowfront.css')
     
 
     // only needed for CDN's or subdirectory deploy
     //.setManifestKeyPrefix('build/')
     .addEntry('app', './assets/js/script.js')
     .addEntry('main','./assets/js/main.js')
-    .addEntry('formpretaff','./assets/js/formpretaff.js')
 
 
     // enable Sass/SCSS support
