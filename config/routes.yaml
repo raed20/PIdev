@@ -1,6 +1,53 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
-go_to_index:
-    path: /go-to-index
-    controller: 'App\Controller\ServiceController::index'
+app_home:
+    path: /home
+    controller: App\Controller\HomeController::index
+
+
+app_register:
+    path: /register
+    controller: App\Controller\RegistrationController::register
+
+
+
+app_login:
+    path: /login
+    controller: App\Controller\SecurityController::login
+
+
+app_logout:
+    path: /logout
+    controller: App\Controller\SecurityController::logout
+
+app_afficherliste:
+    path: /AfficherListe
+    controller: App\Controller\UserController::Show
+
+
+
+app_edit:
+    path: /edit/{id}
+    controller: App\Controller\UserController::edit
+
+
+
+app_delete:
+    path: /delete/{id}
+    controller: App\Controller\UserController::delete
+
+app_AddUser:
+    path: /Adduser
+    controller: App\Controller\UserController::Add
+
+
+app_site:
+    path: /site
+    controller: App\Controller\HomeController::test    
+
+
+app_user:
+    path: /user
+    controller: App\Controller\UserController::User
+ 
