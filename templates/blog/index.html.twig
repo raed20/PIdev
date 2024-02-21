@@ -1,2 +1,55 @@
-<h1>success</h1>
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('styles_blog_main') }}
+{% endblock %}
 
+{% block body %}
+  <body>
+
+    <!-- header -->
+    
+      
+      
+    <!-- end of header -->
+    
+ 
+
+
+    <!-- blog -->
+    <section class = "blog" id = "blog">
+      <div class = "containerrr">
+        <div class = "title">
+          <h2>Latest Blog</h2>
+          
+        </div>
+        <div class = "blog-content">
+          <!-- item -->
+          {% for b in blog %}
+          <div class = "blog-item">
+            <div class = "blog-img">
+              <img class="tsawer" src = "images/stocks.jpg" alt = "">
+              
+            </div>
+            <div class = "blog-text">
+              
+              <h2>{{b.titre}}</h2>
+              <p>{{b.description}}</p>
+              <a href="{{ path('blogdetails', {'id': b.id}) }}" class="btn">View Details</a>
+            </div>
+          </div>
+          <!-- end of item -->
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+    <!-- end of blog -->
+
+    
+
+   
+    
+  </body>
+</html>
+
+{% endblock %}

@@ -11,16 +11,16 @@ use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Blog;
 use App\Form\BlogType;
 use App\Repository\BlogRepository;
+use Doctrine\Persistence\ManagerRegistry;
 
 
 class BlogController extends AbstractController
 {
     #[Route('/blog', name: 'app_blog')]
-    public function index(): Response
+    public function Showfront(BlogRepository $repository)
     {
-        return $this->render('blog/index.html.twig', [
-            'controller_name' => 'BlogController',
-        ]);
+        $blog=$repository->findall();
+        return $this->render('blog/index.html.twig',['blog'=>$blog]);
     }
 
 
@@ -37,7 +37,7 @@ class BlogController extends AbstractController
             if ($form -> isSubmitted() && $form->isValid()){
                 $em->persist($blog);
                 $em->flush();
-                return $this->redirectToRoute("app_blog");
+                return $this->redirectToRoute("app_afficherliste");
             }   
         return $this->render('blog/add.html.twig', ['f' => $form->createView()]);
 
@@ -50,8 +50,10 @@ class BlogController extends AbstractController
         return $this->render('blog/Affiche.html.twig',['blog'=>$blog]);
     }
 
+    
 
-    #[Route('/edit/{id}', name: 'app_edit')]
+
+    #[Route('/editblog/{id}', name: 'app_editblog')]
     public function edit(BlogRepository $repository, $id, Request $request)
     {
         $blog = $repository->find($id);
@@ -62,7 +64,7 @@ class BlogController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->flush(); 
-            return $this->redirectToRoute("app_afficherliste");
+            return $this->redirectToRoute("app_afficherliste_blog");
         }
 
         return $this->render('blog/edit.html.twig', [
@@ -84,4 +86,15 @@ class BlogController extends AbstractController
         $em->flush();
         return $this->redirectToRoute('app_afficherliste');
 } 
+
+    #[Route('/blogdetails/{id}', name: 'blogdetails')]
+
+        public function blogdetails($id,ManagerRegistry $doctrine):Response{
+            $BlogRepository = $doctrine->getRepository(Blog::class);
+            $blog = $BlogRepository->find($id);
+            return $this->render('blog/showblogdetaille.html.twig', [
+                'blog' => $blog,
+            ]);
+        }
+
 }   

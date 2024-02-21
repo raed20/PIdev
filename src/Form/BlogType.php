@@ -14,7 +14,9 @@ class BlogType extends AbstractType
         $builder
             ->add('titre')
             ->add('description')
+            ->add('contenu')
             ->add('categorie')
+            
         ;
     }
 

@@ -1,23 +1,62 @@
-    <h1>add</h1>
-    {{ form_start(f,{'attr': {'novalidate': 'novalidate'}} ) }}
-    <table>
-    <tr>
-        <td>{{form_label(f.titre,"Titre")}}</td>
-        <td>{{form_widget(f.titre,)}}</td>
-        <td>{{form_errors(f.titre,)}}</td>
-    </tr>
-    <tr>
-        <td>{{form_label(f.description,"description")}}</td>
-        <td>{{form_widget(f.description,)}}</td>
-        <td>{{form_errors(f.description,)}}</td>
-    </tr>
-    <tr>
-        <td>{{form_label(f.categorie,"categorie")}}</td>
-        <td>{{form_widget(f.categorie,)}}</td>
-        <td>{{form_errors(f.categorie,)}}</td>
-    </tr>
-    </table>
+{% block stylesheets %}
+	
+	{{ encore_entry_link_tags('styles_addblog') }}
+{% endblock %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Blog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  
+</head>
+<body>
+    
 
+    <div class="container">
+        <nav>
+            <ul>
+                <li>ProSync</li>
+                <li><a href="{{ path('app_afficherliste') }}">Blog List</a></li>
+                <li><a href="{{ path('app_AddBlog') }}">Add Blog</a></li>
+            </ul>
+        </nav>
 
+        <main>
+            <h1>Add Blog</h1>
 
-    {{form_end(f)}}
+            {{ form_start(f, {'attr': {'novalidate': 'novalidate'}}) }}
+
+            <table>
+                <tr>
+                    <td>{{ form_label(f.titre, "Title") }}</td>
+                    <td>{{ form_widget(f.titre) }}</td>
+                    <td class="error-message">{{ form_errors(f.titre) }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form_label(f.description, "Description") }}</td>
+                    <td>{{ form_widget(f.description) }}</td>
+                    <td class="error-message">{{ form_errors(f.description) }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form_label(f.contenu, "contenu") }}</td>
+                    <td>{{ form_widget(f.contenu) }}</td>
+                    <td class="error-message">{{ form_errors(f.contenu) }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form_label(f.categorie, "Category") }}</td>
+                    <td>{{ form_widget(f.categorie) }}</td>
+                    <td class="error-message">{{ form_errors(f.categorie) }}</td>
+                </tr>
+               
+            </table>
+
+            {{ form_end(f) }}
+        </main>
+    </div>
+</body>
+</html>
+
+{% endblock %}

@@ -11,8 +11,22 @@ Encore
     .setOutputPath('public/build/')
     // public path used by the web server to access the output path
     .setPublicPath('/build')
+    .addStyleEntry('styles', './assets/css/style.css')
+    .addStyleEntry('styles_blog_main', './assets/css/style_blog_main.css')
+    .addStyleEntry('styles_Affichage', './assets/css/style_affichage.css')
+    .addStyleEntry('styles_addblog', './assets/css/style_addblog.css')
+    .addStyleEntry('styles_editblog', './assets/css/style_editblog.css')
+    .addStyleEntry('styles_blog_single', './assets/css/styles_blog_single.css')
+
     // only needed for CDN's or subdirectory deploy
     //.setManifestKeyPrefix('build/')
+    .addEntry('app', './assets/js/script.js')
+
+    // enable Sass/SCSS support
+    .enableSassLoader()
+
+    // create hashed filenames (e.g., app.abc123.css)
+    .enableVersioning()
 
     /*
      * ENTRY CONFIG
@@ -20,7 +34,6 @@ Encore
      * Each entry will result in one JavaScript file (e.g. app.js)
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
-    .addEntry('app', './assets/app.js')
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()
@@ -68,6 +81,6 @@ Encore
 
     // uncomment if you're having problems with a jQuery plugin
     //.autoProvidejQuery()
-;
+    ;
 
 module.exports = Encore.getWebpackConfig();

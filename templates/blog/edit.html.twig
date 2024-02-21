@@ -1,2 +1,39 @@
-<h1>Edit</h1>
-{{ form(f) }}
+{% block stylesheets %}
+	
+	{{ encore_entry_link_tags('styles_editblog') }}
+{% endblock %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Blog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+</head>
+<body>
+    
+
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="{{ path('app_afficherliste_blog') }}">Blog List</a></li>
+                <li><a href="{{ path('app_AddBlog') }}">Add Blog</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <h1>Edit Blog</h1>
+
+            {{ form_start(f, {'attr': {'novalidate': 'novalidate'}}) }}
+            
+            {{ form_row(f._token) }} {# Add the CSRF token explicitly if it's not included in the form rows #}
+
+            {{ form_end(f) }}
+        </main>
+    </div>
+</body>
+</html>
+
+{% endblock %}
