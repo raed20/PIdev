@@ -39,6 +39,13 @@ class Pret
 
     private ?string $duration = null;
 
+    #[ORM\ManyToOne(inversedBy: 'idPret')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Bank $IdBank = null;
+
+    #[ORM\ManyToOne(inversedBy: 'user')]
+    private ?User $user = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -100,6 +107,30 @@ class Pret
     public function setDuration(string $duration): static
     {
         $this->duration = $duration;
+
+        return $this;
+    }
+
+    public function getIdBank(): ?Bank
+    {
+        return $this->IdBank;
+    }
+
+    public function setIdBank(?Bank $IdBank): static
+    {
+        $this->IdBank = $IdBank;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
 
         return $this;
     }

@@ -14,14 +14,14 @@
     <th>Id</th>
     <th>Nom</th>
     <th>Adresse</th>
-   
- 
+    <th>logo</th>
 </tr>
 
       <tr>  {% for a in Bank %} </tr>
         <td>{{ a.id }}</td>
         <td>{{ a.Nom }}</td>
         <td> {{ a.Adresse }}</td>
+        <td> <img src="{{ asset('uploads/bank/'~ a.logo) }}" width="50px"/></td>
         <td><a href="{{ path('app_editbank', {'id': a.id}) }}">edit</a></td>
         <td><a href="{{ path('app_deletebank', {'id': a.id}) }}">delete</a></td>
 

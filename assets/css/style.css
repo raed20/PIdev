@@ -621,6 +621,8 @@ address.footer-contact-link {
     .navbar-list {
         display: flex;
         align-items: center;
+        margin-left: 5px; /* Espacement entre le texte et la flèche */
+        vertical-align: middle;
     }
 
     .navbar-item:not(:last-child) {

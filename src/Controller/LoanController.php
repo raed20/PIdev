@@ -20,7 +20,7 @@ class LoanController extends AbstractController
     #[Route('/loanP', name: 'app_loan')]
     public function loan(): Response
     {
-        return $this->render('loan/loanP.html.twig', [
+        return $this->render('front_office/loan/loanP.html.twig', [
             'controller_name' => 'LoanController',
         ]);
     }
@@ -82,7 +82,7 @@ class LoanController extends AbstractController
         return $this->redirectToRoute('app_afficherlisteloan');
 } 
 
-    #[Route('/AfficherlistBank', name: 'app_afficherlistebank')]
+    #[Route('/bankshow ', name: 'app_affbank')]
         public function Show(BankRepository $repository)
         {
             $Bank=$repository->findall();
