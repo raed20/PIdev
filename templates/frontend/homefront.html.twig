@@ -1,0 +1,346 @@
+{% extends 'frontend/basefront.html.twig' %}
+{% block content %}
+<main>
+    <!-- Swiper-->
+    <svg class="defs">
+        <defs>
+            <lineargradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="50%" stop-color="#AA54ED">
+                    <animate attributename="stop-color" values="#AA54ED; #5348E2; #AA54ED" dur="5s" repeatcount="indefinite"></animate>
+                </stop>
+                <stop offset="100%" stop-color="#5348E2">
+                    <animate attributename="stop-color" values="#5348E2; #AA54ED; #5348E2" dur="5s" repeatcount="indefinite"></animate>
+                </stop>
+            </lineargradient>
+        </defs>
+    </svg>
+    <div class="swiper-container swiper-slider" data-effect="frame-trapeze" data-loop="true" data-autoplay="5500" data-speed="1200" data-mousewheel="false" data-keyboard="true" data-frame-fill="url(#gradient1)">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="swiper-slide-img" style="background-image: url({{ asset('frontend/images/dev.jpg') }});" data-swiper-anime="{ &quot;animation&quot;: &quot;swiperSlideRotate&quot;, &quot;duration&quot;: 2000, &quot;delay&quot;: 600 }"></div>
+                <div class="swiper-slide-caption text-center context-dark">
+                    <h1 data-swiper-anime="{ &quot;animation&quot;: &quot;swiperContentStack&quot;, &quot;duration&quot;: 1000, &quot;delay&quot;: 500 }">Creation de site Web</h1>
+                    <h5 data-swiper-anime="{ &quot;animation&quot;: &quot;swiperContentStack&quot;, &quot;duration&quot;: 1000, &quot;delay&quot;: 600 }">Site vitrine ou E-Commerce. Nous designe et developpe <br> pour vous des sites Web de haute qualité.</h5>
+                    <div class="group-lg group-middle" data-swiper-anime="{ &quot;animation&quot;: &quot;swiperContentStack&quot;, &quot;duration&quot;: 1000, &quot;delay&quot;: 700 }"><a class="button button-primary button-shadow" href="" data-custom-scroll-to="features">See Features</a><a class="button button-black button-shadow" href="">Contacter nous!</a></div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="swiper-slide-img" style="background-image: url({{ asset('frontend/images/repair.jpg') }});" data-swiper-anime="{ &quot;animation&quot;: &quot;swiperSlideRotate&quot;, &quot;duration&quot;: 2000, &quot;delay&quot;: 600 }"></div>
+                <div class="swiper-slide-caption context-dark">
+                    <h2 data-swiper-anime="{ &quot;animation&quot;: &quot;swiperContentStack&quot;, &quot;duration&quot;: 1000, &quot;delay&quot;: 500 }">Matériels informatiques <br class="d-none d-lg-block"> Commandez au meilleur prix !</h2><a class="button button-primary button-shadow" href="" data-swiper-anime="{ &quot;animation&quot;: &quot;swiperContentStack&quot;, &quot;duration&quot;: 1000, &quot;delay&quot;: 700 }">Shop now!</a>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="swiper-slide-img" style="background-image: url({{ asset('frontend/images/lab.jpg') }});" data-swiper-anime="{ &quot;animation&quot;: &quot;swiperSlideRotate&quot;, &quot;duration&quot;: 2000, &quot;delay&quot;: 600 }"></div>
+                <div class="swiper-slide-caption context-dark">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-7">
+                                <h2 data-swiper-anime="{ &quot;animation&quot;: &quot;swiperContentStack&quot;, &quot;duration&quot;: 1000, &quot;delay&quot;: 500 }">Maintenance informatique</h2>
+                                <h5 class="text-width-2 block-centered" data-swiper-anime="{ &quot;animation&quot;: &quot;swiperContentStack&quot;, &quot;duration&quot;: 1000, &quot;delay&quot;: 600 }">Intervention à domicile sur simple appel. Reparation ordinateur fixe et protable Particuliers et Professionnels</h5>
+                                <div class="group-lg group-middle" data-swiper-anime="{ &quot;animation&quot;: &quot;swiperContentStack&quot;, &quot;duration&quot;: 1000, &quot;delay&quot;: 700 }"><a class="button button-black button-shadow" href="#features" data-custom-scroll-to="features">See Features</a><a class="button button-primary button-shadow" href="">See service</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev linear-icon-chevron-left"></div>
+        <div class="swiper-button-next linear-icon-chevron-right"></div>
+    </div>
+    <section class="section-xs section-cta bg-gray-dark text-center text-md-left">
+        <div class="container">
+            <div class="row row-30 justify-content-between align-items-center">
+                <div class="col-12 col-md-8">
+                    <h4>Like What We Offer?</h4>
+                    <p>Start with us now.</p>
+                </div>
+                <div class="col-12 col-md-4 text-md-right"><a class="button button-primary" href="">Read more</a></div>
+            </div>
+        </div>
+    </section>
+    <!-- About us-->
+    <section class="bg-gray-lighter object-wrap">
+        <div class="bg-decor d-flex align-items-center justify-content-start" data-parallax-scroll="{&quot;y&quot;: 50,  &quot;smoothness&quot;: 30}"><img src="{{ asset('frontend/images/bg-decor-4.png') }}" alt=""/>
+        </div>
+        <div class="section-lg">
+            <div class="container">
+                <div class="row justify-content-lg-center">
+                    <div class="col-lg-10 col-xl-8">
+                        <h4 class="heading-decorated">About us</h4>
+<p> LAB-IT est une société de services en ingénierie informatique experte dans : La conception, L'intergration et La maintenance des infrastructures informatiques (consolidation, stockage, virtualisation, sauvegarde, archivage …), Creation des sites web et Vente des composantes informatiques.</p>
+                        <div class="row row-30">
+                            <div class="col-xl-6">
+                                <!-- Blurb minimal-->
+                                <article class="blurb blurb-minimal">
+                                    <div class="unit flex-row unit-spacing-md">
+                                        <div class="unit-left">
+                                            <div class="blurb-minimal__icon"><span class="icon linear-icon-menu3"></span></div>
+                                        </div>
+                                        <div class="unit-body">
+                                            <p class="blurb__title heading-6"><a href="#">Award-winning designs</a></p>
+                                            <p>We have received numerous awards for our designs, concepts, and ideas.</p>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="col-xl-6">
+                                <!-- Blurb minimal-->
+                                <article class="blurb blurb-minimal">
+                                    <div class="unit flex-row unit-spacing-md">
+                                        <div class="unit-left">
+                                            <div class="blurb-minimal__icon"><span class="icon linear-icon-users2"></span></div>
+                                        </div>
+                                        <div class="unit-body">
+                                            <p class="blurb__title heading-6"><a href="#">Expert team</a></p>
+                                            <p>We are a team of dedicated web design and development professionals.</p>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                        <div class="row justify-content-md-center">
+                            <div class="col-md-12">
+                                <!-- Linear progress bar-->
+                                <div class="progress-linear progress-linear-modern">
+                                    <div class="progress-header">
+                                        <p>Dedication</p><span class="progress-value">49</span>
+                                    </div>
+                                    <div class="progress-bar-linear-wrap">
+                                        <div class="progress-bar-linear"></div>
+                                    </div>
+                                </div>
+                                <!-- Linear progress bar-->
+                                <div class="progress-linear progress-linear-modern">
+                                    <div class="progress-header">
+                                        <p>Experience</p><span class="progress-value">29</span>
+                                    </div>
+                                    <div class="progress-bar-linear-wrap">
+                                        <div class="progress-bar-linear"></div>
+                                    </div>
+                                </div>
+                                <!-- Linear progress bar-->
+                                <div class="progress-linear progress-linear-modern">
+                                    <div class="progress-header">
+                                        <p>Creativity</p><span class="progress-value">86</span>
+                                    </div>
+                                    <div class="progress-bar-linear-wrap">
+                                        <div class="progress-bar-linear"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Our Services-->
+    <section class="section-md bg-default text-center decor-text" id="features" data-content="Services">
+        <div class="bg-decor d-flex align-items-center" data-parallax-scroll="{&quot;x&quot;: 80,  &quot;smoothness&quot;: 30}"><img src="" alt=""/>
+        </div>
+        <div class="container">
+            <h4 class="heading-decorated">Our Services</h4>
+            <div class="row row-50 justify-content-md-center justify-content-lg-start text-left">
+                <div class="col-md-6 col-xl-4">
+                    <!-- Blurb circle-->
+                    <article class="blurb blurb-minimal">
+                        <div class="unit flex-row unit-spacing-md">
+                            <div class="unit-left">
+                                <div class="blurb-minimal__icon"><span class="icon linear-icon-pencil-ruler"></span></div>
+                            </div>
+                            <div class="unit-body">
+                                <p class="blurb__title heading-6"><a href="#">Bootstrap Framework</a></p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-md-6 col-xl-4">
+                    <!-- Blurb circle-->
+                    <article class="blurb blurb-minimal">
+                        <div class="unit flex-row unit-spacing-md">
+                            <div class="unit-left">
+                                <div class="blurb-minimal__icon"><span class="icon linear-icon-users"></span></div>
+                            </div>
+                            <div class="unit-body">
+                                <p class="blurb__title heading-6"><a href="#">Novi Builder</a></p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-md-6 col-xl-4">
+                    <!-- Blurb circle-->
+                    <article class="blurb blurb-minimal">
+                        <div class="unit flex-row unit-spacing-md">
+                            <div class="unit-left">
+                                <div class="blurb-minimal__icon"><span class="icon linear-icon-wall"></span></div>
+                            </div>
+                            <div class="unit-body">
+                                <p class="blurb__title heading-6"><a href="#">Responsive & Retina Ready</a></p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-md-6 col-xl-4">
+                    <!-- Blurb circle-->
+                    <article class="blurb blurb-minimal">
+                        <div class="unit flex-row unit-spacing-md">
+                            <div class="unit-left">
+                                <div class="blurb-minimal__icon"><span class="icon linear-icon-apartment"></span></div>
+                            </div>
+                            <div class="unit-body">
+                                <p class="blurb__title heading-6"><a href="#">Tons of Tools for Real Needs</a></p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-md-6 col-xl-4">
+                    <!-- Blurb circle-->
+                    <article class="blurb blurb-minimal">
+                        <div class="unit flex-row unit-spacing-md">
+                            <div class="unit-left">
+                                <div class="blurb-minimal__icon"><span class="icon linear-icon-home4"></span></div>
+                            </div>
+                            <div class="unit-body">
+                                <p class="blurb__title heading-6"><a href="#">Multiple layouts</a></p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-md-6 col-xl-4">
+                    <!-- Blurb circle -->
+                    <article class="blurb blurb-minimal">
+                        <div class="unit flex-row unit-spacing-md">
+                            <div class="unit-left">
+                                <div class="blurb-minimal__icon"><span class="icon linear-icon-pencil-ruler2"></span></div>
+                            </div>
+                            <div class="unit-body">
+                                <p class="blurb__title heading-6"><a href="#">Clean and Crispy Design</a></p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <!-- Blurb minimal-->
+                    <article class="blurb blurb-minimal">
+                        <div class="unit flex-row unit-spacing-md">
+                            <div class="unit-left">
+                                <div class="blurb-minimal__icon"><span class="icon linear-icon-magic-wand"></span></div>
+                            </div>
+                            <div class="unit-body">
+                                <p class="blurb__title heading-6"><a href="#">Built For Speed</a></p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <!-- Blurb minimal-->
+                    <article class="blurb blurb-minimal">
+                        <div class="unit flex-row unit-spacing-md">
+                            <div class="unit-left">
+                                <div class="blurb-minimal__icon"><span class="icon linear-icon-menu3"></span></div>
+                            </div>
+                            <div class="unit-body">
+                                <p class="blurb__title heading-6"><a href="#">Flexible and Multipurpose</a></p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <!-- Blurb minimal-->
+                    <article class="blurb blurb-minimal">
+                        <div class="unit flex-row unit-spacing-md">
+                            <div class="unit-left">
+                                <div class="blurb-minimal__icon"><span class="icon linear-icon-users2"></span></div>
+                            </div>
+                            <div class="unit-body">
+                                <p class="blurb__title heading-6"><a href="#">SEO Friendly</a></p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-md bg-gray-lighter text-center decor-text" data-content="Process">
+        <div class="container">
+            <h4 class="heading-decorated">Our working process</h4>
+            <div class="row row-30 justify-content-center">
+                <div class="col-sm-10 col-lg-6"><img src="{{ asset('frontend/images/info3.png') }}" alt="" width="650" height="495"/>
+                </div>
+                <div class="col-sm-10 col-lg-6">
+                    <!-- Blurb circle-->
+                    <article class="blurb blurb-circle">
+                        <div class="unit flex-row unit-spacing-md">
+                            <div class="unit-left">
+                                <div class="blurb-circle__icon"><span class="icon linear-icon-feather"></span></div>
+                            </div>
+                            <div class="unit-body">
+                                <p class="blurb__title heading-6">Design creation</p>
+                                <p>Firstly, our designers create the concept of a template, which can be changed and modified.</p>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Blurb circle-->
+                    <article class="blurb blurb-circle">
+                        <div class="unit flex-row unit-spacing-md">
+                            <div class="unit-left">
+                                <div class="blurb-circle__icon"><span class="icon linear-icon-menu3"></span></div>
+                            </div>
+                            <div class="unit-body">
+                                <p class="blurb__title heading-6">Development</p>
+                                <p>Then our developers begin to work on implementing the template’s final look and features.</p>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Blurb circle-->
+                    <article class="blurb blurb-circle">
+                        <div class="unit flex-row unit-spacing-md">
+                            <div class="unit-left">
+                                <div class="blurb-circle__icon"><span class="icon linear-icon-bag2"></span></div>
+                            </div>
+                            <div class="unit-body">
+                                <p class="blurb__title heading-6">Testing</p>
+                                <p>Finally, our QA experts make sure that everything works perfectly just as you would expect.</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--cta-->
+    <!-- Call to Action-->
+    <section class="section-md bg-accent bg-image text-center bg-overlay-darker" style="background-image: url({{ asset('frontend/images/contactus.jpg') }}); background-position: center 50%;">
+        <div class="container">
+            <div class="row justify-content-md-center">
+                <div class="col-md-11 col-lg-9 col-xl-8">
+                    <h3 class="heading-decorated">Haven’t Found What You Like? Feel free to get in touch</h3><a class="button button-primary" href={{asset('/message')}}>Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- portfolio-->
+    <section class="section-md bg-default text-center">
+        <div class="bg-decor d-flex align-items-center" data-parallax-scroll="{&quot;y&quot;: 50,  &quot;smoothness&quot;: 30}"><img src="{{ asset('frontend/images/bg-decor-6.png') }}" alt=""/>
+        </div>
+        <div class="container">
+            <h4 class="heading-decorated">Portfolio</h4>
+            <div class="isotope-wrap row row-70">
+            </div>
+        </div>
+    </section>
+    <section class="section-md text-center bg-default">
+        <div class="bg-decor d-flex align-items-center justify-content-end" data-parallax-scroll="{&quot;y&quot;: 130, &quot;smoothness&quot;: 30}"><img src="{{ asset('frontend/images/bg-decor-4.png') }}" alt=""/>
+        </div>
+        <div class="container">
+            <h4 class="heading-decorated">Our Clients</h4>
+            <div class="row row-30">
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

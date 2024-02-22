@@ -1,0 +1,43 @@
+<style>
+    .custom-form-class {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f5f5f5;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .custom-input-class {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+
+    .custom-input-class:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+
+    .custom-form-class label {
+        color: black;
+    }
+
+</style>
+
+{{ form_start(form, {'attr': {'class': 'custom-form-class', novalidate: 'novalidiate'}}) }}
+
+<div class="form-group">
+    {{ form_label(form.Description) }}
+    {{ form_widget(form.Description, {'attr': {'class': 'custom-input-class'}}) }}
+    {{ form_errors(form.Description) }}
+
+</div>
+
+<button class="btn btn-block btn-outline-info custom-button-class">{{ button_label|default('Save') }}</button>
+
+{{ form_end(form) }}

@@ -1,0 +1,20 @@
+{% extends 'frontend/basefront.html.twig' %}
+
+{% block title %}New Reclamation{% endblock %}
+
+{% block content %}
+<section class="section-md bg-default decor-text">
+    <div class="container">
+        <h4 class="heading-decorated">Create new Reclamation</h4>
+
+        {% if form_errors(form)|length > 0 %}
+            <div class="alert alert-danger">
+                Reclamation contains bad words
+            </div>
+        {% endif %}
+    {{ include('reclamation/_form.html.twig') }}
+
+        <a style="max-width: 300px; margin-left: auto; margin-right: auto;" class="btn btn-block btn-outline-info" href="{{ path('app_reclamation_index') }}">Back to list</a>
+    </div>
+</section>
+{% endblock %}

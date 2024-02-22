@@ -1,0 +1,27 @@
+{% extends 'backend/baseback.html.twig' %}
+{% block title %}Reponse{% endblock %}
+
+{% block content %}
+    <h1>Reponse</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ reponse.id }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ reponse.DateRep ? reponse.DateRep|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ reponse.Description }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a style="max-width: 300px; margin-left: auto; margin-right: auto;" class="btn btn-block btn-outline-info" href="{{ path('app_reponse_edit', {'id': reponse.id}) }}">Edit</a>
+
+    {{ include('reponse/_delete_form.html.twig') }}
+{% endblock %}

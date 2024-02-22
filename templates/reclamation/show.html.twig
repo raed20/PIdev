@@ -1,0 +1,55 @@
+{% extends 'frontend/basefront.html.twig' %}
+
+{% block title %}Review{% endblock %}
+
+{% block content %}
+
+<section class="section-md bg-default decor-text" >
+    <div class="container">
+        <h4 class="heading-decorated">Reclamation</h4>
+
+
+        <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ reclamation.id }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ reclamation.DateRec ? reclamation.DateRec|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Objet</th>
+                <td>{{ reclamation.Objet }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ reclamation.Description }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td><img src="{{vich_uploader_asset(reclamation,'imageFile')}}" height="300" width="300" alt="Img"></td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ reclamation.Etat ? 'Traitée' : 'Non Traitée' }}</td>
+            </tr>
+            {% if reclamation.Reponse %}
+                <tr>
+                    <th>Date Reponse</th>
+                    <td>{{ reclamation.Reponse.DateRep ? reclamation.Reponse.DateRep|date('Y-m-d') : '' }}</td>
+                </tr>
+            <tr>
+                <th>Reponse</th>
+                <td>{{  reclamation.Reponse.Description }}</td>
+            </tr>
+            {% endif %}
+
+        </tbody>
+    </table>
+
+        <a style="max-width: 300px; margin-left: auto; margin-right: auto;" class="btn btn-block btn-outline-info" href="{{ path('app_reclamation_index') }}">Back to list</a>
+
+
+{% endblock %}

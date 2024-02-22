@@ -1,0 +1,52 @@
+{% extends 'frontend/basefront.html.twig' %}
+
+{% block title %}Reclamations{% endblock %}
+
+{% block content %}
+    <main>
+        <section class="section-md bg-default decor-text" data-content="Review">
+
+    <div class="container">
+        <h4 class="heading-decorated">Mes reclamations</h4>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date</th>
+                <th>Objet</th>
+                <th>Description</th>
+                <th>Etat</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for reclamation in reclamations %}
+            <tr>
+                <td>{{ reclamation.id }}</td>
+                <td>{{ reclamation.DateRec ? reclamation.DateRec|date('Y-m-d') : '' }}</td>
+                <td>{{ reclamation.Objet }}</td>
+                <td>{{ reclamation.Description }}</td>
+                <td>{{ reclamation.Etat ? 'Traitée' : 'Non Traitée' }}</td>
+                <td>
+                    <a class="btn btn-outline-primary" href="{{ path('app_reclamation_show', {'id': reclamation.id}) }}">Show</a>
+                    {% if not reclamation.Reponse %}
+                    <a class="btn btn-outline-primary" href="{{ path('app_reclamation_edit', {'id': reclamation.id}) }}">Edit</a>
+                    {% endif %}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <a class="button button-primary" href="{{ path('app_reclamation_new') }}">Create new</a>
+
+    </div>
+</section>
+
+</main>
+{% endblock %}

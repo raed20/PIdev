@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html class="wide wow-animation" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Site Title-->
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="{{ asset('frontend/images/logo.png') }}" >
+    {% block stylesheets %}
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Fira+Sans:300,600,800,800i%7COpen+Sans:300,400,400i">
+        <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.css') }}">
+        <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('frontend/css/fonts.css') }}">
+        <style>.ie-panel{display: none;background: #212121;padding: 10px 0;box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3);clear: both;text-align:center;position: relative;z-index: 1;} html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {display: block;}</style>
+    {% endblock %}
+
+
+</head>
+<body>
+<! --  -->
+    <!-- Page-->
+
+        <header class="page-header">
+            <!-- RD Navbar-->
+            <div class="rd-navbar-wrap">
+                <nav class="rd-navbar rd-navbar_transparent rd-navbar_boxed" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-sm-device-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-xl-layout="rd-navbar-static" data-xxl-device-layout="rd-navbar-static" data-xxl-layout="rd-navbar-static" data-stick-up-clone="false" data-sm-stick-up="true" data-md-stick-up="true" data-lg-stick-up="true" data-md-stick-up-offset="115px" data-lg-stick-up-offset="35px" data-body-class="rd-navbar-absolute">
+                    <!-- RD Navbar Top Panel-->
+                    <div class="rd-navbar-top-panel">
+                        <div class="rd-navbar-top-panel__main">
+                            <div class="rd-navbar-top-panel__toggle rd-navbar-fixed__element-1 rd-navbar-static--hidden" data-rd-navbar-toggle=".rd-navbar-top-panel__main"><span></span></div>
+                            <div class="rd-navbar-top-panel__content">
+                                <div class="rd-navbar-top-panel__left">
+                                    <ul class="rd-navbar-items-list">
+                                        <li>
+                                            <div class="unit flex-row align-items-center unit-spacing-xs">
+                                                <div class="unit__left"><span class="icon icon-sm icon-primary linear-icon-map-marker"></span></div>
+                                                <div class="unit__body">
+                                                    <p><a href="{{ asset('https://goo.gl/maps/9LtJpCTH1cwwcL5KA') }}" target="_blank">Adresse: XXXXXXXX</a></p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="unit flex-row align-items-center unit-spacing-xs">
+                                                <div class="unit__left"><span class="icon icon-sm icon-primary linear-icon-telephone"></span></div>
+                                                <div class="unit__body">
+                                                    <ul class="list-semicolon">
+                                                        <li><a href="tel:#">(216) XX XXX XXX</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="rd-navbar-top-panel__right">
+                                    <ul class="list-inline-xxs">
+                                        <li><a class="icon icon-xxs icon-gray-darker fa fa-facebook" href="{{ asset('https://www.facebook.com/Lab.ITTech') }}" target="_blank""></a></li>
+                                        <li><a class="icon icon-xxs icon-gray-darker fa fa-twitter" href="#"></a></li>
+                                        <li><a class="icon icon-xxs icon-gray-darker fa fa-google-plus" href="#"></a></li>
+                                        <li><a class="icon icon-xxs icon-gray-darker fa fa-vimeo" href="#"></a></li>
+                                        <li><a class="icon icon-xxs icon-gray-darker fa fa-youtube" href="#"></a></li>
+                                        <li><a class="icon icon-xxs icon-gray-darker fa fa-pinterest-p" href="#"></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rd-navbar-inner rd-navbar-search-wrap">
+                        <!-- RD Navbar Panel-->
+                        <div class="rd-navbar-panel rd-navbar-search-lg_collapsable">
+                            <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+                            <!-- RD Navbar Brand-->
+                            <div class="rd-navbar-brand"><a class="brand-name" href="{{ asset('/home') }}"><img src="{{ asset('frontend/images/logo.png') }}" alt="" width="172" height="33"/></a></div>
+                        </div>
+                        <!-- RD Navbar Nav-->
+                        <div class="rd-navbar-nav-wrap rd-navbar-search_not-collapsable">
+                            <div class="rd-navbar-search_collapsable">
+                                <ul class="rd-navbar-nav">
+                                    <li><a href="{{ asset('/home') }}">Home</a>
+                                    </li>
+                                    <li><a href="{{ asset('/about') }}">About</a>
+                                    </li>
+                                    <li><a href="{{ asset('/category') }}">Produits</a>
+                                    </li>
+                                    <li><a href="{{ asset('/service') }}">Services</a>
+                                    </li>
+                                    <li>
+
+                                    </li>
+                                    {% if not app.user %}
+                                    <li><a href="{{ asset('/login') }}">S'identifier</a>
+                                    </li>
+                                    <li><a href="{{ asset('/register') }}">S'inscrire</a>
+                                    </li>
+                                    {% else %}
+                                        <li><a href="{{ asset('/cart') }}">Mon Panier</a>
+                                        </li>
+                                        <li><a href="{{ asset('/message') }}">Contacts</a>
+                                        </li>
+                                        <li><a href="{{ asset('/review') }}">Reviews</a>
+                                        </li>
+                                        <li><a href="{{ asset('/profile') }}">Profile</a>
+                                        </li>
+                                        <li><a href="{{ asset('/logout') }}">Deconnecter</a>
+                                        </li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                        </div>
+                </nav>
+            </div>
+        </header>
+<section>
+    <section class="section parallax-container context-dark" data-parallax-img="{{ asset('frontend/images/no-image.jpg') }}">
+        <div class="parallax-content parallax-header">
+            <div class="parallax-header__inner context-dark">
+                <div class="parallax-header__content">
+                    <div class="container">
+                        <div class="row justify-content-sm-center">
+                            <div class="col-md-10 col-xl-8">
+                                <h2 class="heading-decorated">LAB-IT</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+        {% block content %}
+        {% endblock %}
+        <!-- Page Footer-->
+        <section class="pre-footer-corporate bg-image-7 bg-overlay-darkest">
+            <div class="container">
+                <div class="row justify-content-sm-center justify-content-lg-start row-30 row-md-60">
+                    <div class="col-sm-10 col-md-6 col-lg-10 col-xl-3">
+                        <h6>About</h6>
+<p>
+    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+</p>                    </div>
+                    <div class="col-sm-10 col-md-6 col-lg-3 col-xl-3">
+                        <h6>Navigation</h6>
+                        <ul class="list-xxs">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Why Choose Us</a></li>
+                            <li><a href="#">Our Services</a></li>
+                            <li><a href="#">Our Produits</a></li>
+                            <li><a href="#">Our Partners</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-10 col-md-6 col-lg-5 col-xl-3">
+                        <h6>Recent Comments</h6>
+                        <ul class="list-xs">
+                            <li>
+                                <!-- Comment minimal-->
+                                <article class="comment-minimal">
+                                    <p class="comment-minimal__author">Brian Williamson on</p>
+                                    <p class="comment-minimal__link"><a href="#"></a></p>
+                                </article>
+                            </li>
+                            <li>
+                                <!-- Comment minimal-->
+                                <article class="comment-minimal">
+                                    <p class="comment-minimal__author">Brian Williamson on</p>
+                                    <p class="comment-minimal__link"><a href="#"></a></p>
+                                </article>
+                            </li>
+                            <li>
+                                <!-- Comment minimal-->
+                                <article class="comment-minimal">
+                                    <p class="comment-minimal__author">Brian Williamson on</p>
+                                    <p class="comment-minimal__link"><a href="#"></a></p>
+                                </article>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-10 col-md-6 col-lg-4 col-xl-3">
+                        <h6>Contacts</h6>
+                        <ul class="list-xs">
+                            <li>
+                                <dl class="list-terms-minimal">
+                                    <dt>Address</dt>
+                                    <dd>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</dd>
+                                </dl>
+                            </li>
+                            <li>
+                                <dl class="list-terms-minimal">
+                                    <dt>Phones</dt>
+                                    <dd>
+                                        <ul class="list-semicolon">
+                                            <li><a href="tel:#">(216) XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</a></li>
+                                        </ul>
+                                    </dd>
+                                </dl>
+                            </li>
+                            <li>
+                                <dl class="list-terms-minimal">
+                                    <dt>E-mail</dt>
+                                    <dd><a href="mailto:#">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</a></dd>
+                                </dl>
+                            </li>
+                            <li>
+                                <dl class="list-terms-minimal">
+                                    <dt>Opening Hours:</dt>
+                                    <dd>Mn-Fr: 8:30 am-6:30 pm</dd>
+                                </dl>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer-corporate bg-gray-darkest">
+            <div class="container">
+                <div class="footer-corporate__inner">
+                    <p class="rights"><span>XXX ©</span><span>&nbsp;</span><span class="copyright-year"></span>. All Rights Reserved. </p>
+                    <ul class="list-inline-xxs">
+                        <li><a class="icon icon-xxs icon-primary fa fa-facebook" href="#"></a></li>
+                        <li><a class="icon icon-xxs icon-primary fa fa-twitter" href="#"></a></li>
+                        <li><a class="icon icon-xxs icon-primary fa fa-google-plus" href="#"></a></li>
+                        <li><a class="icon icon-xxs icon-primary fa fa-vimeo" href="#"></a></li>
+                        <li><a class="icon icon-xxs icon-primary fa fa-youtube" href="#"></a></li>
+                        <li><a class="icon icon-xxs icon-primary fa fa-pinterest" href="#"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- Global Mailform Output-->
+    <div class="snackbars" id="form-output-global"></div>
+{% block javascripts %}
+    <script src="{{ asset('frontend/js/core.min.js') }}"></script>
+    <script src="{{ asset('frontend/js/script.js') }}"></script>
+{% endblock %}
+</body>
+</html>
