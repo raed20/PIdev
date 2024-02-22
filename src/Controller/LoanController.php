@@ -13,6 +13,7 @@ use App\Repository\PretRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\BankRepository;
+use App\Entity\Bank;
 
 
 class LoanController extends AbstractController
@@ -25,14 +26,17 @@ class LoanController extends AbstractController
         ]);
     }
 
-    #[Route('/AddLoan', name: 'app_AddLoan')]
-    public function AddPr(Request $request, ManagerRegistry $doctrine){
+    #[Route('/AddLoan/{id}', name: 'app_AddLoan')]
+    public function AddPr(Request $request, ManagerRegistry $doctrine, $id){
         $Loan = new Pret();
-        $form = $this->CreateForm(PretType::class, $Loan);
+        $form = $this->createForm(PretType::class, $Loan);
         $form->add('Ajouter', SubmitType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $doctrine->getManager();
+            $bank = $em->getRepository(Bank::class)->find($id);
+            $Loan->setIdBank($bank); // Assuming you have a 'bank' property in your Pret entity
+
             $em->persist($Loan);
             $em->flush();
             return $this->redirectToRoute("app_afficherlisteloan");
