@@ -42,7 +42,7 @@
   
   
 
-  <div class="site-cover site-cover-sm same-height overlay single-page" style="background-image: url('images/hero_5.jpg');">
+  <div class="site-cover site-cover-sm same-height overlay single-page">
     <div class="container">
       <div class="row same-height justify-content-center">
         <div class="col-md-6">
@@ -70,20 +70,24 @@
 
 
           
-
+  
 
           <div class="pt-5 comment-wrap">
-            <h3 class="mb-5 heading">6 Comments</h3>
-            <ul class="comment-list">
+             <h2>Comments</h2>
+             {% for comment in comments %}
+    <ul class="comment-list">
               <li class="comment">
                 <div class="vcard">
                   <img src="images/person_1.jpg" alt="Image placeholder">
                 </div>
                 <div class="comment-body">
-                  <h3>Jean Doe</h3>
                   
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
                   
+                  
+            <h3>Username</h3>
+            
+            <li class="commentcontent">{{ comment.contenue }}</li>
+              {% endfor %}  
                 </div>
               </li>
 
@@ -94,31 +98,22 @@
 
             <div class="comment-form-wrap pt-5">
               <h3 class="mb-5">Leave a comment</h3>
-              <form action="#" class="p-5 bg-light">
-                <div class="form-group">
-                  <label for="name">Name *</label>
-                  <input type="text" class="form-control" id="name">
-                </div>
-                <div class="form-group">
-                  <label for="email">Email *</label>
-                  <input type="email" class="form-control" id="email">
-                </div>
-               
+             <div class="comments">
+                  <div class="comments_new">
+                    <div class="w-full-width">
+                      {{form_start(form)}}
+                      {{{form_label(form.contenue,{'attr':{'class':'form-label inline-block mb-2 text-gray-700'}})}}}
+                      {{{form_widget(form.contenue,{'attr':{'class':'form-control block w-full pw-3 py-1.5 text-base font-normal text-gray-700'}})}}}
+                    <button class="btn inline-block px-6 py-2.5 bg-blue-600 tewt-white font-medium">
+                          add comment
+                          </button>
 
-                <div class="form-group">
-                  <label for="message">Message</label>
-                  <textarea name="" id="message" cols="30" rows="10" class="form-control"></textarea>
-                </div>
-                <div class="form-group">
-                  <input type="submit" value="Post Comment" class="btn btn-primary">
-                </div>
-
-              </form>
+                
             </div>
           </div>
 
         </div>
-
+     
         <!-- END main-content -->
 
         

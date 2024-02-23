@@ -1,29 +1,23 @@
-{% extends 'baseback.html.twig' %}
+{% extends 'back_office/base_back.html.twig' %}
 
 
 
 {% block body %}
 {% block stylesheets %}
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
+        {{ encore_entry_link_tags('styles_back') }}
+        {{ encore_entry_link_tags('styles_Affichage') }}
 {% endblock %}
 
 <body>
    
 
-    <div class="container">
-        <nav>
-            <ul>
-                <li><a href="#">ProSync</a></li>
-                <li><a href="#">Blog List</a></li>
-                <li><a href="{{ path('app_AddBlog') }}">Add Blog</a></li>
-
-                
-            </ul>
-        </nav>
-
+    <div class="b_container">
+        
         <main>
          <h1>Blog List</h1>
+          <button class="btn btn-primary" type="button" onclick="window.location.href='/AddBlog'">Ajouter un Blog</button>
+
             <table class="table align-middle mb-0 bg-white">
                 <tr>
                     <th>Id</th>
@@ -48,4 +42,7 @@
 </body>
 </html>
 
+{% endblock %}
+{% block javascripts %}
+{{ encore_entry_script_tags('app_back') }}
 {% endblock %}

@@ -64,7 +64,7 @@ class BlogController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->flush(); 
-            return $this->redirectToRoute("app_afficherliste_blog");
+            return $this->redirectToRoute("app_afficherliste");
         }
 
         return $this->render('blog/edit.html.twig', [
@@ -87,14 +87,33 @@ class BlogController extends AbstractController
         return $this->redirectToRoute('app_afficherliste');
 } 
 
-    #[Route('/blogdetails/{id}', name: 'blogdetails')]
+    #[Route('/blogdetails/{id}', name: 'blogdetails', methods:[ "GET", "POST" ] )]
 
-        public function blogdetails($id,ManagerRegistry $doctrine):Response{
+        public function blogdetails(Blog $blog, request $request, $id,ManagerRegistry $doctrine):Response{
+            $comment=new Commentaire();
+            $form = $this->createForm( CommentType::class, $comment);
+            
+            $form -> handleRequest($request); 
+
+            if($form->isSubmitted() && $form->isValid()){
+                $em->persist($comment);
+                $em->flush();
+                
+                return $this->redirectToRoute('blogdetails', ['id'=>$blog->getBlog()]);
+            
             $BlogRepository = $doctrine->getRepository(Blog::class);
             $blog = $BlogRepository->find($id);
+
+            $comments = $blog->getCommentaires();
+
             return $this->render('blog/showblogdetaille.html.twig', [
                 'blog' => $blog,
+                'comments' => $comments,
+                'post' => $post,
+                'form' => $form->createView(),
             ]);
+            
         }
 
 }   
+}

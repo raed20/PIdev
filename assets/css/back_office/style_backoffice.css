@@ -1,0 +1,297 @@
+/* =========== Google Fonts ============ */
+
+
+
+/* =============== Globals ============== */
+* {
+  font-family: "Ubuntu", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /*
+     Colors
+    */
+  --cadet-blue-crayola: hsl(227, 13%, 73%);
+  --maximum-yellow-red: hsl(41, 95%, 61%);
+  --medium-sea-green: hsl(142, 43%, 54%);
+  --blue-crayola_10: hsla(222, 100%, 61%, 0.05);
+  --smocky-black_30: hsla(0, 0%, 6%, 0.3);
+  --eerie-black-1: hsl(240, 5%, 8%);
+  --eerie-black-2: hsl(228, 9%, 10%);
+  --raisin-black: hsl(225, 15%, 16%);
+  --blue-crayola: hsl(222, 100%, 61%);
+  --roman-silver: hsl(223, 10%, 52%);
+  --presian-red: hsl(0, 64%, 52%);
+  --gunmetal_50: hsla(230, 16%, 22%, 0.5);
+  --gainsboro: hsl(0, 0%, 85%);
+  --cultured: hsl(0, 0%, 93%);
+  --white_50: hsla(0, 0%, 100%, 0.5);
+  --white_30: hsla(0, 0%, 100%, 0.3);
+  --white_10: hsla(0, 0%, 100%, 0.1);
+  --black_10: hsla(0, 0%, 0%, 0.1);
+  --white: hsl(0, 0%, 100%);
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+}
+
+/* =============== Navigation ================ */
+.navigation {
+  position: fixed;
+  width: 200px;
+  height: 100%;
+  background: var(--blue-crayola);
+  border-left: 10px solid var(--blue-crayola);
+  transition: 0.5s;
+  overflow: hidden;
+}
+
+.navigation.active {
+  width: 80px;
+}
+
+.navigation ul {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 100%;
+}
+
+.navigation ul li {
+  position: relative;
+  width: 100%;
+  list-style: none;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 100px;
+}
+
+.navigation ul li:hover,
+.navigation ul li.hovered {
+  background-color: var(--white);
+}
+
+.navigation ul li:nth-child(1) {
+  margin-bottom: 40px;
+  pointer-events: none;
+}
+
+.navigation ul li a {
+  position: relative;
+  display: block;
+  width: 100%;
+  display: flex;
+  text-decoration: none;
+  color: var(--white);
+}
+
+.navigation ul li:hover a,
+.navigation ul li.hovered a {
+  color: var(--blue-crayola);
+}
+
+.navigation ul li a .icon ion-icon {
+  position: relative;
+  display: block;
+  min-width: 60px;
+  height: 100px;
+  line-height: 75px;
+  text-align: center;
+}
+
+.navigation ul li a span {
+  bottom: 15px;
+}
+
+.navigation ul li a .icon {
+  font-size: 1.7rem;
+}
+
+.navigation ul li a .title {
+  position: relative;
+  display: block;
+  left: 10px;
+  padding: 0 10px;
+  height: 60px;
+  line-height: 60px;
+  text-align: start;
+  white-space: nowrap;
+}
+
+/* --------- curve outside ---------- */
+.navigation ul li:hover a::before,
+.navigation ul li.hovered a::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 500px;
+  width: 20px;
+  height: 100px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 35px 35px 0 10px var(--white);
+  pointer-events: none;
+}
+
+.navigation ul li:hover a::after,
+.navigation ul li.hovered a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -40px;
+  width: 30px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 35px -35px 0 10px var(--white);
+  pointer-events: none;
+}
+
+/* ===================== sidebar ===================== */
+.sidebar {
+  position: absolute;
+  width: calc(100% - 180px);
+  left: 180px;
+  min-height: 100vh;
+  background: var(--white);
+  transition: 0.5s;
+}
+
+.sidebar.active {
+  width: calc(100% - 70px);
+  left: 70px;
+}
+
+.topbar {
+
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.toggle {
+
+  color: var(--blue-crayola);
+  position: relative;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
+.search {
+  position: absolute;
+  width: 400px;
+  margin: 0 10px;
+}
+
+.search label {
+  position: absolute;
+  width: 100%;
+}
+
+.search label input {
+  width: 100%;
+  height: 40px;
+  border-radius: 40px;
+  padding: 5px 20px;
+  padding-left: 35px;
+  font-size: 18px;
+  outline: none;
+  border: 1px solid var(--eerie-black-1);
+}
+
+.search label ion-icon {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  font-size: 1.2rem;
+}
+
+.user {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.user img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ====================== Responsive Design ========================== */
+@media (max-width: 991px) {
+  .navigation {
+    left: -300px;
+  }
+
+  .navigation.active {
+    width: 300px;
+    left: 0;
+  }
+
+  .sidebar {
+    width: 100%;
+    left: 0;
+  }
+
+  .sidebar.active {
+    left: 300px;
+  }
+
+
+}
+
+
+
+@media (max-width: 480px) {
+
+
+  .user {
+    min-width: 40px;
+  }
+
+  .navigation {
+    width: 100%;
+    left: -100%;
+    z-index: 1000;
+  }
+
+  .navigation.active {
+    width: 100%;
+    left: 0;
+  }
+
+  .toggle {
+    z-index: 10001;
+  }
+
+  .sidebar.active .toggle {
+    color: var(--white);
+    position: fixed;
+    right: 0;
+    left: initial;
+  }
+}

@@ -33,7 +33,7 @@ body{
 .tsawer{
     width: 150%;
     display: flex;
-    margin-left: 30px;
+   
 }
 
 
@@ -137,6 +137,8 @@ body{
 }
 .blog-content{
     margin: 2rem 0;
+    margin-left: 40px;
+    padding-right: 40px;
 }
 .blog-img{
     position: relative;

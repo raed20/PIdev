@@ -10503,3 +10503,6 @@ textarea {
       .site-footer .social li a:hover {
         background: #fff;
         color: #214252; }
+.commentcontent{
+  left:40px
+}

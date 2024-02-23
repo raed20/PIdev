@@ -17,11 +17,16 @@ Encore
     .addStyleEntry('styles_addblog', './assets/css/style_addblog.css')
     .addStyleEntry('styles_editblog', './assets/css/style_editblog.css')
     .addStyleEntry('styles_blog_single', './assets/css/styles_blog_single.css')
+    .addStyleEntry('styles_back', './assets/css/back_office/style_backoffice.css')
+    
+    
 
     // only needed for CDN's or subdirectory deploy
     //.setManifestKeyPrefix('build/')
     .addEntry('app', './assets/js/script.js')
-
+    .addEntry('app_back', './assets/js/back_office/backoffice.js')
+    
+    
     // enable Sass/SCSS support
     .enableSassLoader()
 

@@ -15,33 +15,40 @@ class CommentaireController extends AbstractController
             'controller_name' => 'CommentaireController',
         ]);
     }
-    #[Route('/AddComment', name: 'app_AddComment')]
-    public function Add(Request $request)
+    #[Route('/AddComment/{id}', name: 'app_AddComment')]
+    public function AddComment(Blog $blog, Request $request)
     {
-        $Comment = new Comment();
-        $form = $this->CreateForm(BlogType::class, $Comment);
-        $form->add('Comment', SubmitType::class);
+        $comment = new Commentaire();
+    
+        $form = $this->createForm(CommentaireType::class, $comment);
+    
         $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid())
-            $em = $this->getDoctrine()->getManager();
-            if ($form -> isSubmitted() && $form->isValid()){
-                $em->persist($blog);
-                $em->flush();
-                return $this->redirectToRoute("");
-            }   
-        return $this->render('blog/add.html.twig', ['f' => $form->createView()]);
-
+    
+        if ($form->isSubmitted() && $form->isValid()) {
+            $comment->setBlog($blog);
+                $em = $this->getDoctrine()->getManager();
+    
+            $em->persist($comment);
+            $em->flush();
+            return $this->redirectToRoute('blogdetails', ['id' => $blog->getId()]);
+        }
+    
+        return $this->render('blog/showblogdetaille.html.twig', [
+            'form' => $form->createView(),
+            'blog' => $blog, 
+        ]);
     }
+    
 
 #[Route('/Affichercomment', name: 'app_afficherlistecomment')]
     public function Show(BlogRepository $repository)
     {
         $blog=$repository->findall();
-        return $this->render('blog/Affiche.html.twig',['blog'=>$blog]);
+        return $this->render('comment/Affiche.html.twig',['blog'=>$blog]);
     }
 
 
-    #[Route('/editblog/{id}', name: 'app_editblog')]
+    #[Route('/editcomment/{id}', name: 'app_editcomment')]
     public function edit(BlogRepository $repository, $id, Request $request)
     {
         $blog = $repository->find($id);
@@ -52,27 +59,27 @@ class CommentaireController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->flush(); 
-            return $this->redirectToRoute("app_afficherliste_blog");
+            return $this->redirectToRoute("app_afficherlistecomment");
         }
 
-        return $this->render('blog/edit.html.twig', [
+        return $this->render('blog/editcomment.html.twig', [
             'f' => $form->createView(),
         ]);
     }
 
-    #[Route('/delete/{id}', name: 'app_delete')]
+    #[Route('/deletecomment/{id}', name: 'app_deletecomment')]
     public function delete($id, BlogRepository $repository)
     {
         $blog = $repository->find($id);
 
         if (!$blog) {
-            throw $this->createNotFoundException('Blog non trouvé');
+            throw $this->createNotFoundException('comment non trouvé');
         }
 
         $em = $this->getDoctrine()->getManager();
         $em->remove($blog);
         $em->flush();
-        return $this->redirectToRoute('app_afficherliste');
+        return $this->redirectToRoute('app_afficherlistecomment');
 } 
 }   
 

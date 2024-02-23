@@ -92,3 +92,8 @@
             color: red;
             margin-top: 4px;
         }
+
+        .dynamicbox textarea{
+            width : 55rem;
+            
+        }
