@@ -5,11 +5,11 @@
 {% block content %}
 <section class="section-md bg-default decor-text">
     <div class="container">
-        <h4 class="heading-decorated">Create new Reclamation</h4>
+        <h1 class="heading-decorated">Create new Reclamation</h1>
 
         {% if form_errors(form)|length > 0 %}
             <div class="alert alert-danger">
-                Reclamation contains bad words
+                La réclamation contient de gros mots
             </div>
         {% endif %}
     {{ include('reclamation/_form.html.twig') }}

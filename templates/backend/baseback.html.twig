@@ -13,149 +13,35 @@
     <link rel="stylesheet" href="{{ asset('backend/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('backend/dist/css/adminlte.min.css') }}">
+    {{ encore_entry_link_tags('styles_back') }}
+
 </head>
 
 
-<body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
-<div class="wrapper">
+<body>
+<!-- =============== Navigation ================ -->
+<div class="navigation">
+    <ul>
+        <li><a href="#"><span class="icon"><i class="fab fa-apple ion-icon"></i></span><span class="title">Brand Name</span></a></li>
+        <li><a href="#"><span class="icon"><i class="fas fa-home ion-icon"></i></span><span class="title">Dashboard</span></a></li>
+        <li><a href="#"><span class="icon"><i class="fas fa-users ion-icon"></i></span><span class="title">Customers</span></a></li>
+        <li><a href="#"><span class="icon"><i class="far fa-comment ion-icon"></i></span><span class="title">Messages</span></a></li>
+        <li><a href="#"><span class="icon"><i class="far fa-question-circle ion-icon"></i></span><span class="title">Help</span></a></li>
+        <li><a href="#"><span class="icon"><i class="fas fa-cogs ion-icon"></i></span><span class="title">Settings</span></a></li>
+        <li><a href="#"><span class="icon"><i class="fas fa-lock ion-icon"></i></span><span class="title">Password</span></a></li>
+        <li><a href="#"><span class="icon"><i class="fas fa-sign-out-alt ion-icon"></i></span><span class="title">Sign Out</span></a></li>
+    </ul>
+</div>
 
-    <!-- Preloader -->
-    <div class="preloader flex-column justify-content-center align-items-center">
-        <img class="animation__wobble" src="{{ asset('backend/dist/img/AdminLTELogo.png') }}" alt="AdminLTELogo" height="60" width="60">
+<!-- ========================= Main ==================== -->
+<div class="sidebar">
+    <div class="topbar">
+        <div class="toggle"></div>
+
+        <div class="user"></div>
     </div>
+</div>
 
-    <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand navbar-dark">
-        <!-- Left navbar links --><ul class="navbar-nav ml-auto">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="far fa-user"></i> My Access</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown01">
-
-                    <a class="dropdown-item" href="{{ path('homeback') }}">Home</a>
-                    <a class="dropdown-item" href="{{ path('home') }}"> Front Home</a>
-                    {% if app.user %}
-                    <a class="dropdown-item" href="{{ path('logout') }}">Log out</a>
-                    {% endif %}
-                </div>
-            </li>
-
-        </ul>
-
-        <!-- Right navbar links -->
-        <ul class="navbar-nav ml-auto">
-            <!-- Navbar Search -->
-            <li class="nav-item">
-                <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-                    <i class="fas fa-search"></i>
-                </a>
-                <div class="navbar-search-block">
-                    <form class="form-inline">
-                        <div class="input-group input-group-sm">
-                            <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-                            <div class="input-group-append">
-                                <button class="btn btn-navbar" type="submit">
-                                    <i class="fas fa-search"></i>
-                                </button>
-                                <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                                    <i class="fas fa-times"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </li>
-        </ul>
-
-    </nav>
-    <!-- /.navbar -->
-
-    <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
-        <!-- Brand Logo -->
-        <a href="{{ path('homeback') }}" class="brand-link">
-            <img src="{{ asset('backend/dist/img/AdminLTELogo.png') }}" alt="Admin Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-            <span class="brand-text font-weight-light">Admin LAB-IT</span>
-        </a>
-
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <!-- Sidebar user panel (optional) -->
-            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                <div class="image">
-                    <img src="{{ asset('backend/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
-                </div>
-                <div class="info">
-                    {% if app.user %}
-                    <a href="#" class="d-block">{{ app.user.username }}</a>
-                        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-                    {% else %}
-                    <a href="#" class="d-block">Admin</a>
-                    {% endif %}
-                </div>
-            </div>
-
-            <!-- SidebarSearch Form -->
-            <div class="form-inline">
-                <div class="input-group" data-widget="sidebar-search">
-                    <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-                    <div class="input-group-append">
-                        <button class="btn btn-sidebar">
-                            <i class="fas fa-search fa-fw"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Sidebar Menu -->
-            <nav class="mt-2">
-                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                    <!-- Add icons to the links using the .nav-icon class
-                         with font-awesome or any other icon font library -->
-                    <li class="nav-item menu-open">
-                        <a href="#" class="nav-link active">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
-                            <p>
-                                Gestion des comptes
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{ path('app_reclamation_indexback') }}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p> Liste des reclmations </p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-
-                </ul>
-            </nav>
-            <!-- /.sidebar-menu -->
-        </div>
-        <!-- /.sidebar -->
-    </aside>
-
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <div class="content-header">
-            <div class="container-fluid">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1 class="m-0">Dashboard v2</h1>
-                    </div><!-- /.col -->
-                    <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
-
-                        </ol>
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
-        </div>
-        <!-- /.content-header -->
-
-        <!-- Main content -->
         {% block content %}
 
 
@@ -195,8 +81,9 @@
         <script src="{{ asset('backend/plugins/chart.js/Chart.min.js') }}"></script>
         <script src="{{ asset('backend/dist/js/demo.js') }}"></script>
         <script src="{{ asset('backend/dist/js/pages/dashboard2.js') }}"></script>
+        {{ encore_entry_script_tags('app_back') }}
+
     {% endblock %}
-</div>
 <!-- ./wrapper -->
 
 </body>

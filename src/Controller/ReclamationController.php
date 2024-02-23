@@ -105,7 +105,7 @@ class ReclamationController extends AbstractController
 
     private function containsBadWord(string $text): bool
     {
-        $badWords = ['fuck', 'bitch'];
+        $badWords = ['damn', 'shit'];
         $lowercaseText = strtolower($text);
 
         foreach ($badWords as $badWord) {

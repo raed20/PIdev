@@ -21,7 +21,7 @@ class RedirectController extends AbstractController
      */
     public function home()
     {
-        return $this->render('frontend/homefront.html.twig');
+        return $this->render('frontend/base_front.html.twig');
     }
 
     /**
@@ -29,7 +29,7 @@ class RedirectController extends AbstractController
      */
     public function homeback()
     {
-        return $this->render('backend/homeback.html.twig');
+        return $this->render('backend/dashboard_back.html.twig');
     }
 
 }
