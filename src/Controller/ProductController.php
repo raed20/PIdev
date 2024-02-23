@@ -49,6 +49,16 @@ class ProductController extends AbstractController
             'products' => $products,
         ]);
     }
+    #[Route('/accueil', name: 'app_product1_all')]
+    public function getAll1(ManagerRegistry $doctrine): Response
+    {
+        $repo = $doctrine->getRepository(Product::class);
+        $products = $repo->findAll();
+        return $this->render('front/accueil.html.twig', [
+            'list' => $products,
+            'products' => $products,
+        ]);
+    }
 
 
     #[Route('/product/edit/{ref}', name: 'app_edit_product')]

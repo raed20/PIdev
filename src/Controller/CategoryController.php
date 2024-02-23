@@ -24,7 +24,7 @@ class CategoryController extends AbstractController
     }
 
     #[Route('/category/add', name: 'app_category_add')]
-    public function add(ManagerRegistry $doctrine, Request $req, CategoryRepository $repo): Response
+    public function add(ManagerRegistry $doctrine, Request $req): Response
     {
         $category = new Category();
         $f = $this->createForm(CategoryType::class, $category);

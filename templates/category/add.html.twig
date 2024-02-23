@@ -1,65 +1,33 @@
-<html>
-<head>
-    <style>
-        input[type=text], select {
-            width: 100%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
+{% extends 'base_back.html.twig' %}
 
-        input[type=submit] {
-            width: 5%;
-            background-color: #4CAF50;
-            color: white;
-            padding: 14px 20px;
-            margin: 8px 0;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            
-        }
+{% block stylesheets %}
+    {{ encore_entry_link_tags('styleCategory') }}
+    {{ encore_entry_link_tags('styles_back') }}
+{% endblock %}
 
-        input[type=submit]:hover {
-            background-color: #45a049;
-        }
-
-        div {
-            border-radius: 5px;
-            background-color: #f2f2f2;
-            padding: 20px;
-            
-        }
-        
-        /* Style for the Save button */
-        input[type=submit].save-button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            
-        }
-
-        input[type=submit].save-button:hover {
-            background-color: #0056b3;
-        }
-    </style>
-</head>
-<body>
-
-<h1>Add Categorie</h1>
-
-<div>
-    {{ form_start(myForm,{'attr':{'novalidate':'novalidate'}}) }}
-    
-    {{ form_end(myForm) }}
-</div>
-
-</body>
-</html>
+{% block body %}
+    <div class="container-cat" >
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h3 class="text-center mb-1 mt-1">Add Category</h3>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" class="add-category-form" novalidate>
+                            {{ form_start(myForm,{'attr':{'novalidate':'novalidate'}}) }}
+                            <div class="form-group">
+                                {{ form_label(myForm.name) }}
+                                {{ form_widget(myForm.name, {'attr': {'class': 'form-control category-name-input'}}) }}
+                            </div>
+                            <div class="form-group text-center">
+                                {{ form_widget(myForm.Save, {'attr': {'class': 'btn btn-primary save-category-btn'}}) }}
+                            </div>
+                            {{ form_end(myForm) }}
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

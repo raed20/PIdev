@@ -2,36 +2,35 @@
 
 namespace App\Entity;
 
-use App\Repository\CommandeRepository;
+use App\Repository\CommandRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 
-#[ORM\Entity(repositoryClass: CommandeRepository::class)]
-class Commande
+#[ORM\Entity(repositoryClass: CommandRepository::class)]
+class Command
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
-    #[Assert\Type(type:"numeric", message:"Price must be numeric")]
     #[ORM\Column]
     private ?int $quantity = null;
 
-    #[ORM\ManyToMany(targetEntity: Product::class, inversedBy: 'commandes')]
-    private Collection $commande;
+    #[ORM\ManyToMany(targetEntity: Product::class, inversedBy: 'commands')]
+    private Collection $command;
 
     public function __construct()
     {
-        $this->commande = new ArrayCollection();
+        $this->command = new ArrayCollection();
     }
 
     public function getId(): ?int
     {
         return $this->id;
     }
+
     public function getQuantity(): ?int
     {
         return $this->quantity;
@@ -47,23 +46,23 @@ class Commande
     /**
      * @return Collection<int, Product>
      */
-    public function getCommande(): Collection
+    public function getCommand(): Collection
     {
-        return $this->commande;
+        return $this->command;
     }
 
-    public function addCommande(Product $commande): static
+    public function addCommand(Product $command): static
     {
-        if (!$this->commande->contains($commande)) {
-            $this->commande->add($commande);
+        if (!$this->command->contains($command)) {
+            $this->command->add($command);
         }
 
         return $this;
     }
 
-    public function removeCommande(Product $commande): static
+    public function removeCommand(Product $command): static
     {
-        $this->commande->removeElement($commande);
+        $this->command->removeElement($command);
 
         return $this;
     }

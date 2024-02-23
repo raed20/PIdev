@@ -20,7 +20,7 @@ class Category
     #[Assert\NotBlank(message: "The name field cannot be empty.")]
     #[Assert\Length(
            min : 3,
-           max : 255,
+           max : 15,
            minMessage : "The name must be at least {{ limit }} characters long.",
            maxMessage : "The name cannot be longer than {{ limit }} characters."
            )]

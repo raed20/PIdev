@@ -1,0 +1,25 @@
+{% block body %}
+    <h1>List of Commands</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Quantity</th>
+                <th>Product</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for command in commands %}
+                <tr>
+                    <td>{{ command.id }}</td>
+                    <td>{{ command.quantity }}</td>
+                    <td>
+                        {% for product in command.command %} {{ product.name }}, 
+                        {% endfor %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

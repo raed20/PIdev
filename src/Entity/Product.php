@@ -42,12 +42,12 @@ class Product
     #[ORM\JoinColumn(nullable: false)]
     private ?Category $category = null;
 
-    #[ORM\ManyToMany(targetEntity: Commande::class, mappedBy: 'commande')]
-    private Collection $commandes;
+    #[ORM\ManyToMany(targetEntity: Command::class, mappedBy: 'command')]
+    private Collection $commands;
 
     public function __construct()
     {
-        $this->commandes = new ArrayCollection();
+        $this->commands = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -109,27 +109,27 @@ class Product
     }
 
     /**
-     * @return Collection<int, Commande>
+     * @return Collection<int, Command>
      */
-    public function getCommandes(): Collection
+    public function getCommands(): Collection
     {
-        return $this->commandes;
+        return $this->commands;
     }
 
-    public function addCommande(Commande $commande): static
+    public function addCommand(Command $command): static
     {
-        if (!$this->commandes->contains($commande)) {
-            $this->commandes->add($commande);
-            $commande->addCommande($this);
+        if (!$this->commands->contains($command)) {
+            $this->commands->add($command);
+            $command->addCommand($this);
         }
 
         return $this;
     }
 
-    public function removeCommande(Commande $commande): static
+    public function removeCommand(Command $command): static
     {
-        if ($this->commandes->removeElement($commande)) {
-            $commande->removeCommande($this);
+        if ($this->commands->removeElement($command)) {
+            $command->removeCommand($this);
         }
 
         return $this;

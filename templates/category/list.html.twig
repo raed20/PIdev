@@ -1,5 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base_back.html.twig' %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('styles_back') }}
+{% endblock %}
+{% block body %}
 <head>
   <title>List categories</title>
   <meta charset="utf-8">
@@ -55,4 +59,4 @@
     </div>
   </div>
 </body>
-</html>
+{% endblock %}
