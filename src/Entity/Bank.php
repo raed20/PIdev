@@ -7,6 +7,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 #[ORM\Entity(repositoryClass: BankRepository::class)]
 class Bank
 {
@@ -16,22 +18,45 @@ class Bank
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
+    #[Assert\Length(max: 255)]
     private ?string $Nom = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
+    #[Assert\Length(max: 255)]
     private ?string $adresse = null;
 
-    #[ORM\Column(length: 255)]
+   
+#[ORM\Column(length: 255)]
+#[Assert\NotBlank]
+#[Assert\Length(max: 255)]
+#[Assert\Regex(
+    pattern: '/^\d+$/',
+    message: 'The SWIFT code should contain only numbers.'
+)]
     private ?string $codeSwift = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
+    #[Assert\Length(max: 255)]
     private ?string $logo = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
+    #[Assert\Length(max: 255)]
+    #[Assert\Regex(
+        pattern: '/^\+216\s\d{1,8}$/',
+        message: 'Please enter a valid phone number starting with +216.'
+    )]
     private ?string $phoneNum = null;
 
     #[ORM\OneToMany(targetEntity: Pret::class, mappedBy: 'IdBank')]
     private Collection $idPret;
+
+    // Getters and setters
+
+
 
     public function __construct()
     {

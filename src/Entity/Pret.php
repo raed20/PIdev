@@ -5,6 +5,8 @@ use Symfony\Component\Validator\Constraints as Assert;
 use App\Repository\PretRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
+
 
 #[ORM\Entity(repositoryClass: PretRepository::class)]
 class Pret
@@ -15,29 +17,48 @@ class Pret
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    #[Assert\NotBlank(message: "name is required")]
-
+    #[Assert\NotBlank(message: "Full name is required")]
     private ?string $Fname = null;
 
     #[ORM\Column(length: 255)]
-    #[Assert\NotBlank(message: "email is required")]
-
+    #[Assert\NotBlank]
+    #[Assert\Length(max: 255)]
+    #[Assert\Regex(
+        pattern: '/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/',
+        message: 'Please enter a valid email address.'
+    )]
     private ?string $email = null;
+    #[ORM\Column(length: 255)]
+    #[Assert\NotBlank]
+    #[Assert\Length(max: 255)]
+    #[Assert\Regex(
+        pattern: '/^\+216\s\d{1,8}$/',
+        message: 'Please enter a valid phone number starting with +216.'
+    )]
+    private ?string $phonenum = null; 
 
     #[ORM\Column(length: 255)]
-    #[Assert\NotBlank(message: "phone number is required")]
-
-    private ?string $phonenum = null;
-
-    #[ORM\Column(length: 255)]
-    #[Assert\NotBlank(message: "amount is required")]
-
+    #[Assert\NotBlank(message: "Amount is required")]
+    #[Assert\Regex(
+        pattern: "/^\d+(\.\d{1,2})?$/",
+        message: "Invalid amount format. Please enter a valid amount."
+    )]
     private ?string $amount = null;
 
     #[ORM\Column(length: 255)]
-    #[Assert\NotBlank(message: "duration is required")]
-
-    private ?string $duration = null;
+#[Assert\NotBlank(message: "Duration is required")]
+#[Assert\Regex(
+    pattern: "/^\d+$/",
+    message: "Duration must be a positive integer."
+)]
+public ?string $duration = null;
+public function validateDuration(ExecutionContextInterface $context)
+{
+    if ($this->duration !== null && (int)$this->duration > 60) {
+        $context->buildViolation('Duration cannot exceed 60 months (5 years).')
+            ->atPath('duration')
+            ->addViolation();
+    }}
 
     #[ORM\ManyToOne(inversedBy: 'idPret')]
     #[ORM\JoinColumn(nullable: false)]

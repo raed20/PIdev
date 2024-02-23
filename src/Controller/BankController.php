@@ -30,7 +30,6 @@ class BankController extends AbstractController
     {
         $Bank = new Bank();
         $form = $this->CreateForm(BankType::class, $Bank);
-        $form->add('Ajouter', SubmitType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
@@ -81,7 +80,6 @@ class BankController extends AbstractController
     {
         $Bank = $repository->find($id);
         $form = $this->createForm(BankType::class, $Bank);
-        $form->add('Edit', SubmitType::class);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {

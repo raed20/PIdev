@@ -1,0 +1,9 @@
+.table-container{
+    position: absolute;
+    width: calc(100% - 180px);
+    left: 190px;
+    min-height: 100vh;
+    background: var(--white);
+    transition: 0.5s;
+
+}

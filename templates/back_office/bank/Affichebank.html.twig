@@ -1,33 +1,42 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ProSync</title>
-</head>
-<body>
-<h1>List Bank</h1>
-<table border="1">
-<tr>
-    <th>Id</th>
-    <th>Nom</th>
-    <th>Adresse</th>
-    <th>logo</th>
-</tr>
+{% extends 'back_office/base_back.html.twig' %}
 
-      <tr>  {% for a in Bank %} </tr>
-        <td>{{ a.id }}</td>
-        <td>{{ a.Nom }}</td>
-        <td> {{ a.Adresse }}</td>
-        <td> <img src="{{ asset('uploads/bank/'~ a.logo) }}" width="50px"/></td>
-        <td><a href="{{ path('app_editbank', {'id': a.id}) }}">edit</a></td>
-        <td><a href="{{ path('app_deletebank', {'id': a.id}) }}">delete</a></td>
+{% block stylesheets %}
+    {{ encore_entry_link_tags('styletableBank') }}
+    
+		{{ encore_entry_link_tags('styles_back') }}
+        {{ encore_entry_link_tags('styleaffiche') }}
+{% endblock %}
 
-
-    {% endfor %}
-
-</table>
-</body>
-</html>
+{% block body %}
+    <div class="table-container">
+        <h1>List Bank</h1>
+        <div class="limiter">
+            <div class="container-table100">
+                <div class="wrap-table100">
+                    <div class="table100">
+                        <table>
+                            <thead>
+                                <tr class="table100-head">
+                                    <th class="column1">ID</th>
+                                    <th class="column2">Nom</th>
+                                    <th class="column3">Adresse</th>
+                                    <th class="column6">Logo</th>
+                                </tr>
+                            </thead>
+                            {% for a in Bank %}
+                                <tr>
+                                    <td class="column1">{{ a.id }}</td>
+                                    <td class="column2">{{ a.Nom }}</td>
+                                    <td class="column3">{{ a.Adresse }}</td>
+                                    <td class="column4"><img src="{{ asset('uploads/bank/'~ a.logo) }}" width="50px"/></td>
+                                    <td class="column5" ><a href="{{ path('app_AddLoan', {'id': a.id}) }}">Edit</a></td>
+                                    <td class="column6"><a href="{{ path('app_deletebank', {'id': a.id}) }}">Delete</a></td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -8,25 +8,34 @@
 {% block body %}
 <div class="table-container">
         <h1>List Bank</h1>
-        <table border="1">
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Adresse</th>
-                <th>logo</th>
-
-            </tr>
+<div class="limiter">
+<div class="container-table100">
+<div class="wrap-table100">
+<div class="table100">
+<table>
+<thead>
+<tr class="table100-head">
+<th class="column1">ID</th>
+<th class="column2">Nom</th>
+<th class="column3">Adresse</th>
+<th class="column6">Logo</th>
+</tr>
+</thead>
             {% for a in Bank %}
             <tr>
-                <td>{{ a.id }}</td>
-                <td>{{ a.Nom }}</td>
-                <td>{{ a.Adresse }}</td>
-                <td> <img src="{{ asset('uploads/bank/'~ a.logo) }}" width="50px"/></td>
-                <td><a href="{{ path('app_AddLoan', {'id': a.id}) }}">demander</a></td>
-
+            <td class="column1">{{ a.id }}</td>
+<td class="column2">{{ a.Nom }}</td>
+<td class="column3">{{ a.Adresse }}</td>
+             <td class="column4"><img src="{{ asset('uploads/bank/'~ a.logo) }}" width="50px"/></td>
+<td class="column6"><a href="{{ path('app_AddLoan', {'id': a.id}) }}">demander</a></td>
+              
             </form></td>
             </tr>
             {% endfor %}
         </table>
+</div>
+</div>
+</div>
+</div>
 </div>
 {% endblock %}

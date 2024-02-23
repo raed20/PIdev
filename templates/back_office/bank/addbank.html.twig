@@ -1,3 +1,42 @@
+{% extends 'back_office/base_back.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('styletableBank') }}
+    {{ encore_entry_link_tags('styleaddbank') }}
+{% endblock %}
 {% block body %}
-{{form(f)}}
+<div class="bank_container">
+<div >
+    <div class="formbold-main-wrapper">
+    
+        <div class="formbold-form-wrapper">
+        <h1 class="bank_title">Create a Bank</h1>
+            {{ form_start(f, {'attr': {'class': 'formbold-form', 'action': path('app_AddBank'), 'method': 'POST'}}) }}
+                <div class="formbold-input-flex">
+                    <div>
+                        {{ form_row(f.Nom, {'label': 'Name:', 'attr': {'class': 'formbold-form-input', 'placeholder': 'Enter the bank name'}}) }}
+                    </div>
+                    <div>
+                        {{ form_row(f.adresse, {'label': 'Address:', 'attr': {'class': 'formbold-form-input', 'placeholder': 'Enter the bank address'}}) }}
+                    </div>
+                </div>
+                <div class="formbold-input-flex">
+                    <div>
+                        {{ form_row(f.codeSwift, {'label': 'SWIFT Code:', 'attr': {'class': 'formbold-form-input', 'placeholder': 'Enter the SWIFT code'}}) }}
+                    </div>
+                    <div>
+                        {{ form_row(f.logo, {'label': 'Logo:', 'attr': {'class': 'formbold-form-input', 'placeholder': 'Enter the URL of the bank logo'}}) }}
+                    </div>
+                </div>
+                <div class="formbold-input-flex">
+                    <div>
+                        {{ form_row(f.phoneNum, {'label': 'Phone Number:', 'attr': {'class': 'formbold-form-input', 'placeholder': 'Enter the bank phone number'}}) }}
+                    </div>
+                </div>
+                <button type="submit" class="formbold-btn">Create Bank</button>
+            {{ form_end(f) }}
+        </div>
+    </div>
+</div>
 {% endblock %}
