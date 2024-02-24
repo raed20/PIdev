@@ -4,6 +4,7 @@
 
     {{ form_start(myForm) }}
     {{ form_row(myForm.quantity) }}
+    {{form_errors(myForm.quantity,)}}
      {{ form_label(myForm.command, 'Command:') }}
     {{ form_widget(myForm.command, {'attr': {'class': 'form-control'}}) }}
     {{ form_row(myForm.Save) }}

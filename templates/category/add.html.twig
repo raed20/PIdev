@@ -17,8 +17,15 @@
                         <form method="post" class="add-category-form" novalidate>
                             {{ form_start(myForm,{'attr':{'novalidate':'novalidate'}}) }}
                             <div class="form-group">
-                                {{ form_label(myForm.name) }}
-                                {{ form_widget(myForm.name, {'attr': {'class': 'form-control category-name-input'}}) }}
+                            <table>
+  
+        <td>{{form_label(myForm.name,"Name")}}</td>
+        <td>{{ form_widget(myForm.name, {'attr': {'class': 'form-control category-name-input'}}) }}</td>
+        <td>{{form_errors(myForm.name,)}}</td>
+    
+    </table>
+                               
+                                
                             </div>
                             <div class="form-group text-center">
                                 {{ form_widget(myForm.Save, {'attr': {'class': 'btn btn-primary save-category-btn'}}) }}

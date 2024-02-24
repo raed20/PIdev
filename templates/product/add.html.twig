@@ -19,14 +19,17 @@
                             <div class="form-group mt-3">
                                 {{ form_label(myForm.name) }}
                                 {{ form_widget(myForm.name, {'attr': {'class': 'form-control product-name-input'}}) }}
+                                {{form_errors(myForm.name,)}}
                             </div>
                             <div class="form-group mt-3">
                                 {{ form_label(myForm.price) }}
                                 {{ form_widget(myForm.price, {'attr': {'class': 'form-control product-price-input'}}) }}
+                                {{form_errors(myForm.price,)}}
                             </div>
                             <div class="form-group mt-3">
                                 {{ form_label(myForm.description) }}
                                 {{ form_widget(myForm.description, {'attr': {'class': 'form-control product-description-input'}}) }}
+                                {{form_errors(myForm.description,)}}
                             </div>
                             <div class="form-group mb-4 mt-3">
                                 {{ form_label(myForm.category) }}
