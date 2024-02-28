@@ -1,96 +1,59 @@
 const Encore = require('@symfony/webpack-encore');
 
-// Manually configure the runtime environment if not already configured yet by the "encore" command.
-// It's useful when you use tools that rely on webpack.config.js file.
-if (!Encore.isRuntimeEnvironmentConfigured()) {
-    Encore.configureRuntimeEnvironment(process.env.NODE_ENV || 'dev');
-}
-
 Encore
-    // directory where compiled assets will be stored
+    // Set the output path for compiled assets
     .setOutputPath('public/build/')
-    // public path used by the web server to access the output path
+    // Set the public path used by the web server to access the output path
     .setPublicPath('/build')
-    .addStyleEntry('styles', './assets/css/style.css')
-    .addStyleEntry('styles_invest_main', './assets/css/style_invest_main.css')
-    .addStyleEntry('google_fonts', './assets/css/google_fonts.css')
 
-    // Include Font Awesome stylesheet
-    .addStyleEntry('font_awesome', './assets/css/font_awesome.css')
+    // Add entry points for your stylesheets
+    .addStyleEntry('styles_front', './assets/css/front_office/style_frontoffice.css')
+    .addStyleEntry('styles_back', './assets/css/back_office/style_backoffice.css')
+    .addStyleEntry('styles_invest_main_front', './assets/css/front_office/style_invest_main_front.css')
+    // Add entry points for your stylesheets
+    .addStyleEntry('styles_dashbaord', './assets/css/back_office/style_back_dashboard.css')
+    .addStyleEntry('styles_backopp', './assets/css/back_office/style_backopp.css')
+    .addStyleEntry('styles_backaddopp', './assets/css/back_office/style_backaddopp.css')
+    .addStyleEntry('styles_invest_front', './assets/css/front_office/styles_invest_front.css')
 
-    // Include Bootstrap Icons stylesheet
-    .addStyleEntry('bootstrap_icons', './assets/css/bootstrap_icon.css')
 
-    // Include other libraries' stylesheets if needed
-    // .addStyleEntry('animate_css', 'path/to/animate.min.css')
-    // .addStyleEntry('owl_carousel_css', 'path/to/owl.carousel.min.css')
 
-    // Compile your own CSS files
-    .addStyleEntry('style', './assets/css/style.css')
 
-    // only needed for CDN's or subdirectory deploy
-    //.setManifestKeyPrefix('build/')
-    .addEntry('app', './assets/js/script.js')
 
-    // enable Sass/SCSS support
+
+
+    // Add entry points for your JavaScript files
+    .addEntry('app_front', './assets/js/front_office/frontoffice.js')
+    .addEntry('app_back', './assets/js/back_office/backoffice.js')
+
+    // Enable Sass/SCSS support
     .enableSassLoader()
 
-    // create hashed filenames (e.g., app.abc123.css)
+    // Enable versioning for cache busting in production
     .enableVersioning()
 
-    /*
-     * ENTRY CONFIG
-     *
-     * Each entry will result in one JavaScript file (e.g. app.js)
-     * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
-     */
-
-    // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
+    // Split entry chunks for better optimization
     .splitEntryChunks()
 
-    // will require an extra script tag for runtime.js
-    // but, you probably want this, unless you're building a single-page app
+    // Enable single runtime chunk
     .enableSingleRuntimeChunk()
 
-    /*
-     * FEATURE CONFIG
-     *
-     * Enable & configure other features below. For a full
-     * list of features, see:
-     * https://symfony.com/doc/current/frontend.html#adding-more-features
-     */
+    // Cleanup output directory before build
     .cleanupOutputBeforeBuild()
+
+    // Enable build notifications
     .enableBuildNotifications()
+
+    // Enable source maps only in development
     .enableSourceMaps(!Encore.isProduction())
-    // enables hashed filenames (e.g. app.abc123.css)
-    .enableVersioning(Encore.isProduction())
 
-    // configure Babel
-    // .configureBabel((config) => {
-    //     config.plugins.push('@babel/a-babel-plugin');
-    // })
-
-    // enables and configure @babel/preset-env polyfills
+    // Configure Babel preset-env for polyfills
     .configureBabelPresetEnv((config) => {
         config.useBuiltIns = 'usage';
         config.corejs = '3.23';
-    })
+    });
 
-    // enables Sass/SCSS support
-    //.enableSassLoader()
+// Add configuration for resolving aliases if needed
 
-    // uncomment if you use TypeScript
-    //.enableTypeScriptLoader()
-
-    // uncomment if you use React
-    //.enableReactPreset()
-
-    // uncomment to get integrity="..." attributes on your script & link tags
-    // requires WebpackEncoreBundle 1.4 or higher
-    //.enableIntegrityHashes(Encore.isProduction())
-
-    // uncomment if you're having problems with a jQuery plugin
-    //.autoProvidejQuery()
-    ;
-
+// Retrieve and export the Webpack configuration
 module.exports = Encore.getWebpackConfig();

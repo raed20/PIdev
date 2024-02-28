@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\OpportuniteRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Mime\Message;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -14,12 +16,6 @@ class Opportunite
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
-
-    #[ORM\Column]
-    #[Assert\NotBlank(message: "Ref is required")]
-    #[Assert\Positive(message: "Ref must be a positive number")]
-    #[Assert\GreaterThan(value: 0, message: "Ref must be greater than 0")]
-    private ?int $ref = null;
 
 
     #[ORM\Column(length: 255)]
@@ -53,22 +49,17 @@ class Opportunite
     #[Assert\PositiveOrZero(message: "negative value")]
     private ?float $marketcap = null;
 
+
+    #[ORM\OneToMany(targetEntity: Investissement::class, mappedBy: 'opport')]
+    private Collection $investissements;
+
+ 
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getRef(): ?int
-    {
-        return $this->ref;
-    }
-
-    public function setRef(int $ref): static
-    {
-        $this->ref = $ref;
-
-        return $this;
-    }
 
     public function getDescription(): ?string
     {
@@ -138,6 +129,37 @@ class Opportunite
     public function setMarketcap(float $marketcap): static
     {
         $this->marketcap = $marketcap;
+
+        return $this;
+    }
+
+
+    /**
+     * @return Collection<int, Investissement>
+     */
+    public function getInvestissements(): Collection
+    {
+        return $this->investissements;
+    }
+
+    public function addInvestissement(Investissement $investissement): static
+    {
+        if (!$this->investissements->contains($investissement)) {
+            $this->investissements->add($investissement);
+            $investissement->setOpport($this);
+        }
+
+        return $this;
+    }
+
+    public function removeInvestissement(Investissement $investissement): static
+    {
+        if ($this->investissements->removeElement($investissement)) {
+            // set the owning side to null (unless already changed)
+            if ($investissement->getOpport() === $this) {
+                $investissement->setOpport(null);
+            }
+        }
 
         return $this;
     }

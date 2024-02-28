@@ -1,0 +1,33 @@
+{% extends 'front_office/base_front.html.twig' %}
+
+{% block title %}Hello OppotuniteController!
+{% endblock %}
+{% block stylesheets %}
+	{{ parent() }}
+	{{ encore_entry_link_tags('styles_invest_main_front') }}
+	{{ encore_entry_link_tags('styles_invest_front') }}
+	<link rel="stylesheet" href="{{ asset('css/your_custom_styles.css') }}">
+{% endblock %}
+
+{% block body %}
+
+
+	<div class="section hero">
+		<h1>Hello
+			{{ controller_name }}! ✅</h1>
+
+		This friendly message is coming from:
+		<ul>
+			<li>Your controller at
+				<code>
+					<a href="{{ 'C:/Users/taher/Downloads/PIdev-main/PIdev-main/src/Controller/OppotuniteController.php'|file_link(0) }}">src/Controller/OppotuniteController.php</a>
+				</code>
+			</li>
+			<li>Your template at
+				<code>
+					<a href="{{ 'C:/Users/taher/Downloads/PIdev-main/PIdev-main/templates/oppotunite/index.html.twig'|file_link(0) }}">templates/oppotunite/index.html.twig</a>
+				</code>
+			</li>
+		</ul>
+	</div>
+{% endblock %}

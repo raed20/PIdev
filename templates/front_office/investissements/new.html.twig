@@ -1,0 +1,43 @@
+{% extends 'front_office/base_front.html.twig' %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	{{ encore_entry_link_tags('styles_invest_main_front') }}
+	{{ encore_entry_link_tags('styles_invest_front') }}
+	<link rel="stylesheet" href="{{ asset('css/your_custom_styles.css') }}">
+{% endblock %}
+
+{% block title %}
+	Créer un nouvel investissement
+{% endblock %}
+{% block body %}
+
+	<div class="section hero">
+
+		<div class="editback_container">
+			<h1>Créer un nouvel investissement</h1>
+
+			{{ form_start(form, {'attr': {'class': 'investment-form'}}) }}
+
+			<table class="form-table">
+				<tr>
+					<td>{{ form_label(form.montant) }}</td>
+					<td>
+						{{ form_widget(form.montant, {'attr': {'class': 'form-input'}}) }}
+					</td>
+					<td>{{ form_errors(form.montant) }}</td>
+				</tr>
+				<tr>
+					<td>{{ form_label(form.dateInvest) }}</td>
+					<td>
+						{{ form_widget(form.dateInvest, {'attr': {'class': 'form-input'}}) }}
+					</td>
+					<td>{{ form_errors(form.dateInvest) }}</td>
+				</tr>
+			</table>
+
+
+			<button type="submit" class="btn btn-primary">Créer</button>
+			{{ form_end(form) }}
+		</div>
+	{% endblock %}

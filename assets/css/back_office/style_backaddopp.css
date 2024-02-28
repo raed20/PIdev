@@ -1,0 +1,90 @@
+.editback_container {
+
+    position: absolute;
+    width: calc(100% - 180px);
+    left: 300px;
+    top: 50px;
+    min-height: 100vh;
+    background: var(--white);
+    transition: 0.5s;
+    max-width: 400px;
+
+}
+
+/* ======= Your Custom Styles ======= */
+
+/* Form Styling */
+.form-table {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+}
+
+.form-table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.form-table td:first-child {
+    width: 200px;
+    /* Adjust as needed */
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.form-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--blue-crayola);
+    /* or any other color you prefer */
+}
+
+.form-errors {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* Adjustments for Responsive Design if needed */
+@media (max-width: 768px) {
+    .form-table td:first-child {
+        width: 150px;
+        /* Adjust as needed */
+    }
+}
+
+@media (max-width: 480px) {
+    .form-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .form-table td:first-child {
+        width: 100%;
+    }
+}
+
+/* Edit Button Styling */
+.edit-button {
+    background-color: var(--blue-crayola);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.edit-button:hover {
+    background-color: var(--maximum-yellow-red);
+    /* or any other color you prefer */
+}

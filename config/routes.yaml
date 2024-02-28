@@ -4,3 +4,15 @@
 go_to_index:
     path: /go-to-index
     controller: 'App\Controller\ServiceController::index'
+
+show_opp :
+    path: /AfficherListeOpp
+    controller: 'App\Controller\InvestissementController::show'
+
+edit_inves :
+    path: /editInvest/{id}
+    controller:  'App\Controller\InvestissementController::edit'
+
+app_afficherinvestissement:
+    path: /Afficherinvestissement
+    controller :  'App\Controller\InvestissementController::showw'

@@ -1,0 +1,25 @@
+{# templates/investissement/new.html.twig #}
+
+{% extends 'front_office/base_front.html.twig' %}
+{% block stylesheets %}
+	{parent()}
+	{{ encore_entry_link_tags('styles_invest_main_front') }}
+{% endblock %}
+
+
+{% block title %}Créer un nouvel investissement
+{% endblock %}
+
+{% block body %}
+	<div>
+		<h1>Créer un nouvel investissement</h1>
+
+		{{ form_start(form) }}
+		{{ form_row(form.montant) }}
+		{{ form_row(form.dateInvest) }}
+
+
+		<button type="submit" class="btn btn-primary">Créer</button>
+		{{ form_end(form) }}
+	</div>
+{% endblock %}

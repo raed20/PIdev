@@ -1,9 +1,11 @@
-{% extends 'base.html.twig' %}
+{% extends 'front_office/base_front.html.twig' %}
 {% block stylesheets %}
 	{{ parent() }}
-	{{ encore_entry_link_tags('styles_invest_main') }}
+	{{ encore_entry_link_tags('styles_invest_main_front') }}
 {% endblock %}
 {% block body %}
+
+
 	<article>
 		<!--Hero section-->
 		<section class="section hero" aria-label="hero" data-section>
@@ -14,7 +16,7 @@
 					<a href="#" class="btn btn-primary">Get started now</a>
 				</div>
 				<figure class="hero-banner">
-					<img src="{{ asset('images/hero-banner.png') }}" width="570" height="448" alt="Hero Banner" class="w-100">
+					<img src="{{ asset('images/front_office/hero-banner.png') }}" width="570" height="448" alt="Hero Banner" class="w-100">
 				</figure>
 			</div>
 		</section>
@@ -32,12 +34,12 @@
 						</li>
 					</ul>
 					<ul class="tab-content">
-						{% for a in opportunite %}
+						{% for a in opport %}
 							<li>
 								<div class="trend-card ative">
 
 									<div class="card-title-wrapper">
-										<img src="{{ asset('images/coin-4.svg') }}" width="24" height="24" alt="bitcoin logo">
+										<img src="{{ asset('images/front_office/coin-4.svg') }}" width="24" height="24" alt="bitcoin logo">
 
 										<a href="#" class="card-title">{{ a.name }}
 											<span class="span">USD</span>
@@ -80,9 +82,9 @@
 						</tr>
 					</thead>
 					<tbody class="table-body">
-						{% for a in opportunite %}
+						{% for a in opport %}
 							<tr class="table-row">
-								<th class="table-data rank table-text" scope="row">{{ a.ref }}</th>
+								<th class="table-data rank table-text" scope="row">{{ a.id }}</th>
 
 
 								<td class="table-data">
@@ -91,7 +93,7 @@
 											<a href="#" class="coin-name table-text">{{ a.name }}<span class="span">BTC</span>
 											</a>
 										</h3>
-										<img src="{{ asset('images/coin-4.svg') }}" width="20" height="20" alt="Bitcoin logo" class="img">
+										<img src="{{ asset('images/front_office/coin-4.svg') }}" width="20" height="20" alt="Bitcoin logo" class="img">
 									</td>
 								</td>
 								<td class="table-data last-price table-text">{{ a.lastprice }}</td>
@@ -101,12 +103,7 @@
 								<td class="table-text">{{ a.prix }}</td>
 								<td class="table-data">
 									<button class="btn btn-outline">
-										<a href="{{ path('app_edit', {'id': a.id}) }}">edit</a>
-									</button>
-								</td>
-								<td class="table-data">
-									<button class="btn btn-outline">
-										<a href="{{ path('app_delete', {'id': a.id}) }}">delete</a>
+										<a href="{{ path('app_AddInvest', {'id': a.id}) }}">invest</a>
 									</button>
 								</td>
 
@@ -115,8 +112,8 @@
 					</tbody>
 				</table>
 				<!-- 
-																																																																																        - #INSTRUCTION
-																																																																																      -->
+																																																																																																																																																																																																																				        - #INSTRUCTION
+																																																																																																																																																																																																																				      -->
 
 				<section class="section instruction" aria-label="instruction" data-section>
 					<div class="container">
@@ -133,7 +130,7 @@
 								<div class="instruction-card">
 
 									<figure class="card-banner">
-										<img src="{{ asset('images/instruction-1.png') }}" width="96" height="96" loading="lazy" alt="Step 1" class="img">
+										<img src="{{ asset('images/front_office/instruction-1.png') }}" width="96" height="96" loading="lazy" alt="Step 1" class="img">
 									</figure>
 
 									<p class="card-subtitle">Step 1</p>
@@ -151,7 +148,7 @@
 								<div class="instruction-card">
 
 									<figure class="card-banner">
-										<img src="{{ asset('images/instruction-2.png') }}" width="96" height="96" loading="lazy" alt="Step 2" class="img">
+										<img src="{{ asset('images/front_office/instruction-2.png') }}" width="96" height="96" loading="lazy" alt="Step 2" class="img">
 									</figure>
 
 									<p class="card-subtitle">Step 2</p>
@@ -169,7 +166,7 @@
 								<div class="instruction-card">
 
 									<figure class="card-banner">
-										<img src="{{ asset('images/instruction-3.png') }}" width="96" height="96" loading="lazy" alt="Step 3" class="img">
+										<img src="{{ asset('images/front_office/instruction-3.png') }}" width="96" height="96" loading="lazy" alt="Step 3" class="img">
 									</figure>
 
 									<p class="card-subtitle">Step 3</p>
@@ -187,7 +184,7 @@
 								<div class="instruction-card">
 
 									<figure class="card-banner">
-										<img src="{{ asset('images/instruction-4.png') }}" width="96" height="96" loading="lazy" alt="Step 4" class="img">
+										<img src="{{ asset('images/front_office/instruction-4.png') }}" width="96" height="96" loading="lazy" alt="Step 4" class="img">
 									</figure>
 
 									<p class="card-subtitle">Step 4</p>
@@ -210,7 +207,7 @@
 					<div class="container">
 
 						<figure class="about-banner">
-							<img src="{{ asset('images/about-banner.png') }}" width="748" height="436" loading="lazy" alt="about banner" class="w-100">
+							<img src="{{ asset('images/front_office/about-banner.png') }}" width="748" height="436" loading="lazy" alt="about banner" class="w-100">
 						</figure>
 
 						<div class="about-content">
@@ -219,29 +216,29 @@
 
 							<p class="section-text">
 								Explore a range of trading options on Bitcost. From Spot,
-																																																																																																																																																																                            Staking and margin trading, we offer diverse opportunities in cryptocurrency
-																																																																																																																																																																                            investment. Join us to start trading today!
+																																																																																																																																																																																																																																																																																																																																																																																																																																								                            Staking and margin trading, we offer diverse opportunities in cryptocurrency
+																																																																																																																																																																																																																																																																																																																																																																																																																																								                            investment. Join us to start trading today!
 							</p>
 
 							<ul class="section-list">
 
 								<li class="section-item">
 									<div class="title-wrapper">
-										<ion-icon name="checkmark-circle" aria-hidden="true"></ion-icon>
+										<i class="fas fa-check-circle" aria-hidden="true"></i>
 
 										<h3 class="h3 list-title">Discover real-time stock prices</h3>
 									</div>
 
 									<p class="item-text">
 										Explore a variety of trading options with our platform. Whether you prefer																																																																																																																																																																																				                                    traditional stock trading, options, we offer a range
-																																																																																																																																																																																																								                                    of tools to suit your needs. Join us today and seize control of your financial
-																																																																																																																																																																																																								                                    future.
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																		                                    of tools to suit your needs. Join us today and seize control of your financial
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																		                                    future.
 									</p>
 								</li>
 
 								<li class="section-item">
 									<div class="title-wrapper">
-										<ion-icon name="checkmark-circle" aria-hidden="true"></ion-icon>
+										<i class="fas fa-check-circle" aria-hidden="true"></i>
 
 										<h3 class="h3 list-title">
 											Trade stocks effortlessly with Prosync</h3>
@@ -249,7 +246,7 @@
 
 									<p class="item-text">
 										Enjoy various trading options like Spot Trade, Futures Trade, Staking
-																																																																																																																																																																																																								                                    and margin trading. Join now for seamless stock trading.
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																		                                    and margin trading. Join now for seamless stock trading.
 									</p>
 								</li>
 
@@ -277,7 +274,7 @@
 
 								<li class="section-item">
 									<div class="title-wrapper">
-										<ion-icon name="checkmark-circle" aria-hidden="true"></ion-icon>
+										<i class="fas fa-check-circle" aria-hidden="true"></i>
 
 										<h3 class="h3 item-title">Buy, Sell, And Trade On The Go</h3>
 									</div>
@@ -289,7 +286,7 @@
 
 								<li class="section-item">
 									<div class="title-wrapper">
-										<ion-icon name="checkmark-circle" aria-hidden="true"></ion-icon>
+										<i class="fas fa-check-circle" aria-hidden="true"></i>
 
 										<h3 class="h3 item-title">Take Control Of Your Wealth</h3>
 									</div>
@@ -303,18 +300,18 @@
 
 							<div class="app-wrapper">
 								<a href="#">
-									<img src="{{ asset('images/googleplay.png') }}" width="135" height="40" loading="lazy" alt="get it on google play">
+									<img src="{{ asset('images/front_office/googleplay.png') }}" width="135" height="40" loading="lazy" alt="get it on google play">
 								</a>
 
 								<a href="#">
-									<img src="{{ asset('images/appstore.png')}}" width="120" height="40" loading="lazy" alt="download on the app store">
+									<img src="{{ asset('images/front_office/appstore.png')}}" width="120" height="40" loading="lazy" alt="download on the app store">
 								</a>
 							</div>
 
 						</div>
 
 						<div class="app-banner">
-							<img src="{{ asset('images/app-banner.png')}}" width="618" height="526" loading="lazy" alt="app banner" class="w-100">
+							<img src="{{ asset('images/front_office/app-banner.png')}}" width="618" height="526" loading="lazy" alt="app banner" class="w-100">
 
 
 						</div>

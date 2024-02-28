@@ -1,0 +1,67 @@
+{% extends 'back_office/base_back.html.twig' %}
+{% block stylesheets %}
+	{{ parent() }}
+	{{ encore_entry_link_tags('styles_back') }}
+	{{ encore_entry_link_tags('styles_backopp') }}
+{% endblock %}
+{% block body %}
+
+	<div class="opp_container">
+		<section class="section market " aria-label="market update" data-section>
+			<div class="container">
+				<div class="title-wrapper">
+					<h2 class="h2 section-title">Market Update</h2>
+
+					<a href="#" class="btn-link">See All Coins</a>
+				</div>
+				<div class="market-tab">
+					<table class="market-table">
+						<thead class="table-head">
+							<tr class="table-row table-title">
+								<th class="table-heading table-text"></th>
+								<th class="table-heading table-text" scope="col">#</th>
+								<th class="table-heading table-text" scope="col"></th>
+								<th class="table-heading table-text" scope="col">24H %</th>
+								<th class="table-heading table-text" scope="col">Last Price</th>
+								<th class="table-heading table-text" scope="col">Market Cap</th>
+								<th class="table-heading table-text" scope="col"></th>
+								<th class="table-heading table-text"></th>
+							</tr>
+						</thead>
+						<tbody class="table-body">
+							{% for a in opportunite %}
+								<tr class="table-row">
+
+									<td class="table-data">
+										<div class="wrapper">
+											<h3>
+												<a href="#" class="coin-name table-text">{{ a.name }}</a>
+												<td>{{a.lastprice}}</td>
+											</td</h3>
+										</td>
+									</td>
+									<td class="table-data last-price table-text"></td>
+									<td class="table-data last-update green table-text">{{ a.yesterdaychange }}%</td>
+									<td class="table-data market-cap table-text">{{ a.marketcap }}</td>
+
+									<td class="table-text">{{ a.prix }}</td>
+									<td class="table-data">
+										<button class="btn btn-outline">
+											<a href="{{ path('app_edit', {'id': a.id}) }}">edit</a>
+										</button>
+									</td>
+									<td class="table-data">
+										<button class="btn btn-outline">
+											<a href="{{ path('app_delete', {'id': a.id}) }}">delete</a>
+										</button>
+									</td>
+
+								{% endfor %}
+							</tbody>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</div>
+	</tbody>
+</div></section></article>{% endblock %}

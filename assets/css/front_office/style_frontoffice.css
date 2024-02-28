@@ -295,7 +295,7 @@ body.active {
     top: 100%;
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: 110vh;
     background-color: var(--white);
     max-height: 0;
     overflow: hidden;
@@ -668,7 +668,7 @@ address.footer-contact-link {
     }
 
     .header.active {
-        top: -64px;
+        top: -80px;
     }
 
     .navbar-link {
