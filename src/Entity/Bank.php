@@ -30,15 +30,10 @@ class Bank
    
 #[ORM\Column(length: 255)]
 #[Assert\NotBlank]
-#[Assert\Length(max: 255)]
-#[Assert\Regex(
-    pattern: '/^\d+$/',
-    message: 'The SWIFT code should contain only numbers.'
-)]
+
     private ?string $codeSwift = null;
 
     #[ORM\Column(length: 255)]
-    #[Assert\NotBlank]
     #[Assert\Length(max: 255)]
     private ?string $logo = null;
 

@@ -8,6 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use App\Entity\Bank;
 use App\Form\BankType;
@@ -76,39 +77,36 @@ class BankController extends AbstractController
 
 
     #[Route('/editbank/{id}', name: 'app_editbank')]
-    public function edit(BankRepository $repository, $id, Request $request,SluggerInterface  $slugger)
+    public function editbank(BankRepository $repository, $id, Request $request, ManagerRegistry $doctrine, SluggerInterface  $slugger)
     {
-        $Bank = $repository->find($id);
-        $form = $this->createForm(BankType::class, $Bank);
+        $bank = $repository->find($id);
+        $form = $this->createForm(BankType::class, $bank);
+        $form->add('Edit', SubmitType::class);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
             $logo = $form->get('logo')->getData();
 
-                // this condition is needed because the 'brochure' field is not required
-                // so the PDF file must be processed only when a file is uploaded
             if ($logo) {
                 $originalFilename = pathinfo($logo->getClientOriginalName(), PATHINFO_FILENAME);
-                // this is needed to safely include the file name as part of the URL
                 $safeFilename = $slugger->slug($originalFilename);
-                $newFilename = $safeFilename.'-'.uniqid().'.'.$logo->guessExtension();
+                $newFilename = $safeFilename . '-' . uniqid() . '.' . $logo->guessExtension();
 
-                // Move the file to the directory where brochures are stored
                 try {
                     $logo->move(
                         $this->getParameter('bank_directory'),
                         $newFilename
-                        );
-                    } catch (FileException $e) {
-                    // ... handle exception if something happens during file upload
-                    }
+                    );
+                } catch (FileException $e) {
+                  // Handle file upload exception
+                }
 
-                // updates the 'brochureFilename' property to store the PDF file name
-                // instead of its contents
-                $Bank->setLogo($newFilename);
-            }
+                $bank->setLogo($newFilename);
+        }
+            $em = $doctrine->getManager();
             $em->flush(); 
+            $this->addFlash('success', 'Banque a été modifié avec succès.');
+
             return $this->redirectToRoute("app_afficherlistebank");
         }
 
@@ -116,6 +114,8 @@ class BankController extends AbstractController
             'f' => $form->createView(),
         ]);
     }
+    
+    
 
     #[Route('/deletebank/{id}', name: 'app_deletebank')]
     public function delete($id, BankRepository $repository)
@@ -129,6 +129,8 @@ class BankController extends AbstractController
         $em = $this->getDoctrine()->getManager();
         $em->remove($bank);
         $em->flush();
+        $this->addFlash('success', 'Un banque a été supprimé avec succès.');
+
         return $this->redirectToRoute('app_afficherlistebank');
 } 
 }

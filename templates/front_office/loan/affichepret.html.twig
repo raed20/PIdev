@@ -5,32 +5,75 @@
     {{ encore_entry_link_tags('styletableBank') }}
 {% endblock %}
 
+
+
+
+
 {% block body %}
 <div class="table-container">
         <h1>Our loans</h1>
+<div class="limiter">
+<div class="container-table100">
+<div class="wrap-table100">
+<div class="table100">
 <table border="1">
-    <tr>
-        <th>Id</th>
-        <th>Nom</th>
-        <th>email</th>
-        <th>phone</th>
-        <th>amount</th>
-        <th>duration</th>
+<thead>
+    <tr class="table100-head">
+        <th  class="column1">Id</th>
+        <th  class="column2">Nom</th>
+        <th  class="column3">email</th>
+        <th  class="column3">phone</th>
+        <th  class="column3">amount</th>
+        <th  class="column3">duration</th>
     </tr>
-    <tr>  {% for a in pret %} </tr>
-    <td>{{ a.id }}</td>
-    <td>{{ a.fname }}</td>
-    <td> {{ a.email }}</td>
-    <td> {{ a.phonenum }}</td>
-    <td> {{ a.amount }}</td>
-    <td> {{ a.duration }}</td>
+</thead>
+
+    {% for a in pret %} 
+    <tr>  
+    <td  class="column1">{{ a.id }}</td>
+    <td  class="column2">{{ a.fname }}</td>
+    <td  class="column3"> {{ a.email }}</td>
+    <td  class="column3"> {{ a.phonenum }}</td>
+    <td  class="column3"> {{ a.amount }}</td>
+    <td  class="column3"> {{ a.duration }}</td>
 
 
-    <td><a href="{{ path('app_editloan', {'id': a.id}) }}">edit</a></td>
-    <td><a href="{{ path('app_deleteloan', {'id': a.id}) }}">delete</a></td>
+    <td  class="column3"><a href="{{ path('app_editloan', {'id': a.id}) }}">edit</a></td>
+    <td  class="column3"><a href="{{ path('app_deleteloan', {'id': a.id}) }}">delete</a></td>
+    </tr>
 
 
     {% endfor %}
 </table>
 </div>
+</div>
+</div>
+</div>
+</div>
 {% endblock %}
+{% block javascripts %}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <script>
+        {% for flashMessage in app.session.flashbag.get('success') %}
+            Swal.fire({
+                icon: 'success',
+                title: '{{ flashMessage }}',
+                showConfirmButton: true,
+                timer: 3000,
+                timerProgressBar: true,
+                allowOutsideClick: false,
+                allowEscapeKey: false
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = '{{ path('app_afficherlisteloan') }}';
+                }
+            });
+        {% endfor %}
+    </script>
+{% endblock %}
+
+
+
+
+

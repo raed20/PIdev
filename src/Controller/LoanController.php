@@ -63,6 +63,8 @@ class LoanController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $doctrine->getManager();
             $em->flush(); 
+            $this->addFlash('success', 'votre demande de prêt a été modifié avec succès.');
+
             return $this->redirectToRoute("app_afficherlisteloan");
         }
 
@@ -83,6 +85,8 @@ class LoanController extends AbstractController
         $em = $this->getDoctrine()->getManager();
         $em->remove($loan);
         $em->flush();
+        $this->addFlash('success', 'votre demande de prêt a été supprimée avec succès.');
+
         return $this->redirectToRoute('app_afficherlisteloan');
 } 
 
