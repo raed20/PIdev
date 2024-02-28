@@ -1,0 +1,26 @@
+{% block body %}
+    <h1>Panier</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Quantity</th>
+                <th>Product Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for panier in paniers %}
+                <tr>
+                    <td>{{ panier.id }}</td>
+                    <td>{{ panier.quantity }}</td>
+                    <td>{{ panier.product }}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3">Aucun élément trouvé</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

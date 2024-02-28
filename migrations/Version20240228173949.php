@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20240222004309 extends AbstractMigration
+final class Version20240228173949 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -20,12 +20,16 @@ final class Version20240222004309 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE product DROP image');
+        $this->addSql('ALTER TABLE panier ADD product_id INT DEFAULT NULL');
+        $this->addSql('ALTER TABLE panier ADD CONSTRAINT FK_24CC0DF24584665A FOREIGN KEY (product_id) REFERENCES product (id)');
+        $this->addSql('CREATE INDEX IDX_24CC0DF24584665A ON panier (product_id)');
     }
 
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE product ADD image VARCHAR(255) NOT NULL');
+        $this->addSql('ALTER TABLE panier DROP FOREIGN KEY FK_24CC0DF24584665A');
+        $this->addSql('DROP INDEX IDX_24CC0DF24584665A ON panier');
+        $this->addSql('ALTER TABLE panier DROP product_id');
     }
 }

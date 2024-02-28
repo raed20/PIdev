@@ -1,0 +1,9 @@
+{% block body %}
+    <h1>Basket</h1>
+
+    {{ form_start(myForm) }}
+    {{ form_row(myForm.quantity) }}
+    {{ form_row(myForm.product) }}
+    {{ form_row(myForm.Save) }}
+    {{ form_end(myForm) }}
+{% endblock %}

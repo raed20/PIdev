@@ -42,13 +42,8 @@ class Product
     #[ORM\JoinColumn(nullable: false)]
     private ?Category $category = null;
 
-    #[ORM\ManyToMany(targetEntity: Command::class, mappedBy: 'command')]
-    private Collection $commands;
-
-    public function __construct()
-    {
-        $this->commands = new ArrayCollection();
-    }
+    #[ORM\ManyToOne(inversedBy: 'produits')]
+    private ?Panier $panier = null;
 
     public function getId(): ?int
     {
@@ -108,29 +103,14 @@ class Product
         return $this;
     }
 
-    /**
-     * @return Collection<int, Command>
-     */
-    public function getCommands(): Collection
+    public function getPanier(): ?panier
     {
-        return $this->commands;
+        return $this->panier;
     }
 
-    public function addCommand(Command $command): static
+    public function setPanier(?panier $panier): static
     {
-        if (!$this->commands->contains($command)) {
-            $this->commands->add($command);
-            $command->addCommand($this);
-        }
-
-        return $this;
-    }
-
-    public function removeCommand(Command $command): static
-    {
-        if ($this->commands->removeElement($command)) {
-            $command->removeCommand($this);
-        }
+        $this->panier = $panier;
 
         return $this;
     }
