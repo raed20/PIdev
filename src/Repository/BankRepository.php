@@ -21,6 +21,16 @@ class BankRepository extends ServiceEntityRepository
         parent::__construct($registry, Bank::class);
     }
 
+    public function findByNom($nom)
+    {
+        return $this->createQueryBuilder('b')
+            ->andWhere('b.Nom = :nom')
+            ->setParameter('nom', $nom)
+            ->getQuery()
+            ->getResult();
+    }
+
+
 //    /**
 //     * @return Bank[] Returns an array of Bank objects
 //     */

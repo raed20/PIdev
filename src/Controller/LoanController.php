@@ -114,12 +114,12 @@ class LoanController extends AbstractController
 
         // BankController.php
     #[Route('/chercher/{nom}', name: 'app_search_bank')]
-    public function search(Request $request, BankRepository $bank, $nom): Response
+    public function search(Request $request, BankRepository $bank): Response
     {
         $form = $this->createForm(SearchbankType::class);
         $form->handleRequest($request);
 
-        $banks = $bank->findByName($form->get('name')->getData());
+        $banks = $bank->findByName($form->get('Nom')->getData());
 
         return $this->render('front_office/loan/bankshow.html.twig', [
             'banks' => $banks,

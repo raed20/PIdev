@@ -13,7 +13,7 @@ class SearchbankType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', SearchType::class, [
+            ->add('Nom', SearchType::class, [
                 'label' => 'Nom de la banque',
                 'required' => false,
             ]);

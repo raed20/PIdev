@@ -37,6 +37,15 @@
     font-family: sans-serif;
   }
   
+  .search{
+    padding-top: 5%;
+  }
+
+  .dash{
+    padding-top: 10%;
+    display: flex;
+    width: max-content;
+  }
   /* Style anchor tags */
   a {
     margin: 0;
@@ -283,22 +292,22 @@
       top: 0;
     }
     table tbody tr td:nth-child(1):before {
-      content: "Date";
+      content: "ID";
     }
     table tbody tr td:nth-child(2):before {
-      content: "Order ID";
+      content: "Nom";
     }
     table tbody tr td:nth-child(3):before {
-      content: "Name";
+      content: "Adresse";
     }
     table tbody tr td:nth-child(4):before {
-      content: "Price";
+      content: "Logo";
     }
     table tbody tr td:nth-child(5):before {
-      content: "Quantity";
+      content: "";
     }
     table tbody tr td:nth-child(6):before {
-      content: "Total";
+      content: "";
     }
     .column4, .column5, .column6 {
       text-align: left;
