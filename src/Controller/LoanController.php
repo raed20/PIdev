@@ -9,11 +9,14 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Pret;
 use App\Form\PretType;
+use App\Form\SearchbankType;
 use App\Repository\PretRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\BankRepository;
 use App\Entity\Bank;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 
 
 class LoanController extends AbstractController
@@ -27,7 +30,7 @@ class LoanController extends AbstractController
     }
 
     #[Route('/AddLoan/{id}', name: 'app_AddLoan')]
-    public function AddPr(Request $request, ManagerRegistry $doctrine, $id){
+    public function AddPr(Request $request, ManagerRegistry $doctrine, $id, MailerInterface $mailer){
         $Loan = new Pret();
         $form = $this->createForm(PretType::class, $Loan);
         $form->add('Ajouter', SubmitType::class);
@@ -39,10 +42,22 @@ class LoanController extends AbstractController
 
             $em->persist($Loan);
             $em->flush();
+            // Get the user's email (assuming you have a User entity with an email property)
+            $userEmail = 'raedmaaloul3@gmail.com';
+
+        // Create the email
+            $email = (new Email())
+            ->from('hi@sandbox.smtp.mailtrap.io')
+            ->to($userEmail)
+            ->subject('Loan Added')
+            ->text('Your loan has been successfully added.');
+
+            // Send the email
+            $mailer->send($email);
             return $this->redirectToRoute("app_afficherlisteloan");
+            }
+            return $this->render('front_office/loan/addloan.html.twig', ['loan' => $form->createView()]);
         }
-        return $this->render('front_office/loan/addloan.html.twig', ['loan' => $form->createView()]);
-    }
 
 
     #[Route('/Afficherlisteloan', name: 'app_afficherlisteloan')]
@@ -96,5 +111,28 @@ class LoanController extends AbstractController
             $Bank=$repository->findall();
             return $this->render('front_office/loan/bankshow.html.twig',['Bank'=>$Bank]);
         }
+
+        // BankController.php
+    #[Route('/chercher/{nom}', name: 'app_search_bank')]
+    public function search(Request $request, BankRepository $bank, $nom): Response
+    {
+        $form = $this->createForm(SearchbankType::class);
+        $form->handleRequest($request);
+
+        $banks = $bank->findByName($form->get('name')->getData());
+
+        return $this->render('front_office/loan/bankshow.html.twig', [
+            'banks' => $banks,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    #[Route('/dashbordBank', name: 'app_dashBank')]
+    public function dashboardAction(): Response
+    {
+        return $this->render('front_office/loan/dashbordBank.html.twig');
+    }
+
+
 
 }

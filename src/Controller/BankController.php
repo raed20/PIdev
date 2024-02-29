@@ -12,6 +12,7 @@ use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use App\Entity\Bank;
 use App\Form\BankType;
+use App\Form\SearchbankType;
 use App\Repository\BankRepository;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
@@ -132,7 +133,10 @@ class BankController extends AbstractController
         $this->addFlash('success', 'Un banque a été supprimé avec succès.');
 
         return $this->redirectToRoute('app_afficherlistebank');
-} 
+    }
+    
+
+
 }
 
 

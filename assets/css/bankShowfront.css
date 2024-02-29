@@ -112,6 +112,9 @@
     width: 100%;
     margin: 0 auto;
   }
+  .table-container{
+    padding-top: 5%;
+  }
   
   .container-table100 {
     width: 100%;
