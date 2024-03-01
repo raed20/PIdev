@@ -13,7 +13,7 @@
 				<div class="hero-container">
 					<h1 class="h1 hero-title">Invest in a secure future with ProSync.</h1>
 					<p class="hero-text">Prosync is the premier and most secure platform for tracking and investing in stocks.</p>
-					<a href="#" class="btn btn-primary">Get started now</a>
+					<a href="#" class="btn btn-primary ion-icon">Get started now</a>
 				</div>
 				<figure class="hero-banner">
 					<img src="{{ asset('images/front_office/hero-banner.png') }}" width="570" height="448" alt="Hero Banner" class="w-100">
@@ -34,7 +34,7 @@
 						</li>
 					</ul>
 					<ul class="tab-content">
-						{% for a in opport %}
+						{% for a in opport|slice(0, 4) %}
 							<li>
 								<div class="trend-card ative">
 
@@ -82,7 +82,7 @@
 						</tr>
 					</thead>
 					<tbody class="table-body">
-						{% for a in opport %}
+						{% for a in opport|slice(0, 10) %}
 							<tr class="table-row">
 								<th class="table-data rank table-text" scope="row">{{ a.id }}</th>
 
@@ -90,7 +90,7 @@
 								<td class="table-data">
 									<div class="wrapper">
 										<h3>
-											<a href="#" class="coin-name table-text">{{ a.name }}<span class="span">BTC</span>
+											<a href="#" class="coin-name table-text">{{ a.name }}<span class="span">{{ a.name }}</span>
 											</a>
 										</h3>
 										<img src="{{ asset('images/front_office/coin-4.svg') }}" width="20" height="20" alt="Bitcoin logo" class="img">
@@ -102,18 +102,18 @@
 
 								<td class="table-text">{{ a.prix }}</td>
 								<td class="table-data">
-									<button class="btn btn-outline">
+									<button class="btn btn-outline btn_invest">
 										<a href="{{ path('app_AddInvest', {'id': a.id}) }}">invest</a>
 									</button>
 								</td>
 
-							{% endfor %}
+						{% endfor %}
 						</tbody>
 					</tbody>
 				</table>
 				<!-- 
-																																																																																																																																																																																																																				        - #INSTRUCTION
-																																																																																																																																																																																																																				      -->
+																																																																																																																																																																																																																												        - #INSTRUCTION
+																																																																																																																																																																																																																												      -->
 
 				<section class="section instruction" aria-label="instruction" data-section>
 					<div class="container">
@@ -216,8 +216,8 @@
 
 							<p class="section-text">
 								Explore a range of trading options on Bitcost. From Spot,
-																																																																																																																																																																																																																																																																																																																																																																																																																																								                            Staking and margin trading, we offer diverse opportunities in cryptocurrency
-																																																																																																																																																																																																																																																																																																																																																																																																																																								                            investment. Join us to start trading today!
+																																																																																																																																																																																																																																																																																																																																																																																																																																																								                            Staking and margin trading, we offer diverse opportunities in cryptocurrency
+																																																																																																																																																																																																																																																																																																																																																																																																																																																								                            investment. Join us to start trading today!
 							</p>
 
 							<ul class="section-list">
@@ -231,8 +231,8 @@
 
 									<p class="item-text">
 										Explore a variety of trading options with our platform. Whether you prefer																																																																																																																																																																																				                                    traditional stock trading, options, we offer a range
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																		                                    of tools to suit your needs. Join us today and seize control of your financial
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																		                                    future.
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																						                                    of tools to suit your needs. Join us today and seize control of your financial
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																						                                    future.
 									</p>
 								</li>
 
@@ -246,13 +246,13 @@
 
 									<p class="item-text">
 										Enjoy various trading options like Spot Trade, Futures Trade, Staking
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																		                                    and margin trading. Join now for seamless stock trading.
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																						                                    and margin trading. Join now for seamless stock trading.
 									</p>
 								</li>
 
 							</ul>
 
-							<a href="#" class="btn btn-primary">Explore More</a>
+							<a href="#" class="btn btn-primary ion-icon">Explore More</a>
 
 						</div>
 

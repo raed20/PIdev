@@ -50,7 +50,7 @@ class Opportunite
     private ?float $marketcap = null;
 
 
-    #[ORM\OneToMany(targetEntity: Investissement::class, mappedBy: 'opport')]
+    #[ORM\OneToMany(targetEntity: Investissement::class,cascade:['remove'], mappedBy: 'opport')]
     private Collection $investissements;
 
  

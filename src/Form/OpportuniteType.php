@@ -15,18 +15,20 @@ class OpportuniteType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name')
-            ->add('lastprice', MoneyType::class, [
-                'label' => 'Laste Price', 'currency' => 'USD'
+            ->add('name',null,['attr' => ['placeholder' => 'Stock name']])
+            ->add('lastprice', null, [
+                'label' => 'Last Price','attr' => ['placeholder' => 'Last closing price in dollars']
             ])
-            ->add('yesterdaychange', null, ['label' => '24H %',])
-            ->add('marketcap', MoneyType::class, [
-                'label' => 'Market Cap', 'currency' => 'USD'
-            ])
-            ->add('description')
-            ->add('prix', MoneyType::class, [
-                'label' => 'Prix', 'currency' => 'USD'
-            ]);
+            ->add('yesterdaychange', null, [
+                'label' => '24H %',
+                'attr' => ['placeholder' => 'Change rate']])
+            ->add('marketcap', null, [
+                'label' => 'Market Cap',
+                'attr' => ['placeholder' => 'Market Cap in dollars']])
+            ->add('description', null, ['attr' => ['placeholder' => 'Stock Description']])
+            ->add('prix', null, [
+                'label' => 'Price',
+                'attr' => ['placeholder' => 'Price in dollars']]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

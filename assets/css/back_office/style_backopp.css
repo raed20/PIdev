@@ -1,12 +1,19 @@
-.opp_container {
+/*-----------------------------------*\
+  #opportunité
+\*-----------------------------------*/
 
-    position: absolute;
-    width: calc(100% - 180px);
-    left: 300px;
-    top: 50px;
-    min-height: 100vh;
-    background: var(--white);
-    transition: 0.5s
+  
+.section.market {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+}
+
+.container {
+    position: relative;
+    background-color: var(--white);
+    padding: 30px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
 }
 
 .market {
@@ -119,24 +126,6 @@
     background-color: var(--blue-crayola_10);
 }
 
-.market-table .add-to-fav {
-    color: var(--cadet-blue-crayola);
-    font-size: 18px;
-}
-
-.market-table .add-to-fav.active .icon-outline,
-.market-table .add-to-fav .icon-fill {
-    display: none;
-}
-
-.market-table .add-to-fav .icon-outline,
-.market-table .add-to-fav.active .icon-fill {
-    display: block;
-}
-
-.market-table .add-to-fav.active ion-icon {
-    color: var(--maximum-yellow-red);
-}
 
 .market-table .wrapper {
     display: flex;
@@ -171,7 +160,26 @@
     padding-inline: 10px;
 }
 
-.market-table .table-row:is(:hover, :focus-within) .btn-outline {
-    background-color: var(--blue-crayola_10);
+.market-table .table-row .btn-outline:is(:hover, :focus-within) {
+    background-color: var(--blue-crayola);
     border-color: var(--blue-crayola);
+
+}
+
+.market-table .table-row .btn-outline:is(:hover, :focus-within) a {
+    color: var(--white);
+}
+
+
+.add_btn{
+    color: var(--blue-crayola);
+    font-size: 3.5rem;
+}
+/*-----------------------------------*\
+  #media quaries
+\*-----------------------------------*/
+@media (min-width: 1400px) {
+    .container {
+        max-width: 100%;
+    }
 }

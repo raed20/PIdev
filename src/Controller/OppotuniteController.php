@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Controller;
-
+use App\Service\PolygonApiService;
 use App\Entity\Opportunite;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -18,7 +19,7 @@ class OppotuniteController extends AbstractController
     #[Route('/opportunite', name: 'app_opportunite')]
     public function index(): Response
     {
-        return $this->render('front_office/index.html.twig', [
+        return $this->render('front_office/investissements/affOpp.html.twig', [
             'controller_name' => 'OpportuniteController',
         ]);
     }

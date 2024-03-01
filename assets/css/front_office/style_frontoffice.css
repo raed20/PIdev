@@ -49,7 +49,6 @@
     /*
     Spacing
     */
-    --section-padding: 100px;
     /*
     Shadow
     */
@@ -113,9 +112,7 @@ button {
     cursor: pointer;
 }
 
-ion-icon {
-    pointer-events: none;
-}
+
 
 address {
     font-style: normal;

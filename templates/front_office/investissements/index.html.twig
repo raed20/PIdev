@@ -1,33 +1,58 @@
 {% extends 'front_office/base_front.html.twig' %}
 
-{% block title %}Hello OppotuniteController!
+{% block title %}Walet
 {% endblock %}
 {% block stylesheets %}
 	{{ parent() }}
-	{{ encore_entry_link_tags('styles_invest_main_front') }}
-	{{ encore_entry_link_tags('styles_invest_front') }}
+		{{ encore_entry_link_tags('styles_invest_main_front') }}
+
 	<link rel="stylesheet" href="{{ asset('css/your_custom_styles.css') }}">
 {% endblock %}
 
 {% block body %}
+<section class="section market" aria-label="market update" data-section>
+		<div class="container">
+			<div class="title-wrapper">
+				<h2 class="h2 section-title">Wallet</h2>
 
+			</div>
+			<div class="market-tab">
+				<table class="market-table">
+					<thead class="table-head">
+						<tr class="table-row table-title">
+							<th class="table-heading table-text">#</th>
+							<th class="table-heading table-text" scope="col">Name</th>
+							<th class="table-heading table-text" scope="col">Amount</th>
+							<th class="table-heading table-text" scope="col">Total Value</th>
+							<th class="table-heading table-text" scope="col"></th>
+							
+						</tr>
+					</thead>
+					<tbody class="table-body">
+		{% for data in investissementData %}
+    <tr class="table-row">
+        <th class="table-data rank table-text" scope="row">{{ data.opportuniteId }}</th>
+        <td class="table-data">
+            <div class="wrapper">
+                <h3>
+                    <a href="#" class="coin-name table-text">{{ data.opportuniteName }}</a>
+                </h3>
+                <img src="{{ asset('images/front_office/coin-4.svg') }}" width="20" height="20" alt="Bitcoin logo" class="img">
+            </div>
+        </td>
+        <td class="table-data last-price table-text">{{ data.montant }}</td>
+        <td class="table-data market-cap table-text">{{ data.totalValue }}</td>
+		<td class="table-data">
+									<button class="btn btn-outline btn_invest">
+										<a href="{{ path('app_delete_investment', {'id': data.investissementid}) }}">Sell</a>
+									</button>
+								</td>
+    </tr>
+{% endfor %}
 
-	<div class="section hero">
-		<h1>Hello
-			{{ controller_name }}! ✅</h1>
-
-		This friendly message is coming from:
-		<ul>
-			<li>Your controller at
-				<code>
-					<a href="{{ 'C:/Users/taher/Downloads/PIdev-main/PIdev-main/src/Controller/OppotuniteController.php'|file_link(0) }}">src/Controller/OppotuniteController.php</a>
-				</code>
-			</li>
-			<li>Your template at
-				<code>
-					<a href="{{ 'C:/Users/taher/Downloads/PIdev-main/PIdev-main/templates/oppotunite/index.html.twig'|file_link(0) }}">templates/oppotunite/index.html.twig</a>
-				</code>
-			</li>
-		</ul>
-	</div>
+						</tbody>
+					</tbody>
+				</table>
+</section>
+</article>
 {% endblock %}
