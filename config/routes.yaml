@@ -2,5 +2,5 @@
 #    path: /
 #    controller: App\Controller\DefaultController::index
 go_to_index:
-    path: /go-to-index
-    controller: 'App\Controller\ServiceController::index'
+    path: /Afficherloans
+    controller: 'App\Controller\BankController::ShowPr'

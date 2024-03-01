@@ -37,9 +37,7 @@
     font-family: sans-serif;
   }
   
-  .search{
-    padding-top: 5%;
-  }
+
 
   .dash{
     padding-top: 10%;
@@ -123,6 +121,7 @@
   }
   .table-container{
     padding-top: 5%;
+    padding-left: 10%;
   }
   
   .container-table100 {

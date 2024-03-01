@@ -1,4 +1,5 @@
-{% extends 'front_office/base.html.twig' %}
+{% extends 'back_office/base_back.html.twig' %}
+
 
 {% block stylesheets %}
     {{ parent() }}
@@ -19,22 +20,30 @@
 <table border="1">
 <thead>
     <tr class="table100-head">
-        <th  class="column1">reference pret</th>
-        <th  class="column2">Nom banque</th>
+        <th  class="column1">Id</th>
+        <th  class="column2">Nom</th>
+        <th  class="column3">email</th>
+        <th  class="column3">phone</th>
         <th  class="column3">amount</th>
         <th  class="column3">duration</th>
+        <th  class="column3">bank</th>
     </tr>
 </thead>
 
-    {% for a in pretData %} 
+    {% for a in pret %} 
     <tr>  
-    <td  class="column1">{{ a.pretid }}</td>
-    <td  class="column2">{{ a.bankName }}</td>
-    <td  class="column3"> {{ a.montant }}</td>
+    <td  class="column1">{{ a.id }}</td>
+    <td  class="column2">{{ a.fname }}</td>
+    <td  class="column3"> {{ a.email }}</td>
+    <td  class="column3"> {{ a.phonenum }}</td>
+    <td  class="column3"> {{ a.amount }}</td>
     <td  class="column3"> {{ a.duration }}</td>
- 
-    <td  class="column3"><a href="{{ path('app_editloan', {'id': a.pretid}) }}">edit</a></td>
-    <td  class="column3"><a href="{{ path('app_deleteloan', {'id': a.pretid}) }}">delete</a></td>
+    <td  class="column3"> {{ a.IdBank.Nom }}</td>
+
+
+
+    <td  class="column3"><a href="{{ path('app_editloan', {'id': a.id}) }}">edit</a></td>
+    <td  class="column3"><a href="{{ path('app_deleteloan', {'id': a.id}) }}">delete</a></td>
     </tr>
 
 
@@ -67,8 +76,3 @@
         {% endfor %}
     </script>
 {% endblock %}
-
-
-
-
-

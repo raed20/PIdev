@@ -15,6 +15,7 @@ use App\Form\BankType;
 use App\Form\SearchbankType;
 use App\Repository\BankRepository;
 use Symfony\Component\String\Slugger\SluggerInterface;
+use App\Repository\PretRepository;
 
 class BankController extends AbstractController
 {
@@ -133,6 +134,13 @@ class BankController extends AbstractController
         $this->addFlash('success', 'Un banque a été supprimé avec succès.');
 
         return $this->redirectToRoute('app_afficherlistebank');
+    }
+
+    ##[Route('/Afficherloans', name: 'app_afficherlisteloan')]
+    public function ShowPr(PretRepository $repository)
+    {
+        $pret=$repository->findall();
+        return $this->render('back_office/loan/allloans.html.twig',['pret'=>$pret]);
     }
     
 

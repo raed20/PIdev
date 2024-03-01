@@ -17,6 +17,8 @@ use App\Repository\BankRepository;
 use App\Entity\Bank;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
+use Symfony\Component\Security\Core\Security;
+
 
 
 class LoanController extends AbstractController
@@ -60,11 +62,51 @@ class LoanController extends AbstractController
         }
 
 
-    #[Route('/Afficherlisteloan', name: 'app_afficherlisteloan')]
+    /*#[Route('/Afficherlisteloan', name: 'app_afficherlisteloan')]
     public function ShowPr(PretRepository $repository)
     {
         $pret=$repository->findall();
         return $this->render('front_office/loan/affichepret.html.twig',['pret'=>$pret]);
+    }*/
+
+    #[Route('/Afficherlisteloan', name: 'app_afficherlisteloan')]
+    public function showw(PretRepository $repository, Security $security)
+    {
+        // Retrieve the current user
+        //$user = $security->getUser();
+        $user = 1;
+        
+        // Check if the user is authenticated
+        //if ($user) {
+            // Get the user's investments from the repository
+            $prets = $repository->findBy(['user' => $user]);
+            
+            // Initialize an array to store opportunities
+            $pretData = [];
+            
+            // Loop through each investment to collect associated opportunities
+            foreach ($prets as $pret) {
+                $pretid = $pret->getId();
+                $bankName = $pret->getIdBank()->getNom();
+                $montant = $pret->getAmount();
+                $duration = $pret->getDuration();
+                $pretData[] = [
+                    'pretid' => $pretid,
+                    'bankName' => $bankName,
+                    'montant' => $montant,
+                    'duration' => $duration,
+                ];
+            }
+            
+            // Render the Twig template with the opportunities
+            return $this->render('front_office/loan/affichepret.html.twig', [
+                'pretData' => $pretData
+            ]);
+        //} //else {
+            // Handle the case when the user is not authenticated
+            // For example, redirect the user to the login page
+            //return $this->redirectToRoute('app_login');
+        //}
     }
 
     #[Route('/editloan/{id}', name: 'app_editloan')]
