@@ -4,43 +4,68 @@
 
 {% block body %}
 {% block stylesheets %}
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+{{ parent() }}
+    
         {{ encore_entry_link_tags('styles_back') }}
         {{ encore_entry_link_tags('styles_Affichage') }}
 {% endblock %}
 
-<body>
+
+	<section class="section market " aria-label="market update" data-section>
+		<div class="container">
+			<div class="title-wrapper">
+				<h2 class="h2 section-title">Blog List</h2>
+				<a href="{{ path('app_AddBlog') }}"><i class="fas fa-plus add_btn"></i></a>
+
+			</div>
+			<div class="market-tab">
+				<table class="market-table">
+					<thead class="table-head">
+						<tr class="table-row table-title">
+							
+							<th class="table-heading table-text" scope="col">Id</th>
+							<th class="table-heading table-text" scope="col">Titre</th>
+							<th class="table-heading table-text" scope="col">Description</th>
+							
+							<th class="table-heading table-text" scope="col"></th>
+							<th class="table-heading table-text"></th>
+						</tr>
+					</thead>
+					<tbody class="table-body">
+						{% for a in blog %}
+							<tr class="table-row">
+
+								<td class="table-data">
+									<div class="wrapper">
+										<h3>
+											<a href="#" class="coin-name table-text">{{ a.id }}</a>
+											<td>{{a.titre}}</td>
+										</td</h3>
+									</td>
+								</td>
+								
+								<td class="table-data last-update green table-text">{{ a.description }}</td>
+								
+
+								
+								<td class="table-data">
+									<button class="btn btn-outline">
+										<a href="{{ path('app_editblog', {'id': a.id}) }}">edit</a>
+									</button>
+								</td>
+								<td class="table-data">
+									<button class="btn btn-outline">
+										<a href="{{ path('app_delete', {'id': a.id}) }}">delete</a>
+									</button>
+								</td>
+
+							{% endfor %}
    
+   
+        </table>
+     </div>   
+</section></article>   
 
-    <div class="b_container">
-        
-        <main>
-         <h1>Blog List</h1>
-          <button class="btn btn-primary" type="button" onclick="window.location.href='/AddBlog'">Ajouter un Blog</button>
-
-            <table class="table align-middle mb-0 bg-white">
-                <tr>
-                    <th>Id</th>
-                    <th>Title</th>
-                    <th>Description</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
-                </tr>
-                {% for a in blog %}
-                    <tr>
-                        <td>{{ a.id }}</td>
-                        <td>{{ a.titre }}</td>
-                        <td>{{ a.description }}</td>
-                        <td><a href="{{ path('app_editblog', {'id': a.id}) }}"><i class="fas fa-edit"></i> </a></td>
-                        <td><a href="{{ path('app_delete', {'id': a.id}) }}"><i class="fas fa-trash-alt"></i> </a></td>
-
-                    </tr>
-                {% endfor %}
-            </table>
-        </main>
-    </div>
-</body>
-</html>
 
 {% endblock %}
 {% block javascripts %}

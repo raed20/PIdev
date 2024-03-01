@@ -17,7 +17,7 @@ class Commentaire
     private ?string $contenue = null;
 
     #[ORM\ManyToOne(inversedBy: 'commentaires')]
-    private ?blog $idblog = null;
+    private ?Blog $idblog = null;
 
     public function getId(): ?int
     {

@@ -5,6 +5,11 @@ namespace App\Repository;
 use App\Entity\Blog;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use App\Model\SearchData;
+use Knp\Component\Pager\Pagination\PaginationInterface;
+use Knp\Component\Pager\PaginatorInterface;
+
+
 
 /**
  * @extends ServiceEntityRepository<Blog>
@@ -16,10 +21,28 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class BlogRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+    public function __construct(ManagerRegistry $registry,private PaginatorInterface $paginatorInterface)
     {
         parent::__construct($registry, Blog::class);
     }
+
+
+    public function findBySearch(SearchData $searchData):PaginationInterface
+    {
+        $data=$this->createQueryBuilder('p')
+            ->where('p.titre LIKE :titre')
+            ->setParameter('titre', "%{$searchData->q}%");
+        if(!empty($searchData->q)){
+            $data=$data
+                ->andWhere('p.titre LIKE :q')
+                ->setParameter('q',"%{$searchData->q}%");
+        } 
+        $data= $data
+            ->getQuery()   
+            ->getResult();
+            $blog = $this->paginatorInterface->paginate($data, $searchData->page, 9);
+        return $blog ;
+    }    
 
 //    /**
 //     * @return Blog[] Returns an array of Blog objects

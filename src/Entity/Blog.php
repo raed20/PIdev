@@ -31,6 +31,7 @@ class Blog
     private ?string $categorie = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Assert\Length(min:10)]
     private ?string $contenu = null;
 
     #[ORM\OneToMany(targetEntity: Commentaire::class, mappedBy: 'idblog')]

@@ -7,21 +7,15 @@
 {% block body %}
   <body>
 
-    <!-- header -->
-    
-      
-      
-    <!-- end of header -->
-    
  
-
-
-    <!-- blog -->
+   
     <section class = "blog" id = "blog">
       <div class = "containerrr">
         <div class = "title">
           <h2>Latest Blog</h2>
-          
+          {% include 'blog/searchData.html.twig' with{
+  form:form
+} only %}
         </div>
         <div class = "blog-content">
           <!-- item -->
@@ -45,7 +39,7 @@
     </section>
     <!-- end of blog -->
 
-    
+  
 
    
     

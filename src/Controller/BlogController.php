@@ -10,17 +10,38 @@ use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Blog;
 use App\Form\BlogType;
+use App\Form\SearchType;
 use App\Repository\BlogRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use App\Model\SearchData;
+
 
 
 class BlogController extends AbstractController
 {
     #[Route('/blog', name: 'app_blog')]
-    public function Showfront(BlogRepository $repository)
+    public function Showfront(BlogRepository $repository, Request $request)
     {
+        $searchData = new searchData();
+        $form =$this->createForm(SearchType::class, $searchData);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $searchData->page= $request->query->getInt('page',1);
+            $blog= $repository->findBySearch($searchData);
+            
+            return $this->render('blog/index.html.twig',[
+                'form'=>$form->createView(),
+                'blog'=>$blog
+            ]);
+            
+        }
+
         $blog=$repository->findall();
-        return $this->render('blog/index.html.twig',['blog'=>$blog]);
+        return $this->render('blog/index.html.twig',[
+            'form'=>$form->createView(),
+            'blog'=>$blog
+        ]);
+
     }
 
 
@@ -87,19 +108,10 @@ class BlogController extends AbstractController
         return $this->redirectToRoute('app_afficherliste');
 } 
 
-    #[Route('/blogdetails/{id}', name: 'blogdetails', methods:[ "GET", "POST" ] )]
+    #[Route('/blogdetails/{id}', name: 'blogdetails' )]
 
-        public function blogdetails(Blog $blog, request $request, $id,ManagerRegistry $doctrine):Response{
-            $comment=new Commentaire();
-            $form = $this->createForm( CommentType::class, $comment);
+        public function blogdetails( $id,ManagerRegistry $doctrine):Response{
             
-            $form -> handleRequest($request); 
-
-            if($form->isSubmitted() && $form->isValid()){
-                $em->persist($comment);
-                $em->flush();
-                
-                return $this->redirectToRoute('blogdetails', ['id'=>$blog->getBlog()]);
             
             $BlogRepository = $doctrine->getRepository(Blog::class);
             $blog = $BlogRepository->find($id);
@@ -109,11 +121,9 @@ class BlogController extends AbstractController
             return $this->render('blog/showblogdetaille.html.twig', [
                 'blog' => $blog,
                 'comments' => $comments,
-                'post' => $post,
-                'form' => $form->createView(),
+                
             ]);
             
         }
 
 }   
-}

@@ -1,19 +1,11 @@
-/* =========== Google Fonts ============ */
-
-
-
-/* =============== Globals ============== */
-* {
-  font-family: "Ubuntu", sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/*-----------------------------------*\
+  #CUSTOM PROPERTY
+\*-----------------------------------*/
 
 :root {
   /*
-     Colors
-    */
+   Colors
+  */
   --cadet-blue-crayola: hsl(227, 13%, 73%);
   --maximum-yellow-red: hsl(41, 95%, 61%);
   --medium-sea-green: hsl(142, 43%, 54%);
@@ -33,22 +25,239 @@
   --white_10: hsla(0, 0%, 100%, 0.1);
   --black_10: hsla(0, 0%, 0%, 0.1);
   --white: hsl(0, 0%, 100%);
+  /*
+  gradient
+  */
+  --gradient: linear-gradient(90deg, var(--white_10) 0px 77%, var(--white_50) 92%, transparent);
+  /*
+  Topography
+  */
+  --ff-dm-sans: 'DM Sans', sans-serif;
+
+  --fs-1: 3.2rem;
+  --fs-2: 3rem;
+  --fs-3: 2.4rem;
+  --fs-4: 2rem;
+  --fs-5: 1.8rem;
+  --fs-6: 1.5rem;
+  --fs-7: 1.4rem;
+  --fs-8: 1.2rem;
+
+  --fw-500: 500;
+  --fw-700: 700;
+
+  /*
+  Spacing
+  */
+  --section-padding: 100px;
+  /*
+  Shadow
+  */
+  --shadow-1: 0px 4px 8px var(--black_10);
+  --shadow-2: 0px 30px 10px -20px var(--smocky-black_30);
+  --shadow-3: 0px 15px 10px -20px var(--smocky-black_30);
+  /*
+  Border radius
+  */
+  --radius-12: 12px;
+  --radius-24: 24px;
+  /*
+  Trasition
+  */
+  --transition-1: 0.25s ease;
+  --transition-2: 0.5s ease;
+  --transition-3: 1s ease;
+  --cubic-out: cubic-bezier(0.33, 0.85, 0.4, 0.96);
+
+}
+
+/*-----------------------------------*\
+  #RESET
+\*-----------------------------------*/
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--blue-crayola);
+}
+
+a,
+img,
+svg,
+data,
+span,
+button,
+ion-icon {
+  display: block;
+}
+
+img {
+  height: auto;
+}
+
+button {
+  background: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+
+
+address {
+  font-style: normal;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+html {
+  font-family: var(--ff-dm-sans);
+  font-size: 10px;
+  scroll-behavior: smooth;
 }
 
 body {
-  min-height: 100vh;
-  overflow-x: hidden;
+  background-color: var(--white);
+  color: var(--cadet-blue-crayola);
+  font-size: 1.6rem;
+  line-height: 1.4;
+
 }
 
-.container {
+body.active {
+  overflow: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: hsl(220, 4%, 5%);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: hsl(220, 4%, 20%);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(220, 4%, 30%);
+}
+
+:focus-visible {
+  outline-offset: 4px;
+}
+
+/*-----------------------------------*\
+  #REUSED STYLE
+\*-----------------------------------*/
+.btn {
+  border-radius: 50px;
+}
+
+.btn-outline {
+  font-size: var(--fs-6);
+  font-weight: var(--fw-500);
+  border: 1px solid var(--blue-crayola);
+  padding: 5px 15px;
+  transition: var(--transition-1);
+}
+
+.btn-outline:is(:hover, :focus) {
+  background-color: var(--blue-crayola);
+  border: 1px solid var(--blue-crayola);
+  border-color: var(--white);
+  color: var(--white);
+  border: 1px solid var(--blue-crayola);
+}
+
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: -50px;
+  background-image: var(--gradient);
+  transform: translateX(-100%);
+  opacity: 0;
+  z-index: -1;
+  transition: var(--transition-2);
+  border: 1px solid var(--blue-crayola);
+}
+
+.btn-primary:is(:hover, :focus)::after {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/*-----------------------------------*\
+  #REUSED STYLE
+\*-----------------------------------*/
+.btn {
+  border-radius: 50px;
+}
+
+.btn-outline {
+  font-size: var(--fs-6);
+  font-weight: var(--fw-500);
+  border: 1px solid var(--blue-crayola);
+  padding: 5px 15px;
+  transition: var(--transition-1);
+}
+
+.btn-outline:is(:hover, :focus) {
+  background-color: var(--blue-crayola);
+  border: 1px solid var(--blue-crayola);
+  border-color: var(--white);
+  color: var(--white);
+  border: 1px solid var(--blue-crayola);
+}
+
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: -50px;
+  background-image: var(--gradient);
+  transform: translateX(-100%);
+  opacity: 0;
+  z-index: -1;
+  transition: var(--transition-2);
+  border: 1px solid var(--blue-crayola);
+}
+
+.btn-primary:is(:hover, :focus)::after {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/*-----------------------------------*\
+  #navigation
+\*-----------------------------------*/
+.container_side {
   position: relative;
   width: 100%;
 }
 
-/* =============== Navigation ================ */
 .navigation {
   position: fixed;
-  width: 200px;
+  width: 300px;
   height: 100%;
   background: var(--blue-crayola);
   border-left: 10px solid var(--blue-crayola);
@@ -57,13 +266,13 @@ body {
 }
 
 .navigation.active {
-  width: 80px;
+  width: 100px;
 }
 
 .navigation ul {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 0;
+  left: 0;
   width: 100%;
 }
 
@@ -71,18 +280,21 @@ body {
   position: relative;
   width: 100%;
   list-style: none;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 100px;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+
 }
 
 .navigation ul li:hover,
 .navigation ul li.hovered {
   background-color: var(--white);
+
 }
 
 .navigation ul li:nth-child(1) {
   margin-bottom: 40px;
   pointer-events: none;
+  font-size: 3rem;
 }
 
 .navigation ul li a {
@@ -92,6 +304,7 @@ body {
   display: flex;
   text-decoration: none;
   color: var(--white);
+
 }
 
 .navigation ul li:hover a,
@@ -99,27 +312,22 @@ body {
   color: var(--blue-crayola);
 }
 
-.navigation ul li a .icon ion-icon {
+.navigation ul li a .icon {
   position: relative;
   display: block;
   min-width: 60px;
-  height: 100px;
+  height: 60px;
   line-height: 75px;
   text-align: center;
 }
 
-.navigation ul li a span {
-  bottom: 15px;
-}
-
-.navigation ul li a .icon {
-  font-size: 1.7rem;
+.navigation ul li a .icon .ion-icon {
+  font-size: 2.75rem;
 }
 
 .navigation ul li a .title {
   position: relative;
   display: block;
-  left: 10px;
   padding: 0 10px;
   height: 60px;
   line-height: 60px;
@@ -127,15 +335,34 @@ body {
   white-space: nowrap;
 }
 
-/* --------- curve outside ---------- */
+.fa,
+.fab,
+.fad,
+.fal,
+.far,
+.fas {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 60px;
+}
+
+
+
+/*-----------------------------------*\
+  #curves outside
+\*-----------------------------------*/
 .navigation ul li:hover a::before,
 .navigation ul li.hovered a::before {
-  content: "";
+  content: '';
   position: absolute;
-  right: 0;
-  top: 500px;
-  width: 20px;
-  height: 100px;
+  right: 0%;
+  top: -50px;
+  width: 50px;
+  height: 50px;
   background-color: transparent;
   border-radius: 50%;
   box-shadow: 35px 35px 0 10px var(--white);
@@ -144,11 +371,11 @@ body {
 
 .navigation ul li:hover a::after,
 .navigation ul li.hovered a::after {
-  content: "";
+  content: '';
   position: absolute;
-  right: 0;
-  bottom: -40px;
-  width: 30px;
+  right: 0%;
+  bottom: -50px;
+  width: 50px;
   height: 50px;
   background-color: transparent;
   border-radius: 50%;
@@ -156,23 +383,28 @@ body {
   pointer-events: none;
 }
 
-/* ===================== sidebar ===================== */
-.sidebar {
+
+
+
+/*-----------------------------------*\
+  #main
+\*-----------------------------------*/
+
+.main {
   position: absolute;
-  width: calc(100% - 180px);
-  left: 180px;
+  width: calc(100% - 300px);
+  left: 300px;
   min-height: 100vh;
   background: var(--white);
   transition: 0.5s;
 }
 
-.sidebar.active {
-  width: calc(100% - 70px);
-  left: 70px;
+.main.active {
+  width: calc(100% - 100px);
+  left: 100px;
 }
 
 .topbar {
-
   width: 100%;
   height: 60px;
   display: flex;
@@ -182,45 +414,15 @@ body {
 }
 
 .toggle {
-
-  color: var(--blue-crayola);
   position: relative;
+  top: 0%;
   width: 60px;
   height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2.5rem;
   cursor: pointer;
-}
-
-.search {
-  position: absolute;
-  width: 400px;
-  margin: 0 10px;
-}
-
-.search label {
-  position: absolute;
-  width: 100%;
-}
-
-.search label input {
-  width: 100%;
-  height: 40px;
-  border-radius: 40px;
-  padding: 5px 20px;
-  padding-left: 35px;
-  font-size: 18px;
-  outline: none;
-  border: 1px solid var(--eerie-black-1);
-}
-
-.search label ion-icon {
-  position: absolute;
-  top: 0;
-  left: 10px;
-  font-size: 1.2rem;
+  color: var(--blue-crayola);
 }
 
 .user {
@@ -238,10 +440,14 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: fill;
 }
 
-/* ====================== Responsive Design ========================== */
+
+
+/*-----------------------------------*\
+  #media 
+\*-----------------------------------*/
 @media (max-width: 991px) {
   .navigation {
     left: -300px;
@@ -252,23 +458,19 @@ body {
     left: 0;
   }
 
-  .sidebar {
+  .main {
     width: 100%;
     left: 0;
   }
 
-  .sidebar.active {
+  .main.active {
     left: 300px;
   }
 
 
 }
 
-
-
 @media (max-width: 480px) {
-
-
   .user {
     min-width: 40px;
   }
@@ -285,13 +487,12 @@ body {
   }
 
   .toggle {
-    z-index: 10001;
+    z-index: 1002;
   }
 
-  .sidebar.active .toggle {
+  .main.active .toggle {
     color: var(--white);
-    position: fixed;
-    right: 0;
-    left: initial;
+
   }
+
 }

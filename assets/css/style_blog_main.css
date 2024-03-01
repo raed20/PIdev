@@ -37,26 +37,7 @@ body{
 }
 
 
-.search-input{
-    font-family: var(--Roboto);
-    font-size: 1.1rem;
-    width: 100%;
-    outline: 0;
-    padding: 0.6rem 0;
-    border: none;
-}
-.search-input::placeholder{
-    text-transform: capitalize;
-}
-.search-btn{
-    width: 40px;
-    font-size: 1.1rem;
-    color: var(--dark);
-    border: none;
-    background: transparent;
-    outline: 0;
-    cursor: pointer;
-}
+
 
 /* design */
 
@@ -186,9 +167,7 @@ body{
     padding: 0.55rem 1.2rem;
     transition: all 0.5s ease;
 }
-.blog-text a:hover{
-    background: var(--exDark);
-}
+
 
 /* about */
 .about{
@@ -221,9 +200,7 @@ body{
         align-items: center;
         justify-content: space-between;
     }
-    .search-input{
-        padding: 0.8rem 0;
-    }
+    
     .design-content{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
