@@ -13,11 +13,20 @@ Encore
     .addStyleEntry('styles_dashbaord', './assets/css/back_office/style_back_dashboard.css')
     .addStyleEntry('styleCategory','./assets/css/back_office/categorie.css')
     .addStyleEntry('styleProduct','./assets/css/back_office/product.css')
+    //Shop Page
+    .addStyleEntry('shopPage1','./assets/css/front_office/bootstrap.min.css')
+    .addStyleEntry('shopPage2','./assets/css/front_office/slick.css')
+    .addStyleEntry('shopPage3','./assets/css/front_office/style.css')
 
 
     // Add entry points for your JavaScript files
     .addEntry('app_front', './assets/js/front_office/frontoffice.js')
     .addEntry('app_back', './assets/js/back_office/backoffice.js')
+    //Shop Page
+    .addEntry('app_shop1', './assets/js/front_office/jquery.min.js')
+    .addEntry('app_shop2', './assets/js/front_office/slick.min.js')
+    .addEntry('app_shop3', './assets/js/front_office/main.js')
+
 
     // Enable Sass/SCSS support
     .enableSassLoader()

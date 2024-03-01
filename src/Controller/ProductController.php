@@ -9,6 +9,7 @@ use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 
 class ProductController extends AbstractController
@@ -49,13 +50,28 @@ class ProductController extends AbstractController
             'products' => $products,
         ]);
     }
-    #[Route('/accueil', name: 'app_product1_all')]
-    public function getAll1(ManagerRegistry $doctrine): Response
+
+    #[Route('/product/{id}', name: 'app_product_show')]
+    public function showProductById(int $id, ManagerRegistry $doctrine): Response
+    {
+        $repo = $doctrine->getRepository(Product::class);
+        $product = $repo->find($id);
+
+        if (!$product) {
+            throw new NotFoundHttpException('Product not found');
+        }
+
+        return $this->render('front_office/product.html.twig', [
+            'products' => $product,
+        ]);
+    }
+
+    #[Route('/shop', name: 'app_products_all')]
+    public function getAllProducts(ManagerRegistry $doctrine): Response
     {
         $repo = $doctrine->getRepository(Product::class);
         $products = $repo->findAll();
-        return $this->render('front/accueil.html.twig', [
-            'list' => $products,
+        return $this->render('front_office/index.html.twig', [
             'products' => $products,
         ]);
     }

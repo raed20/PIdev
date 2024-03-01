@@ -50,6 +50,16 @@ class PanierController extends AbstractController
         ]);
     }
 
+    #[Route('/checkout', name: 'app_panier1_all')]
+    public function getAll1(ManagerRegistry $doctrine): Response
+    {
+        $repo = $doctrine->getRepository(Panier::class);
+        $paniers = $repo->findAll();
+        return $this->render('front_office/checkout.html.twig', [
+            'paniers' => $paniers,
+        ]);
+    }
+
     #[Route('/panier/{id}', name: 'app_panier_show')]
     public function show(int $id, ManagerRegistry $doctrine): Response
     {

@@ -117,3 +117,30 @@
 .slick-arrow.slick-hidden {
     display: none;
 }
+/* Center the "add to cart" text vertically */
+.add-to-cart-btn {
+    position: relative;
+    text-align: center;
+    padding: 10px 20px; /* Adjust padding as needed */
+}
+
+.add-to-cart-btn .fa {
+    position: relative;
+    top: 2px; /* Adjust as needed to vertically center the icon */
+}
+
+/* Add space between product lines */
+.product {
+    width: 25%; /* Adjust the width as needed */
+    float: left; /* Float the products to allow them to align in multiple lines */
+    box-sizing: border-box; /* Include padding and borders in the element's total width and height */
+    padding: 0 15px; /* Add some padding to create spacing between products */
+    margin-bottom: 30px; /* Add margin to create space between rows */
+}
+
+@media (max-width: 768px) {
+    .product {
+        width: 50%; /* Adjust width for smaller screens to have two products per row */
+    }
+}
+

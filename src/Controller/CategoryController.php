@@ -52,6 +52,16 @@ class CategoryController extends AbstractController
         ]);
     }
 
+    #[Route('/shoppage', name: 'app_category1_all')]
+    public function getAll1(ManagerRegistry $doctrine): Response
+    {
+        $repo = $doctrine->getRepository(Category::class);
+        $categories = $repo->findAll();
+        return $this->render('front_office/shoppage.html.twig', [
+            'categories' => $categories,
+        ]);
+    }
+
 
     #[Route('/category/edit/{ref}', name: 'app_edit_category')]
     public function edit(CategoryRepository $repository, $ref, Request $request, ManagerRegistry $doctrine)
