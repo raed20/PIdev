@@ -19,6 +19,9 @@ class Commentaire
     #[ORM\ManyToOne(inversedBy: 'commentaires')]
     private ?Blog $idblog = null;
 
+    #[ORM\ManyToOne(inversedBy: 'Commentaire')]
+    private ?User $user = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -44,6 +47,18 @@ class Commentaire
     public function setIdblog(?blog $idblog): static
     {
         $this->idblog = $idblog;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
 
         return $this;
     }

@@ -14,7 +14,8 @@ use App\Form\SearchType;
 use App\Repository\BlogRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Model\SearchData;
-
+use App\blackknight467\StarRatingBundle\StarRatingBundle;
+use Symfony\Component\HttpKernel\Kernel;
 
 
 class BlogController extends AbstractController

@@ -9,7 +9,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Security;
 use App\Entity\Commentaire;
 use App\Entity\Blog;
-
+use App\Entity\User;
+use Symfony\Component\HttpFoundation\RedirectResponse;  
 use App\Form\CommentaireType; 
 use App\Form\BlogType; 
 use Symfony\Component\Form\Extension\Core\Type\SubmitType; 
@@ -99,12 +100,95 @@ class CommentaireController extends AbstractController
         $entityManager->flush();
 
         $referer = $request->headers->get('referer');
-        return new RedirectResponse($referer);;
+        return new RedirectResponse($referer);
+    }
+
+
+    function filterComment(string $text_comment): string {
+        $badWords = file('C:\xampp\htdocs\public\uploads\badwords.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        foreach ($badWords as $word) {
+            $replacement = $word[0] . str_repeat('*', strlen($word) - 2) . $word[-1];
+            $text_comment = preg_replace('/\b' . preg_quote($word) . '\b/i', $replacement, $text_comment);
+        }
+        return $text_comment;
+    }
+
+    #[Route('/add-commentfront/{id}', name: 'add_commentfront')]
+    public function addCommentairefront($id, Request $request, Security $security): Response
+    {
+        $blog = $this->getDoctrine()->getRepository(Blog::class)->find($id);
+    
+        if (!$blog) {
+            throw $this->createNotFoundException('Blog non trouvé avec l\'identifiant '.$id);
+        }
+    
+         $commentaire = new Commentaire();
+    
+        $form = $this->createForm(CommentaireType::class, $commentaire);
+    
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+          // Récupérer l'utilisateur connecté (avec l'ID 3)
+            $adminId = 1; // ID de l'admin statiquement défini à 3
+            $user = $this->getDoctrine()->getRepository(User::class)->find($adminId);
+            if (!$user) {
+                throw $this->createNotFoundException('Admin non trouvé avec l\'identifiant '.$adminId);
+            }
+    //
+            
+    
+            $commentaire->setIdblog($blog);
+    
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($commentaire);
+            $entityManager->flush();
+    
+           return $this->redirectToRoute('blogdetails', ['id' => $commentaire->getIdblog()->getId()]);
+    
+        }
+        dump($form);
+        return $this->render('blog/addcomment.html.twig', [
+           'formadd' => $form->createView(),
+        ]);
     }
 
 
 
-    
+    #[Route('/edit-commentfront/{id}', name: 'edit_commentfront')]
+public function editCommentairefront($id, Request $request, Security $security): Response
+{
+    $entityManager = $this->getDoctrine()->getManager();
+
+    $user = $security->getUser();
+
+    // Si l'utilisateur n'est pas connecté ou si son ID est différent de 3, redirigez-le ou faites une autre action appropriée
+  //  if (!$user || $user->getID() !== 3) {
+        // Redirection, message d'erreur, etc.
+       // throw $this->createAccessDeniedException('Vous n\'avez pas les autorisations nécessaires pour effectuer cette action.');
+   // }
+
+    $commentaire = $entityManager->getRepository(Commentaire::class)->find($id);
+
+    if (!$commentaire) {
+        throw $this->createNotFoundException('Commentaire non trouvé avec l\'identifiant '.$id);
+    }
+
+    $form = $this->createForm(CommentaireType::class, $commentaire);
+
+    // Traiter le formulaire soumis
+    $form->handleRequest($request);
+
+    if ($form->isSubmitted() && $form->isValid()) {
+
+        $entityManager->flush();
+
+        return $this->redirectToRoute('blogdetails', ['id' => $commentaire->getIdblog()->getId()]);
+    }
+
+    return $this->render('blog/addcomment.html.twig', [
+        'formadd' => $form->createView(),
+    ]);
+}
 
 }   
 

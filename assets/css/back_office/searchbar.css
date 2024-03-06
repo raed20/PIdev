@@ -1,0 +1,110 @@
+/* Search Form Styles */
+.flex {
+    display: flex;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.mb-4 {
+    margin-bottom: 1rem;
+}
+
+.mr-3 {
+    margin-right: 0.75rem;
+}
+
+.input-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+
+.form-control {
+    flex: 1;
+    min-width: 0;
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-weight: normal;
+    color: #4a5568;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.375rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    margin: 0;
+    outline: none;
+}
+
+.text-base {
+    font-size: 1.125rem;
+}
+
+.text-gray-700 {
+    color: #4a5568;
+}
+
+.border-solid {
+    border-style: solid;
+}
+
+.border-gray-300 {
+    border-color: #cbd5e0;
+}
+
+.rounded {
+    border-radius: 0.375rem;
+}
+
+.transition {
+    transition: all 0.3s ease-in-out;
+}
+
+.focus\:text-gray-700:focus {
+    color: #4a5568;
+}
+
+.focus\:bg-white:focus {
+    background-color: #fff;
+}
+
+.focus\:border-blue-600:focus {
+    border-color: #4a86e8;
+}
+
+.focus\:outline-none:focus {
+    outline: none;
+}
+
+/* Button Styles */
+.btn {
+    display: inline-block;
+    padding: 0.625rem 1.5rem;
+    background-color: #4a86e8;
+    color: #fff;
+    font-weight: medium;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    border-radius: 0.375rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background-color: #2a69ac;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Additional Styles */
+.inline-block {
+    display: inline-block;
+}
+

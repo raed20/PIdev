@@ -37,9 +37,17 @@ class Blog
     #[ORM\OneToMany(targetEntity: Commentaire::class, mappedBy: 'idblog')]
     private Collection $commentaires;
 
+    
+
+    #[ORM\ManyToMany(targetEntity: User::class)]
+    #[JoinTable('user_post_like')]
+    private Collection $likes;
+
     public function __construct()
     {
         $this->commentaires = new ArrayCollection();
+        
+        $this->likes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -58,6 +66,31 @@ class Blog
 
         return $this;
     }
+
+    public function getLikes(): ?string
+    {
+        return $this->liks;
+    }
+
+     public function addLike(User $like): self
+    {
+        if(!$this->likes->contains($like)){
+            $this->likes[] = $like;
+        }
+        return $this;
+    }
+
+    public function removeLike(User $like): self
+    {
+        $this->likes->removeElement($like);
+        return $this;
+    }
+
+    public function isLikedByUser(User $user): bool
+    {
+        return $this->likes->contains($user);
+    }
+
 
     public function getDescription(): ?string
     {
@@ -124,4 +157,5 @@ class Blog
 
         return $this;
     }
+
 }

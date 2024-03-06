@@ -18,6 +18,7 @@ Encore
     .addStyleEntry('styles_editblog', './assets/css/style_editblog.css')
     .addStyleEntry('styles_blog_single', './assets/css/styles_blog_single.css')
     .addStyleEntry('styles_back', './assets/css/back_office/style_backoffice.css')
+    .addStyleEntry('searchbar', './assets/css/back_office/searchbar.css')
     
     
 

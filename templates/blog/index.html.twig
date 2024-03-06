@@ -2,6 +2,7 @@
 {% block stylesheets %}
     {{ parent() }}
     {{ encore_entry_link_tags('styles_blog_main') }}
+    {{ encore_entry_link_tags('searchbar') }}
 {% endblock %}
 
 {% block body %}
@@ -30,6 +31,7 @@
               <h2>{{b.titre}}</h2>
               <p>{{b.description}}</p>
               <a href="{{ path('blogdetails', {'id': b.id}) }}" class="btn">View Details</a>
+               
             </div>
           </div>
           <!-- end of item -->
