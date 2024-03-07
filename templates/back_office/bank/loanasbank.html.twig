@@ -68,27 +68,7 @@
 </div>
 </div>
 {% endblock %}
-{% block javascripts %}
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
-    <script>
-        {% for flashMessage in app.session.flashbag.get('success') %}
-            Swal.fire({
-                icon: 'success',
-                title: '{{ flashMessage }}',
-                showConfirmButton: true,
-                timer: 3000,
-                timerProgressBar: true,
-                allowOutsideClick: false,
-                allowEscapeKey: false
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href = '{{ path('get_loans') }}';
-                }
-            });
-        {% endfor %}
-    </script>
-{% endblock %}
 
 
 
