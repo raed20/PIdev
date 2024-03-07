@@ -16,3 +16,6 @@ edit_inves :
 app_afficherinvestissement:
     path: /Afficherinvestissement
     controller :  'App\Controller\InvestissementController::showw'
+stripe_webhook:
+    path: '/stripe/webhook'
+    controller: 'App\Controller\WebhookController::handleStripeWebhook'

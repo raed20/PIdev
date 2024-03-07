@@ -1,0 +1,41 @@
+{# templates/buy_stocks.html.twig #}
+
+{% extends 'front_office/base_front.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('styles_invest_main_front') }}
+    {{ encore_entry_link_tags('styles_invest_front') }}
+    <link rel="stylesheet" href="{{ asset('css/your_custom_styles.css') }}">
+{% endblock %}
+
+{% block title %}
+    Créer un nouvel investissement
+{% endblock %}
+
+{% block body %}
+    <section class="section about">
+        <div class="container">
+            <h2 class="h2 section-title">Créer un nouvel investissement</h1>
+
+            {{ form_start(form, {'attr': {'class': 'investment-form'}}) }}
+
+            <div class="about-content">
+                <ul class="section-list">
+                    <li class="section-item">
+                        <div class="title-wrapper">
+                            <h3 class="h3 list-title">{{ form_label(form.amount) }}</h3>
+                        </div>
+                    </li>
+                    {# Add a hidden field to hold the calculated amount #}
+                    {{ form_widget(form.amount, {'attr': {'class': 'form-input', 'type': 'hidden'}}) }}
+
+                    <button type="submit" class="btn btn-primary">Acheter</button>
+                </ul>
+            </div>
+
+            {{ form_end(form) }}
+        </div>
+    </section>
+	 <script src="https://js.stripe.com/v3/"></script>
+{% endblock %}

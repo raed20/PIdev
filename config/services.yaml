@@ -5,7 +5,8 @@
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
     env(API_KEY): 'hE35s2CmZd4Q0EHSF5pjm3BdDXsmBkAx'
-    unsplash_api_key: 'eLaXhCbsCzb4OKp_Axb9MYs13DvSsXwBdbesvQOjaKw'
+    STRIPE_SECRET_KEY: 'sk_test_51Oo6YNBLhdhPWlxZDdaZpVmnXQ9zlSfLraLx3jxcIaNJJvz5OHQcp2mBARahWN7hXyN3HbqHvk14yFVJppB6lHPc00LWqUxvap'
+    env(STRIPE_WEBHOOK_SIGNING_SECRET): 'we_1OpyElBLhdhPWlxZO0pDm0VR'
 
 services:
     # default configuration for services in *this* file
@@ -28,7 +29,7 @@ services:
         arguments:
             $apiKey: '%env(API_KEY)%'
             $httpClient: '@http_client'
-    App\Service\UnsplashApiService:
+    App\Service\StripeService:
         arguments:
-            $apiKey: '%unsplash_api_key%'
-            $httpClient: '@http_client'
+            $stripeSecretKey: '%env(STRIPE_SECRET_KEY)%'
+            $webhookSigningSecret: '%env(STRIPE_WEBHOOK_SIGNING_SECRET)%'

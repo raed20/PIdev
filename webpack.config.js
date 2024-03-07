@@ -15,6 +15,8 @@ Encore
     .addStyleEntry('styles_backopp', './assets/css/back_office/style_backopp.css')
     .addStyleEntry('styles_backaddopp', './assets/css/back_office/style_backaddopp.css')
     .addStyleEntry('styles_invest_front', './assets/css/front_office/styles_invest_front.css')
+    .addStyleEntry('styles_inv_front', './assets/css/front_office/style_frontinv.css')
+
 
 
 
@@ -24,7 +26,10 @@ Encore
 
     // Add entry points for your JavaScript files
     .addEntry('app_front', './assets/js/front_office/frontoffice.js')
+    .addEntry('data-chart', './assets/js/front_office/data-chart.js')
     .addEntry('app_back', './assets/js/back_office/backoffice.js')
+    .addEntry('charts', './assets/js/front_office/charts.js')
+    .addEntry('highcharts', 'highcharts')
 
     // Enable Sass/SCSS support
     .enableSassLoader()

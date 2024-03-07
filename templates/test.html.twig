@@ -1,37 +1,313 @@
 {# templates/api/stock_quote.html.twig #}
+{% extends 'front_office/base_front.html.twig' %}
+{% block stylesheets %}
+	{{ parent() }}
+	{{ encore_entry_link_tags('styles_invest_main_front') }}
+{% endblock %}
+{% block body %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stock Quote Data</title>
-</head>
-<body>
-    <h1>Stock Quote Data for </h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Price</th>
-                <th>24%</th>
-            </tr>
-        </thead>
-        <tbody>
-           {% for quote in stock_quote_data|slice (0, 10) %}
-    <tr>
-        <td>{{ quote['T'] }}</td>  {# Assuming 't' represents the date #}
-        <td>{{ quote['v'] }}</td>  {# Assuming 'o' represents the opening price #}
-        <td>{{ quote['vw'] }}</td>  {# Assuming 'h' represents the high price #}
-		<td>
-                    {% set companySymbol = quote['T'] %}
-                    {% set logoData = unsplashApiService.getCompanyLogo(companySymbol) %}
-                    <img src="{{ logoData['url'] }}" alt="{{ companySymbol }} Logo" width="100" height="100">
-                </td>
-    </tr>
-{% endfor %}
 
-        </tbody>
-    </table>
-</body>
-</html>
+
+	<article>
+		<!--Hero section-->
+		<section class="section hero" aria-label="hero" data-section>
+			<div class="container">
+				<div class="hero-container">
+					<h1 class="h1 hero-title">Invest in a secure future with ProSync.</h1>
+					<p class="hero-text">Prosync is the premier and most secure platform for tracking and investing in stocks.</p>
+					<a href="#" class="btn btn-primary ion-icon">Get started now</a>
+				</div>
+				<figure class="hero-banner">
+					<img src="{{ asset('images/front_office/hero-banner.png') }}" width="570" height="448" alt="Hero Banner" class="w-100">
+				</figure>
+			</div>
+		</section>
+		<section class="section trend" aria-label="hero" data-section>
+			<div class="container">
+				<div class="trend-tab">
+					<ul class="tab-nav">
+
+					
+
+						<li>
+							<button class="tab-btn">Makersplace</button>
+						</li>
+					</ul>
+					<ul class="tab-content">
+                         {% for quote in stock_quote_data|slice(0, 4) %}
+                         <li>
+								<div class="trend-card ative">
+
+									<div class="card-title-wrapper">
+										<img src="{{ asset('images/front_office/coin-4.svg') }}" width="24" height="24" alt="bitcoin logo">
+
+										<a href="{{ path('app_afficherinv', {'id': quote['T'], 'prix': quote['v']}) }}" class="card-title">{{ quote['T'] }}
+											<span class="span">USD</span>
+										</a>
+									</div>
+									<data class="card-value" value="{{ quote['v'] }}">{{ quote['v'] }}USD</data>
+									<div class="card-analytics">
+
+										<div class="badge green">{{ quote['vw'] }}%</div>
+									</div>
+
+								{% endfor %}
+							</li>
+                            </div>
+					</li>
+				</div>
+			</li>
+		</div>
+	</section>
+    <section class="section market" aria-label="market update" data-section>
+		<div class="container">
+			<div class="title-wrapper">
+				<h2 class="h2 section-title">Market Update</h2>
+
+				<a href="#" class="btn-link">See All Coins</a>
+			</div>
+			<div class="market-tab">
+				<table class="market-table">
+					<thead class="table-head">
+						<tr class="table-row table-title">
+							<th class="table-heading table-text" scope="col">#</th>
+							<th class="table-heading table-text" scope="col">Name</th>
+							<th class="table-heading table-text" scope="col">Last Price</th>
+							<th class="table-heading table-text" scope="col">24H %</th>
+                            <th class="table-heading table-text"></th>
+                            		</tr>
+					</thead>
+					<tbody class="table-body">
+            {% for quote in stock_quote_data|slice(0, 10) %}
+            <tr class="table-row">
+								<th class="table-data rank table-text" scope="row">{{ loop.index }}</th>
+
+
+								<td class="table-data">
+									<div class="wrapper">
+										<h3>
+											<a href="{{ path('app_afficherinv', {'id': quote['T'], 'prix': quote['v']}) }}" class="coin-name table-text">{{ quote['T'] }}<span class="span">{{ quote['T'] }}</span>
+											</a>
+										</h3>
+										<img src="{{ asset('images/front_office/coin-4.svg') }}" width="20" height="20" alt="Bitcoin logo" class="img">
+									</td>
+								</td>
+								<td class="table-data last-price table-text">{{ quote['v'] }}</td>
+								<td class="table-data last-update green table-text">{{ quote['vw'] }}%</td>
+               
+                 
+                    <td class="table-data">
+                    <button class="btn btn-outline btn_invest">
+										<a href="{{ path('buy_stocks', {'id': quote['T'], 'prix': quote['v']}) }}">invest</a>
+									</button>
+                    </td>
+                
+						{% endfor %}
+						</tbody>    </table>
+				<section class="section instruction" aria-label="instruction" data-section>
+					<div class="container">
+
+						<h2 class="h2 section-title">How It Work</h2>
+
+						<p class="section-text">
+							Prosync is the future of trading.
+						</p>
+
+						<ul class="instruction-list">
+
+							<li>
+								<div class="instruction-card">
+
+									<figure class="card-banner">
+										<img src="{{ asset('images/front_office/instruction-1.png') }}" width="96" height="96" loading="lazy" alt="Step 1" class="img">
+									</figure>
+
+									<p class="card-subtitle">Step 1</p>
+
+									<h3 class="h3 card-title">Sign Up</h3>
+
+									<p class="card-text">
+										Sign up, log in, and customize your profile according to your preferences.
+									</p>
+
+								</div>
+							</li>
+
+							<li>
+								<div class="instruction-card">
+
+									<figure class="card-banner">
+										<img src="{{ asset('images/front_office/instruction-2.png') }}" width="96" height="96" loading="lazy" alt="Step 2" class="img">
+									</figure>
+
+									<p class="card-subtitle">Step 2</p>
+
+									<h3 class="h3 card-title">Connect</h3>
+
+									<p class="card-text">
+										Invest, buy, and plan your future stock portfolio.
+									</p>
+
+								</div>
+							</li>
+
+							<li>
+								<div class="instruction-card">
+
+									<figure class="card-banner">
+										<img src="{{ asset('images/front_office/instruction-3.png') }}" width="96" height="96" loading="lazy" alt="Step 3" class="img">
+									</figure>
+
+									<p class="card-subtitle">Step 3</p>
+
+									<h3 class="h3 card-title">Start Trading</h3>
+
+									<p class="card-text">
+										Track and trade efficiently.
+									</p>
+
+								</div>
+							</li>
+
+							<li>
+								<div class="instruction-card">
+
+									<figure class="card-banner">
+										<img src="{{ asset('images/front_office/instruction-4.png') }}" width="96" height="96" loading="lazy" alt="Step 4" class="img">
+									</figure>
+
+									<p class="card-subtitle">Step 4</p>
+
+									<h3 class="h3 card-title">Earn Money</h3>
+
+									<p class="card-text">
+										Predictive algorithm to enhance your odds and margins.
+									</p>
+
+								</div>
+							</li>
+
+						</ul>
+
+					</div>
+				</section>
+				<!--About-->
+				<section class="section about" aria-label="about" data-section>
+					<div class="container">
+
+						<figure class="about-banner">
+							<img src="{{ asset('images/front_office/about-banner.png') }}" width="748" height="436" loading="lazy" alt="about banner" class="w-100">
+						</figure>
+
+						<div class="about-content">
+
+							<h2 class="h2 section-title">What Is Prosync</h2>
+
+							<p class="section-text">
+								Explore a range of trading options on Bitcost. From Spot,
+																																																																																																																																																																																																																																																																																																																																																																																																																																																								                            Staking and margin trading, we offer diverse opportunities in cryptocurrency
+																																																																																																																																																																																																																																																																																																																																																																																																																																																								                            investment. Join us to start trading today!
+							</p>
+
+							<ul class="section-list">
+
+								<li class="section-item">
+									<div class="title-wrapper">
+										<i class="fas fa-check-circle" aria-hidden="true"></i>
+
+										<h3 class="h3 list-title">Discover real-time stock prices</h3>
+									</div>
+
+									<p class="item-text">
+										Explore a variety of trading options with our platform. Whether you prefer																																																																																																																																																																																				                                    traditional stock trading, options, we offer a range
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																						                                    of tools to suit your needs. Join us today and seize control of your financial
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																						                                    future.
+									</p>
+								</li>
+
+								<li class="section-item">
+									<div class="title-wrapper">
+										<i class="fas fa-check-circle" aria-hidden="true"></i>
+
+										<h3 class="h3 list-title">
+											Trade stocks effortlessly with Prosync</h3>
+									</div>
+
+									<p class="item-text">
+										Enjoy various trading options like Spot Trade, Futures Trade, Staking
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																						                                    and margin trading. Join now for seamless stock trading.
+									</p>
+								</li>
+
+							</ul>
+
+							<a href="#" class="btn btn-primary ion-icon">Explore More</a>
+
+						</div>
+
+					</div>
+				</section>
+				<!--app function-->
+				<section class="section app" aria-label="app" data-section>
+					<div class="container">
+
+						<div class="app-content">
+
+							<h2 class="h2 section-title">Free Your Money & Invest With Confident</h2>
+
+							<p class="section-text">
+								With Prosync Trade, you can be sure your trading skills are matched
+							</p>
+
+							<ul class="section-list">
+
+								<li class="section-item">
+									<div class="title-wrapper">
+										<i class="fas fa-check-circle" aria-hidden="true"></i>
+
+										<h3 class="h3 item-title">Buy, Sell, And Trade On The Go</h3>
+									</div>
+
+									<p class="item-text">
+										Manage Your Holdings From Your Mobile Decive
+									</p>
+								</li>
+
+								<li class="section-item">
+									<div class="title-wrapper">
+										<i class="fas fa-check-circle" aria-hidden="true"></i>
+
+										<h3 class="h3 item-title">Take Control Of Your Wealth</h3>
+									</div>
+
+									<p class="item-text">
+										Rest Assured You (And Only You) Have Access To Your Funds
+									</p>
+								</li>
+
+							</ul>
+
+							<div class="app-wrapper">
+								<a href="#">
+									<img src="{{ asset('images/front_office/googleplay.png') }}" width="135" height="40" loading="lazy" alt="get it on google play">
+								</a>
+
+								<a href="#">
+									<img src="{{ asset('images/front_office/appstore.png')}}" width="120" height="40" loading="lazy" alt="download on the app store">
+								</a>
+							</div>
+
+						</div>
+
+						<div class="app-banner">
+							<img src="{{ asset('images/front_office/app-banner.png')}}" width="618" height="526" loading="lazy" alt="app banner" class="w-100">
+
+
+						</div>
+
+					</div>
+				</section>
+
+			</article>
+		{% endblock %}
+

@@ -18,8 +18,6 @@ class Investissement
     private ?int $id = null;
 
     #[ORM\Column(type: Types::BIGINT)]
-    #[Assert\PositiveOrZero(message: "negative value")]
-    #[Assert\NotBlank(message: "Amount is required")]
     private ?string $montant = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
@@ -34,6 +32,15 @@ class Investissement
 
     #[ORM\Column]
     private ?float $total_value = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $stock_name = null;
+
+    #[ORM\Column]
+    private ?float $changerate = null;
+
+    #[ORM\Column]
+    private ?float $price = null;
     
   
 
@@ -100,6 +107,42 @@ class Investissement
     public function setTotalValue(float $total_value): static
     {
         $this->total_value = $total_value;
+
+        return $this;
+    }
+
+    public function getStockName(): ?string
+    {
+        return $this->stock_name;
+    }
+
+    public function setStockName(string $stock_name): static
+    {
+        $this->stock_name = $stock_name;
+
+        return $this;
+    }
+
+    public function getChangerate(): ?float
+    {
+        return $this->changerate;
+    }
+
+    public function setChangerate(float $changerate): static
+    {
+        $this->changerate = $changerate;
+
+        return $this;
+    }
+
+    public function getPrice(): ?float
+    {
+        return $this->price;
+    }
+
+    public function setPrice(float $price): static
+    {
+        $this->price = $price;
 
         return $this;
     }

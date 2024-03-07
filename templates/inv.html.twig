@@ -1,0 +1,115 @@
+{% extends 'front_office/base_front.html.twig' %}
+
+{% block title %}Walet
+{% endblock %}
+{% block stylesheets %}
+	{{ parent() }}
+		{{ encore_entry_link_tags('styles_invest_main_front') }}
+        {{ encore_entry_link_tags('styles_inv_front') }}
+
+
+{% endblock %}
+{% block body %}
+<div id="ta_app" class="container-fluid">
+<section id="ta_header" class="row">
+<section id="ta_body_chart" class="row">
+
+<div id="chartContainer" style="height: 300px; " class="col-12 pl-0 text-center">
+
+</div>
+
+</section>
+
+
+
+<section id="ta_action_btns" class="row">
+<div class="col-12">
+<div class="name"><h2 class="h2" id="id" data-symbol="{{ id }}">{{ id }}</h2>
+</div>
+<div class="col-12">
+<div class="name"><h2 class="h2">Current Price</h2>
+</div>
+</div>
+
+<div class="col-12">
+<div class="caption">
+${{ prix }}
+</span>
+</div>
+</div>
+
+<div class="col-6 text-center pl-2">
+<button class="btn ta_btn_sell bg-succes w-100 buy_btn">
+ Buy
+</button>
+</div>
+</section>
+</section>
+<section id="ta_body_transactions" class="row">
+
+<div class="col-12 text-center">
+<div class="body_title text-left">
+Change history</div>
+<div class="transactions_list">
+
+<div class="row">
+<div class="col-2 justify-content-center align-self-center transactions_thumb">
+</div>
+<div class="col-6 text-left pl-2 justify-content-center align-self-center">
+<span class="transaction_title">
+Rank
+</span>
+
+</div>
+<div class="col-4 justify-content-center align-self-center text-right transaction_amount">
+Market Cap
+</div>
+</div>
+
+<div class="row">
+<div class="col-2 justify-content-center align-self-center transactions_thumb">
+</div>
+<div class="col-6 text-left pl-2 justify-content-center align-self-center">
+<span class="transaction_title">
+Sent
+</span>
+<span class="transaction_caption">
+June 7, 2022 03:14 PM
+</span>
+</div>
+<div class="col-4 justify-content-center align-self-center text-right transaction_amount amount_sent">
+- 0.032 BTC
+</div>
+</div>
+
+<div class="row">
+<div class="col-2 justify-content-center align-self-center transactions_thumb">
+<i class="fa fa-long-arrow-down"></i>
+</div>
+<div class="col-6 text-left pl-2 justify-content-center align-self-center">
+<span class="transaction_title">
+Received
+</span>
+<span class="transaction_caption">
+June 7, 2022 05:38 PM
+</span>
+</div>
+<div class="col-4 justify-content-center align-self-center text-right transaction_amount">
++ 1.065 BTC
+</div>
+</div>
+
+</div>
+</div>
+
+</section>
+
+</div>
+
+{% endblock %}
+{% block javascripts %}
+ {{ encore_entry_script_tags('charts') }}
+    {{ parent() }}
+    <!-- Include Highcharts library -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+{% endblock %} 
