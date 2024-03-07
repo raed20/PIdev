@@ -10,8 +10,10 @@
 
 <div class="table-container">
 <div class="limiter">
+
     <h1>List Bank</h1>
-<a class='column5' href='{{ path('app_dashBank') }}'>Dashboard</a>
+
+
 <div class="container-table100">
 <table>
 <thead>
@@ -34,6 +36,8 @@
             </tr>
             {% endfor %}
         </table>
+        <a class='column3' href='{{ path('app_dashBank') }}'>Dashboard</a>
+        <a class='column5' href='{{ path('loanCalc') }}'>Calculator</a>
 </div>
 </div>
 </div>

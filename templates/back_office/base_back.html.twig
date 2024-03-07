@@ -22,28 +22,35 @@
 </head>
 <body>
 	<!-- =============== Navigation ================ -->
-	<div class="navigation">
-		<ul>
-			<li><a href="#"><span class="icon"><i class="fab fa-apple ion-icon"></i></span><span class="title">ProSync</span></a></li>
-			<li><a href="#"><span class="icon"><i class="fas fa-home ion-icon"></i></span><span class="title">Dashboard</span></a></li>
-			<li><a href="#"><span class="icon"><i class="fas fa-users ion-icon"></i></span><span class="title">Customers</span></a></li>
-			<li><a href="#"><span class="icon"><i class="far fa-comment ion-icon"></i></span><span class="title">Messages</span></a></li>
-			<li><a href="#"><span class="icon"><i class="far fa-question-circle ion-icon"></i></span><span class="title">Help</span></a></li>
-			<li><a href="#"><span class="icon"><i class="fas fa-cogs ion-icon"></i></span><span class="title">Settings</span></a></li>
-			<li><a href="#"><span class="icon"><i class="fas fa-lock ion-icon"></i></span><span class="title">Password</span></a></li>
-			<li><a href="#"><span class="icon"><i class="fas fa-sign-out-alt ion-icon"></i></span><span class="title">Sign Out</span></a></li>
-		</ul>
-	</div>
-	
-
-	<!-- ========================= Main ==================== -->
-	<div class="sidebar">
-		<div class="topbar">
-			<div class="toggle"></div>
-
-			<div class="user"></div>
+	<div class="container_side">
+		<div class="navigation">
+			<ul>
+				<li><a href="#"><span class="icon"><img class="ion-icon logo"src="{{ asset('images/front_office/logo.svg') }}" width="32" height="32" alt="Prosync logo"></span><span class="title">Prosync</span></a></li>
+				<li><a href="#"><span class="icon"><i class="fas fa-home ion-icon"></i></span><span class="title">Dashboard</span></a></li>
+				<li><a href="#"><span class="icon"><i class="fas fa-users ion-icon"></i></span><span class="title">CRM</span></a></li>
+				<li><a href="#"><span class="icon"><i class="fas fa-chart-line ion-icon"></i></span><span class="title">Gestion investissement</span></a></li>
+				<li><a href="{{path('app_afficherlistebank')}}"><span class="icon"><i class="fas fa-money-bill-alt ion-icon"></i></span><span class="title">Pret</span></a></li>
+				<li><a href="#"><span class="icon"><i class="fa fa-newspaper ion-icon"></i></span><span class="title">Blog</span></a></li>
+				<li><a href="#"><span class="icon"><i class="fas fa-briefcase ion-icon"></i></span><span class="title">Categories</span></a></li>
+				<li><a href="#"><span class="icon"><i class="fas fa-shopping-bag ion-icon"></i></span><span class="title">Products</span></a></li>
+				<li><a href="#"><span class="icon"><i class="fas fa-cogs ion-icon"></i></span><span class="title">Settings</span></a></li>
+				<li><a href="#"><span class="icon"><i class="fas fa-lock ion-icon"></i></span><span class="title">Password</span></a></li>
+				<li><a href="#"><span class="icon"><i class="fas fa-sign-out-alt ion-icon"></i></span><span class="title">Sign Out</span></a></li>
+			</ul>
 		</div>
 	</div>
-</body>
-{% block body %}{% endblock %}</body><!-- Symfony Encore JS -->{% block javascripts %}
-{{ encore_entry_script_tags('app_back') }}{% endblock %}
+
+
+	<!-- ========================= Main ==================== -->
+	<div class="main">
+		<div class="topbar">
+			<div class="toggle">
+				<i class="fas fa-bars fa-2x ion-icon"></i>
+			</div>
+
+			<div class="user"><img src="#" alt=""></div>
+		</div>
+
+		{% block body %}{% endblock %}<!-- Symfony Encore JS -->{% block javascripts %}
+			{{ encore_entry_script_tags('app_back') }}
+		{% endblock %}

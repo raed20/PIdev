@@ -16,19 +16,15 @@ class BankType extends AbstractType
     {
         $builder
         ->add('Nom', null, [
-            'label' => 'Nom',
             'attr' => ['placeholder' => 'Enter the name']
         ])
         ->add('adresse', null, [
-            'label' => 'Address',
             'attr' => ['placeholder' => 'Enter the address']
         ])
         ->add('codeSwift', null, [
-            'label' => 'Code Swift',
             'attr' => ['placeholder' => 'Enter the Swift code']
         ])        
             ->add('logo', FileType::class, [
-                'label' => 'Photo (JPEG or PNG file)',
                 'mapped' => false, // Tells Symfony that there is no property on the Bank entity to store the file path
                 'required' => false,// Allow the field to be empty
                 'constraints' => [
@@ -44,7 +40,6 @@ class BankType extends AbstractType
                     ],
             ])
             ->add('phoneNum', null, [
-                'label' => 'Phone Number',
                 'attr' => ['placeholder' => 'e.g. +216 123 456 78']
             ]);
             

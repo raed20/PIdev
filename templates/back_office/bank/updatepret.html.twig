@@ -1,0 +1,109 @@
+{% extends 'back_office/base_back.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('styletableBank') }}
+
+{% endblock %}
+{% block body %}
+<div class="table-container">
+    <h1>Loan Details</h1>
+<div class="limiter">
+<div class="container-table100">
+<div class="wrap-table100">
+<div class="table100">
+<table border="1">
+<thead>
+<tr class="table100-head">
+    <th  class="column1">reference pret</th>
+    <th  class="column2">Nom banque</th>
+    <th  class="column3">Gender</th>
+    <th  class="column3">Married</th>
+    <th  class="column3">Dependents</th>
+    <th  class="column3">Education</th>
+    <th  class="column3">Self Employed</th>
+    <th  class="column3">Applicant Income</th>
+    <th  class="column3">Coapplicant Income</th>
+    <th  class="column3">Loan Amount</th>
+    <th  class="column3">Loan Amount Term</th>
+    <th  class="column3">Credit History</th>
+    <th  class="column3">Property Area</th>
+    <th  class="column3"> Status</th>
+
+</tr>
+</thead>
+<tr>  
+
+<td  class="column3"> {{ pret.id }}</td>
+<td  class="column3"> {{ pret.getIdBank().getNom()}}</td>
+<td  class="column3"> {{ pret.Gender }}</td>
+<td  class="column3"> {{ pret.Married }}</td>
+<td  class="column3"> {{ pret.Dependents }}</td>
+<td  class="column3"> {{ pret.Education  }}</td>
+<td  class="column3"> {{ pret.SelfEmployed }}</td>
+<td  class="column3"> {{ pret.ApplicantIncome }}</td>
+<td  class="column3"> {{ pret.CoapplicantIncome }}</td>
+<td  class="column3"> {{ pret.LoanAmount }}</td>
+<td  class="column3"> {{ pret.LoanAmountTerm }}</td>
+<td  class="column3"> {{ pret.CreditHistory }}</td>
+<td  class="column3"> {{ pret.PropertyArea }}</td>
+<td  class="column3"> {{ pret.LoanStatus }}</td>
+
+
+</tr>
+</table>
+<h1>Update Loan Status</h1>
+<div class="form-table">
+    {{ form_start(loan, {'attr': {'novalidate': 'novalidate'}}) }}
+<div class="form-group">
+    <td>{{ form_row(loan.Loan_Status)}}</td>
+</div>
+<div class="form-group" style="display: none;" style>
+    {{ form_row(loan.Gender) }}
+</div>
+<div class="form-group" style="display: none;" style>
+    {{ form_row(loan.Married) }}
+</div>
+<div class="form-group" style="display: none;" style>
+    {{ form_row(loan.Dependents) }}
+</div>
+<div class="form-group" style="display: none;" style>
+    {{ form_row(loan.Education) }}
+</div>
+<div class="form-group" style="display: none;" style>
+    {{ form_row(loan.Selfemployed) }}
+</div>
+<div class="form-group" style="display: none;" style>
+    {{ form_row(loan.ApplicantIncome) }}
+</div>
+</div>
+<div class="form-right">
+<div class="form-group" style="display: none;" style>
+    {{ form_row(loan.CoapplicantIncome) }}
+</div>
+<div class="form-group" style="display: none;" style>
+    {{ form_row(loan.LoanAmount) }}
+</div>
+<div class="form-group" style="display: none;" style>
+    {{ form_row(loan.Loan_Amount_Term) }}
+</div>
+<div class="form-group" style="display: none;" style>
+    {{ form_row(loan.Credit_History) }}
+</div>
+<div class="form-group" style="display: none;" style>
+    {{ form_row(loan.Property_Area) }}
+</div > 
+
+</div>
+</div>
+<div class="form-footer">
+<button type="submit">Update</button>
+
+{{ form_end(loan) }}
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+{% endblock %}

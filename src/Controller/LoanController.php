@@ -15,24 +15,23 @@ use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\BankRepository;
 use App\Entity\Bank;
+use App\Entity\User;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 use Symfony\Component\Security\Core\Security;
+use Phpml\ModelManager;
+use Symfony\Component\Process\Exception\ProcessFailedException;
+use Symfony\Component\Process\Process;
+use Dompdf\Dompdf;
+use Dompdf\Options;
+
 
 
 
 class LoanController extends AbstractController
 {
-    #[Route('/loanP', name: 'app_loan')]
-    public function loan(): Response
-    {
-        return $this->render('front_office/loan/loanP.html.twig', [
-            'controller_name' => 'LoanController',
-        ]);
-    }
-
     #[Route('/AddLoan/{id}', name: 'app_AddLoan')]
-    public function AddPr(Request $request, ManagerRegistry $doctrine, $id, MailerInterface $mailer){
+    public function AddPr(Request $request, ManagerRegistry $doctrine, $id , MailerInterface $mailer){
         $Loan = new Pret();
         $form = $this->createForm(PretType::class, $Loan);
         $form->add('Ajouter', SubmitType::class);
@@ -40,26 +39,26 @@ class LoanController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $doctrine->getManager();
             $bank = $em->getRepository(Bank::class)->find($id);
+    
             $Loan->setIdBank($bank); // Assuming you have a 'bank' property in your Pret entity
-
+            $Loan->setLoanStatus('on hold');
             $em->persist($Loan);
             $em->flush();
-            // Get the user's email (assuming you have a User entity with an email property)
-            $userEmail = 'raedmaaloul3@gmail.com';
-
-        // Create the email
             $email = (new Email())
-            ->from('hi@sandbox.smtp.mailtrap.io')
-            ->to($userEmail)
-            ->subject('Loan Added')
-            ->text('Your loan has been successfully added.');
+                    ->from('raedmaaloul3@gmail.com')
+                    ->to('raed.maaloul@esprit.tn')
+                    ->subject('pret!')
+                    ->text('You have added a new loan!');
 
-            // Send the email
-            $mailer->send($email);
-            return $this->redirectToRoute("app_afficherlisteloan");
-            }
-            return $this->render('front_office/loan/addloan.html.twig', ['loan' => $form->createView()]);
+                $mailer->send($email);
+            $this->addFlash('success', 'votre demande de prêt a été ajouté avec succès.');
+
+            return $this->redirectToRoute('app_afficherlisteloan');
+
+
         }
+        return $this->render('front_office/loan/addloan.html.twig', ['loan' => $form->createView()]);
+    }
 
 
     /*#[Route('/Afficherlisteloan', name: 'app_afficherlisteloan')]
@@ -88,13 +87,35 @@ class LoanController extends AbstractController
             foreach ($prets as $pret) {
                 $pretid = $pret->getId();
                 $bankName = $pret->getIdBank()->getNom();
-                $montant = $pret->getAmount();
-                $duration = $pret->getDuration();
+                $gender = $pret->getGender();
+                $Married = $pret->getMarried();
+                $Dependents=$pret->getDependents();
+                $Education=$pret->getEducation();
+                $SelfEmployed=$pret->getSelfEmployed();
+                $ApplicantIncome=$pret->getApplicantIncome();
+                $CoapplicantIncome=$pret->getCoapplicantIncome();
+                $LoanAmount=$pret->getLoanAmount();
+                $LoanAmountTerm=$pret->getLoanAmountTerm();
+                $CreditHistory=$pret->getCreditHistory();
+                $PropertyArea=$pret->getPropertyArea();
+                $LoanStatus=$pret->getLoanStatus();
+            
+
                 $pretData[] = [
                     'pretid' => $pretid,
                     'bankName' => $bankName,
-                    'montant' => $montant,
-                    'duration' => $duration,
+                    'Gender' => $gender,
+                    'Married' => $Married,
+                    'Dependents'=>$Dependents ,
+                    'Education'=>$Education ,
+                    'SelfEmployed'=>$SelfEmployed,
+                    'ApplicantIncome'=>$ApplicantIncome,
+                    'CoapplicantIncome'=>$CoapplicantIncome,
+                    'LoanAmount'=>$LoanAmount,
+                    'LoanAmountTerm'=>$LoanAmountTerm,
+                    'Credit_History'=>$CreditHistory,
+                    'Property_Area'=>$PropertyArea,
+                    'Loan_Status'=>$LoanStatus,
                 ];
             }
             
@@ -174,6 +195,34 @@ class LoanController extends AbstractController
     {
         return $this->render('front_office/loan/dashbordBank.html.twig');
     }
+
+    #[Route('/loanCalc', name: 'loanCalc')]
+    public function CalcAction(): Response
+    {
+        return $this->render('front_office/loan/loanCalc.html.twig');
+    }
+
+    #[Route('/pdfloan/{id}', name: 'app_loan_pdf')]
+    public function generatePDF(EntityManagerInterface $entityManager, $id): Response
+    {
+        $pret = $entityManager->getRepository(Pret::class)->find($id);
+        $html = $this->renderView('front_office/loan/loandetails.html.twig', [
+            'a' => $pret,
+        ]);
+
+        $dompdf = new Dompdf();
+        $dompdf->loadHtml($html);
+        $dompdf->setPaper('A4', 'landscape');
+        $dompdf->render();
+
+        $response = new Response();
+        $response->setContent($dompdf->output());
+        $response->headers->set('Content-Type', 'application/pdf');
+        $response->headers->set('Content-Disposition', 'attachment; filename="Loan.pdf"');
+
+        return $response;
+    }
+
 
 
 

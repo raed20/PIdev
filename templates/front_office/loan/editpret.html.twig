@@ -7,38 +7,61 @@
 {% block body %}
 <div class="container-form">
     <div class="form-container">
-        <img class="pret_logo" src="{{asset('images/pret_logo.png')}}" alt="">
+        <div class="form-photo">
+            <img class="pret_logo" src="{{asset('images/pret_logo.png')}}" alt="">
+        </div>
         <h2>Loan Application Form</h2>
-        {{ form_start(loan, {'attr': {'novalidate': 'novalidate'}}) }}
-            <div class="form-group">
-                <label for="full-name"></label>
-                {{ form_row(loan.fname) }}
+        <div class="form-split">
+            <div class="form-left">
+                {{ form_start(loan, {'attr': {'novalidate': 'novalidate'}}) }}
+                <div class="form-group">
+                    {{ form_row(loan.Gender) }}
+                </div>
+                <div class="form-group">
+                    {{ form_row(loan.Married) }}
+                </div>
+                <div class="form-group">
+                    {{ form_row(loan.Dependents) }}
+                </div>
+                <div class="form-group">
+                    {{ form_row(loan.Education) }}
+                </div>
+                <div class="form-group">
+                    {{ form_row(loan.Selfemployed) }}
+                </div>
+                <div class="form-group">
+                    {{ form_row(loan.ApplicantIncome) }}
+                </div>
             </div>
+            <div class="form-right">
+                <div class="form-group">
+                    {{ form_row(loan.CoapplicantIncome) }}
+                </div>
+                <div class="form-group">
+                    {{ form_row(loan.LoanAmount) }}
+                </div>
+                <div class="form-group">
+                    {{ form_row(loan.Loan_Amount_Term) }}
+                </div>
+                <div class="form-group">
+                    {{ form_row(loan.Credit_History) }}
+                </div>
+                <div class="form-group">
+                    {{ form_row(loan.Property_Area) }}
+                </div > 
+                <div class="form-group" style="display: none;" style>
+                    {{ form_row(loan.Loan_Status)}}
+                </div>
 
-            <div class="form-group">
-                <label for="email"></label>
-                {{ form_row(loan.email) }}
             </div>
-
-            <div class="form-group">
-                <label for="phone"></label>
-                {{ form_row(loan.phonenum) }}
-            </div>
-
-            <div class="form-group">
-                <label for="amount"></label>
-                {{ form_row(loan.amount) }}
-            </div>
-
-            <div class="form-group">
-                <label for="duration"></label>
-                {{ form_row(loan.duration) }}
-            </div>
-            
-        {{ form_end(loan) }}
+        </div>
+        <div class="form-footer">
+            {{ form_end(loan) }}
+        </div>
     </div>
 </div>
 {% endblock %}
+
 {% block javascripts %}
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 

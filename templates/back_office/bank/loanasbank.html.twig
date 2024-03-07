@@ -1,7 +1,7 @@
-{% extends 'front_office/base.html.twig' %}
+{% extends 'back_office/base_back.html.twig' %}
 
 {% block stylesheets %}
-    {{ parent() }}
+    {{ encore_entry_link_tags('styles_back') }}
     {{ encore_entry_link_tags('styletableBank') }}
 {% endblock %}
 
@@ -55,9 +55,6 @@
     <td  class="column3"> {{ a.Credit_History }}</td>
     <td  class="column3"> {{ a.Property_Area }}</td>
     <td  class="column3"> {{ a.Loan_Status }}</td>
-    <td  class="column3"><a href="{{ path('app_editloan', {'id': a.pretid}) }}">edit</a></td>
-    <td  class="column3"><a href="{{ path('app_deleteloan', {'id': a.pretid}) }}">delete</a></td>
-    <td  class="column3"><a href="{{ path('app_loan_pdf', {'id': a.pretid}) }}">print</a></td>
 
   
     </tr>
@@ -86,7 +83,7 @@
                 allowEscapeKey: false
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.href = '{{ path('app_afficherlisteloan') }}';
+                    window.location.href = '{{ path('get_loans') }}';
                 }
             });
         {% endfor %}

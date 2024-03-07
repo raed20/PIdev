@@ -16,49 +16,6 @@ class Pret
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    #[Assert\NotBlank(message: "Full name is required")]
-    private ?string $Fname = null;
-
-    #[ORM\Column(length: 255)]
-    #[Assert\NotBlank]
-    #[Assert\Length(max: 255)]
-    #[Assert\Regex(
-        pattern: '/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/',
-        message: 'Please enter a valid email address.'
-    )]
-    private ?string $email = null;
-    #[ORM\Column(length: 255)]
-    #[Assert\NotBlank]
-    #[Assert\Length(max: 255)]
-    #[Assert\Regex(
-        pattern: '/^\+216\s\d{1,8}$/',
-        message: 'Please enter a valid phone number starting with +216.'
-    )]
-    private ?string $phonenum = null; 
-
-    #[ORM\Column(length: 255)]
-    #[Assert\NotBlank(message: "Amount is required")]
-    #[Assert\Regex(
-        pattern: "/^\d+(\.\d{1,2})?$/",
-        message: "Invalid amount format. Please enter a valid amount."
-    )]
-    private ?string $amount = null;
-
-    #[ORM\Column(length: 255)]
-#[Assert\NotBlank(message: "Duration is required")]
-#[Assert\Regex(
-    pattern: "/^\d+$/",
-    message: "Duration must be a positive integer."
-)]
-public ?string $duration = null;
-public function validateDuration(ExecutionContextInterface $context)
-{
-    if ($this->duration !== null && (int)$this->duration > 60) {
-        $context->buildViolation('Duration cannot exceed 60 months (5 years).')
-            ->atPath('duration')
-            ->addViolation();
-    }}
 
     #[ORM\ManyToOne(inversedBy: 'idPret')]
     #[ORM\JoinColumn(nullable: false)]
@@ -67,69 +24,45 @@ public function validateDuration(ExecutionContextInterface $context)
     #[ORM\ManyToOne(inversedBy: 'user')]
     private ?User $user = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $gender = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $married = null;
+
+    #[ORM\Column(length: 255)]
+    private ?int $dependents = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $education = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $Self_Employed = null;
+
+    #[ORM\Column(length: 255)]
+    private ?int $ApplicantIncome = 0;
+
+    #[ORM\Column(length: 255)]
+    private ?int $CoapplicantIncome = 0;
+
+    #[ORM\Column(length: 255)]
+    private ?int $LoanAmount = 0;
+
+    #[ORM\Column(length: 255)]
+    private ?int $Loan_Amount_Term = 0;
+
+    #[ORM\Column(length: 255)]
+    private ?int $Credit_History = 0;
+
+    #[ORM\Column(length: 255)]
+    private ?string $Property_Area = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $Loan_status = null;
+
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getFname(): ?string
-    {
-        return $this->Fname;
-    }
-
-    public function setFname(string $Fname): static
-    {
-        $this->Fname = $Fname;
-
-        return $this;
-    }
-
-    public function getEmail(): ?string
-    {
-        return $this->email;
-    }
-
-    public function setEmail(string $email): static
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    public function getPhonenum(): ?string
-    {
-        return $this->phonenum;
-    }
-
-    public function setPhonenum(string $phonenum): static
-    {
-        $this->phonenum = $phonenum;
-
-        return $this;
-    }
-
-    public function getAmount(): ?string
-    {
-        return $this->amount;
-    }
-
-    public function setAmount(string $amount): static
-    {
-        $this->amount = $amount;
-
-        return $this;
-    }
-
-    public function getDuration(): ?string
-    {
-        return $this->duration;
-    }
-
-    public function setDuration(string $duration): static
-    {
-        $this->duration = $duration;
-
-        return $this;
     }
 
     public function getIdBank(): ?Bank
@@ -155,4 +88,149 @@ public function validateDuration(ExecutionContextInterface $context)
 
         return $this;
     }
+
+    public function getGender(): ?string
+    {
+        return $this->gender;
+    }
+
+    public function setGender(string $gender): static
+    {
+        $this->gender = $gender;
+
+        return $this;
+    }
+
+    public function getMarried(): ?string
+    {
+        return $this->married;
+    }
+
+    public function setMarried(string $married): static
+    {
+        $this->married = $married;
+
+        return $this;
+    }
+
+    public function getDependents(): ?int
+    {
+        return $this->dependents;
+    }
+
+    public function setDependents(int $dependents): static
+    {
+        $this->dependents = $dependents;
+
+        return $this;
+    }
+
+    public function getEducation(): ?string
+    {
+        return $this->education;
+    }
+
+    public function setEducation(string $education): static
+    {
+        $this->education = $education;
+
+        return $this;
+    }
+
+    public function getSelfEmployed(): ?string
+    {
+        return $this->Self_Employed;
+    }
+
+    public function setSelfEmployed(string $Self_Employed): static
+    {
+        $this->Self_Employed = $Self_Employed;
+
+        return $this;
+    }
+
+    public function getApplicantIncome(): ?int
+    {
+        return $this->ApplicantIncome;
+    }
+
+    public function setApplicantIncome(int $ApplicantIncome): static
+    {
+        $this->ApplicantIncome = $ApplicantIncome;
+
+        return $this;
+    }
+
+    public function getCoapplicantIncome(): ?int
+    {
+        return $this->CoapplicantIncome;
+    }
+
+    public function setCoapplicantIncome(int $CoapplicantIncome): static
+    {
+        $this->CoapplicantIncome = $CoapplicantIncome;
+
+        return $this;
+    }
+
+    public function getLoanAmount(): ?int
+    {
+        return $this->LoanAmount;
+    }
+
+    public function setLoanAmount(int $LoanAmount): static
+    {
+        $this->LoanAmount = $LoanAmount;
+
+        return $this;
+    }
+
+    public function getLoanAmountTerm(): ?int
+    {
+        return $this->Loan_Amount_Term;
+    }
+
+    public function setLoanAmountTerm(int $Loan_Amount_Term): static
+    {
+        $this->Loan_Amount_Term = $Loan_Amount_Term;
+
+        return $this;
+    }
+
+    public function getCreditHistory(): ?int
+    {
+        return $this->Credit_History;
+    }
+
+    public function setCreditHistory(int $Credit_History): static
+    {
+        $this->Credit_History = $Credit_History;
+
+        return $this;
+    }
+
+    public function getPropertyArea(): ?string
+    {
+        return $this->Property_Area;
+    }
+
+    public function setPropertyArea(string $Property_Area): static
+    {
+        $this->Property_Area = $Property_Area;
+
+        return $this;
+    }
+
+    public function getLoanStatus(): ?string
+    {
+        return $this->Loan_status;
+    }
+
+    public function setLoanStatus(string $Loan_status): static
+    {
+        $this->Loan_status = $Loan_status;
+
+        return $this;
+    }
 }
+

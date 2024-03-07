@@ -49,6 +49,9 @@ class Bank
     #[ORM\OneToMany(targetEntity: Pret::class, mappedBy: 'IdBank')]
     private Collection $idPret;
 
+    #[ORM\Column(length: 255)]
+    private ?string $clients = null;
+
     // Getters and setters
 
 
@@ -152,4 +155,5 @@ class Bank
 
         return $this;
     }
+
 }

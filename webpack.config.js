@@ -13,11 +13,11 @@ Encore
  .addStyleEntry('styles_dashboard', './assets/css/style_back_dashboard.css')
  .setPublicPath('/build')
  .addStyleEntry('styles', './assets/css/style.css')
- .addStyleEntry('stylePretaccueil','./assets/css/stylePaccueil.css')
  .addStyleEntry('styleformpret', './assets/css/styles_pret.css')
  .addStyleEntry('styletableBank','./assets/css/bankShowfront.css')
  .addStyleEntry('styleaddbank', './assets/css/addbank.css')
  .addStyleEntry('styleaffiche', './assets/css/affiche_bank.css')
+ .addStyleEntry('styleCalc','./assets/css/stylecalc.css')
 
  
 
@@ -26,7 +26,7 @@ Encore
  // only needed for CDN's or subdirectory deploy
  //.setManifestKeyPrefix('build/')
  .addEntry('app', './assets/js/script.js')
- .addEntry('main','./assets/js/main.js')
+ .addEntry('loancalc','./assets/js/loancalc.js')
 
 
  // Add entry points for your JavaScript files

@@ -1,0 +1,101 @@
+{% block body %}
+    <title>Demande de prêt</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .title {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Demande de prêt</h1>
+        <table>
+            <tr>
+                <th>ID de la demande</th>
+                <td>{{ a.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom de la banque</th>
+                <td>{{ a.getIdBank().getNom() }}</td>
+            </tr>
+            <tr>
+                <th>Genre</th>
+                <td>{{ a.Gender }}</td>
+            </tr>
+            <tr>
+                <th>Statut matrimonial</th>
+                <td>{{ a.Married }}</td>
+            </tr>
+            <tr>
+                <th>Nombre de personnes à charge</th>
+                <td>{{ a.Dependents }}</td>
+            </tr>
+            <tr>
+                <th>Niveau d'éducation</th>
+                <td>{{ a.Education }}</td>
+            </tr>
+            <tr>
+                <th>Travailleur indépendant</th>
+                <td>{{ a.SelfEmployed }}</td>
+            </tr>
+            <tr>
+                <th>Revenu de l'emprunteur</th>
+                <td>{{ a.ApplicantIncome }}</td>
+            </tr>
+            <tr>
+                <th>Revenu du co-emprunteur</th>
+                <td>{{ a.CoapplicantIncome }}</td>
+            </tr>
+            <tr>
+                <th>Montant du prêt</th>
+                <td>{{ a.LoanAmount }}</td>
+            </tr>
+            <tr>
+                <th>Durée du prêt</th>
+                <td>{{ a.LoanAmountTerm }}</td>
+            </tr>
+            <tr>
+                <th>Historique de crédit</th>
+                <td>{{ a.CreditHistory }}</td>
+            </tr>
+            <tr>
+                <th>Zone de propriété</th>
+                <td>{{ a.PropertyArea }}</td>
+            </tr>
+            <tr>
+                <th>Statut du prêt</th>
+                <td>{{ a.LoanStatus }}</td>
+            </tr>
+        </table>
+        <p>Remarque : Ceci est une demande de prêt et non un contrat de prêt. Les informations fournies sont sujettes à vérification et peuvent être modifiées après vérification.</p>
+    </div>
+</body>
+{% endblock %}

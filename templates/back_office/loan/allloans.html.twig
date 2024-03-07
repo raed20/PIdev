@@ -2,7 +2,7 @@
 
 
 {% block stylesheets %}
-    {{ parent() }}
+    {{ encore_entry_link_tags('styles_back') }}
     {{ encore_entry_link_tags('styletableBank') }}
 {% endblock %}
 
@@ -12,7 +12,7 @@
 
 {% block body %}
 <div class="table-container">
-        <h1>Our loans</h1>
+        <h1>The submitted loans</h1>
 <div class="limiter">
 <div class="container-table100">
 <div class="wrap-table100">
@@ -20,30 +20,43 @@
 <table border="1">
 <thead>
     <tr class="table100-head">
-        <th  class="column1">Id</th>
-        <th  class="column2">Nom</th>
-        <th  class="column3">email</th>
-        <th  class="column3">phone</th>
-        <th  class="column3">amount</th>
-        <th  class="column3">duration</th>
-        <th  class="column3">bank</th>
+        <th  class="column1">reference pret</th>
+        <th  class="column2">Nom banque</th>
+        <th  class="column3">Gender</th>
+        <th  class="column3">Married</th>
+        <th  class="column3">Dependents</th>
+        <th  class="column3">Education</th>
+        <th  class="column3">Self Employed</th>
+        <th  class="column3">Applicant Income</th>
+        <th  class="column3">Coapplicant Income</th>
+        <th  class="column3">Loan Amount</th>
+        <th  class="column3">Loan Amount Term</th>
+        <th  class="column3">Credit History</th>
+        <th  class="column3">Property Area</th>
+        <th  class="column3"> Status</th>
+
     </tr>
 </thead>
 
-    {% for a in pret %} 
+{% for a in pret %} 
     <tr>  
-    <td  class="column1">{{ a.id }}</td>
-    <td  class="column2">{{ a.fname }}</td>
-    <td  class="column3"> {{ a.email }}</td>
-    <td  class="column3"> {{ a.phonenum }}</td>
-    <td  class="column3"> {{ a.amount }}</td>
-    <td  class="column3"> {{ a.duration }}</td>
-    <td  class="column3"> {{ a.IdBank.Nom }}</td>
 
+        <td  class="column3"> {{ a.id }}</td>
+        <td  class="column3"> {{ a.getIdBank().getNom() }}</td>
+        <td  class="column3"> {{ a.Gender }}</td>
+        <td  class="column3"> {{ a.Married }}</td>
+        <td  class="column3"> {{ a.Dependents }}</td>
+        <td  class="column3"> {{ a.Education }}</td>
+        <td  class="column3"> {{ a.SelfEmployed }}</td>
+        <td  class="column3"> {{ a.ApplicantIncome }}</td>
+        <td  class="column3"> {{ a.CoapplicantIncome }}</td>
+        <td  class="column3"> {{ a.LoanAmount }}</td>
+        <td  class="column3"> {{ a.LoanAmountTerm }}</td>
+        <td  class="column3"> {{ a.CreditHistory }}</td>
+        <td  class="column3"> {{ a.PropertyArea }}</td>
+        <td  class="column3"> {{ a.LoanStatus }}</td>
 
-
-    <td  class="column3"><a href="{{ path('app_editloan', {'id': a.id}) }}">edit</a></td>
-    <td  class="column3"><a href="{{ path('app_deleteloan', {'id': a.id}) }}">delete</a></td>
+        <td  class="column3"><a href="{{ path('app_updateloanAdmin', {'id': a.id}) }}">update</a></td>
     </tr>
 
 
@@ -56,6 +69,7 @@
 </div>
 {% endblock %}
 {% block javascripts %}
+    
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <script>

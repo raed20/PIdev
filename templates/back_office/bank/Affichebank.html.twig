@@ -1,64 +1,71 @@
 {% extends 'back_office/base_back.html.twig' %}
 
 {% block stylesheets %}
-    {{ encore_entry_link_tags('styletableBank') }}
     
-		{{ encore_entry_link_tags('styles_back') }}
-        {{ encore_entry_link_tags('styleaffiche') }}
+	{{ encore_entry_link_tags('styles_back') }}
+    {{ encore_entry_link_tags('styleaffiche') }}
 {% endblock %}
 
 {% block body %}
-    <div class="table-container">
-        <h1>List Bank</h1>
-        <div class="limiter">
-            <div class="container-table100">
-                <div class="wrap-table100">
-                    <div class="table100">
-                        <table>
-                            <thead>
-                                <tr class="table100-head">
-                                    <th class="column1">ID</th>
-                                    <th class="column2">Nom</th>
-                                    <th class="column3">Adresse</th>
-                                    <th class="column6">Logo</th>
-                                </tr>
-                            </thead>
-                            {% for a in Bank %}
-                                <tr>
-                                    <td class="column1">{{ a.id }}</td>
-                                    <td class="column2">{{ a.Nom }}</td>
-                                    <td class="column3">{{ a.Adresse }}</td>
-                                    <td class="column4"><img src="{{ asset('uploads/bank/'~ a.logo) }}" width="50px"/></td>
-                                    <td class="column5" ><a href="{{ path('app_editbank', {'id': a.id}) }}">Edit</a></td>
-                                    <td class="column6"><a href="{{ path('app_deletebank', {'id': a.id}) }}">Delete</a></td>
-                                </tr>
-                            {% endfor %}
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-{% endblock %}
-{% block javascripts %}
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
-    <script>
-        {% for flashMessage in app.session.flashbag.get('success') %}
-            Swal.fire({
-                icon: 'success',
-                title: '{{ flashMessage }}',
-                showConfirmButton: true,
-                timer: 3000,
-                timerProgressBar: true,
-                allowOutsideClick: false,
-                allowEscapeKey: false
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href = '{{ path('app_afficherlistebank') }}';
-                }
-            });
-        {% endfor %}
-    </script>
-{% endblock %}
+	<section class="section market " aria-label="market update" data-section>
+		<div class="container">
+			<div class="title-wrapper">
+				<h2 class="h2 section-title">Liste des banques</h2>
+				<h2><a href="{{ path('app_afficherlisteloanAdmin')}}">Liste des prêts</a></h2>
 
+				<a href="{{path('app_AddBank')}}"><i class="fas fa-plus add_btn"></i></a>
+
+			</div>
+			<div class="market-tab">
+				<table class="market-table">
+					<thead class="table-head">
+						<tr class="table-row table-title">
+							<th class="table-heading table-text" scope="col">#</th>
+                            <th class="table-heading table-text" scope="col"></th>
+							<th class="table-heading table-text" scope="col">Nom</th>
+                            <th class="table-heading table-text" scope="col">Logo</th>
+
+							<th class="table-heading table-text" scope="col">Adresse</th>
+							<th class="table-heading table-text" scope="col"></th>
+							<th class="table-heading table-text" scope="col"></th>
+							<th class="table-heading table-text"></th>
+						</tr>
+					</thead>
+					<tbody class="table-body">
+						{% for a in Bank %}
+							<tr class="table-row">
+
+								<td class="table-data">
+									<div class="wrapper">
+										<h3>
+											<a href="{{ path('get_loans', {'id': a.id}) }}" class="coin-name table-text">{{ a.id }}</a>
+										</h3>
+									</td>
+								</td>
+								<td class="table-data last-price table-text"></td>
+									<td>{{a.Nom}}</td>
+                                <td class="column4"><img src="{{ asset('uploads/bank/'~ a.logo) }}" width="50px"></img></td>
+								<td>{{a.adresse}}</td>
+								<td class="table-data last-update green table-text">
+                                <td class="table-data market-cap table-text"></td>
+								<td class="table-text"></td>
+								<td class="table-data">
+									<button class="btn btn-outline">
+										<a href="{{ path('app_editbank', {'id': a.id}) }}">edit</a>
+									</button>
+								</td>
+								<td class="table-data">
+									<button class="btn btn-outline">
+										<a href="{{ path('app_deletebank', {'id': a.id}) }}">delete</a>
+									</button>
+								</td>
+
+							{% endfor %}
+						</tbody>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+	</div>
+</tbody></div></section></article>{% endblock %}
