@@ -51,32 +51,7 @@ class CommentaireController extends AbstractController
     }
     
 
-#[Route('/Affichercomment', name: 'app_afficherlistecomment')]
-    public function Show(BlogRepository $repository)
-    {
-        $blog=$repository->findall();
-        return $this->render('comment/Affiche.html.twig',['blog'=>$blog]);
-    }
 
-
-    #[Route('/editcomment/{id}', name: 'app_editcomment')]
-    public function edit(BlogRepository $repository, $id, Request $request)
-    {
-        $blog = $repository->find($id);
-        $form = $this->createForm(BlogType::class, $blog);
-        $form->add('Edit', SubmitType::class);
-
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->flush(); 
-            return $this->redirectToRoute("app_afficherlistecomment");
-        }
-
-        return $this->render('blog/editcomment.html.twig', [
-            'f' => $form->createView(),
-        ]);
-    }
 
     #[Route('/delete-commentfront/{id}', name: 'delete_commentfront')]
     public function deleteCommentairefront(int $id, Request $request,Security $security): Response
@@ -105,7 +80,7 @@ class CommentaireController extends AbstractController
 
 
     function filterComment(string $text_comment): string {
-        $badWords = file('C:\xampp\htdocs\public\uploads\badwords.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        $badWords = file('C:\Users\Mega-PC\Desktop\PIdev\public\uploads\badwords.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
         foreach ($badWords as $word) {
             $replacement = $word[0] . str_repeat('*', strlen($word) - 2) . $word[-1];
             $text_comment = preg_replace('/\b' . preg_quote($word) . '\b/i', $replacement, $text_comment);
@@ -128,6 +103,9 @@ class CommentaireController extends AbstractController
     
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+            $text_comment = $form->get('contenue')->getData();
+            $filteredComment = $this->filterComment($text_comment);
+            $commentaire->setContenue($filteredComment);
           // Récupérer l'utilisateur connecté (avec l'ID 3)
             $adminId = 1; // ID de l'admin statiquement défini à 3
             $user = $this->getDoctrine()->getRepository(User::class)->find($adminId);
@@ -161,11 +139,7 @@ public function editCommentairefront($id, Request $request, Security $security):
 
     $user = $security->getUser();
 
-    // Si l'utilisateur n'est pas connecté ou si son ID est différent de 3, redirigez-le ou faites une autre action appropriée
-  //  if (!$user || $user->getID() !== 3) {
-        // Redirection, message d'erreur, etc.
-       // throw $this->createAccessDeniedException('Vous n\'avez pas les autorisations nécessaires pour effectuer cette action.');
-   // }
+   
 
     $commentaire = $entityManager->getRepository(Commentaire::class)->find($id);
 

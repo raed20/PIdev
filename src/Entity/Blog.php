@@ -27,8 +27,7 @@ class Blog
     #[Assert\Length(min:10)]
     private ?string $description = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $categorie = null;
+    
 
     #[ORM\Column(type: Types::TEXT)]
     #[Assert\Length(min:10)]
@@ -104,17 +103,9 @@ class Blog
         return $this;
     }
 
-    public function getCategorie(): ?string
-    {
-        return $this->categorie;
-    }
+    
 
-    public function setCategorie(string $categorie) 
-    {
-        $this->categorie = $categorie;
-
-        return $this;
-    }
+    
 
     public function getContenu(): ?string
     {

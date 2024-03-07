@@ -19,7 +19,7 @@ Encore
     .addStyleEntry('styles_blog_single', './assets/css/styles_blog_single.css')
     .addStyleEntry('styles_back', './assets/css/back_office/style_backoffice.css')
     .addStyleEntry('searchbar', './assets/css/back_office/searchbar.css')
-    
+    .addStyleEntry('styleaddcomment', './assets/css/back_office/styleaddcomment.css')
     
 
     // only needed for CDN's or subdirectory deploy
