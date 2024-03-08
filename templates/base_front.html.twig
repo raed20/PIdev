@@ -12,7 +12,7 @@
 		name="description" content="">
 		<!-- Favicon -->
 		<link
-		rel="icon" href="{{ asset('images/favicon.ico')}}">
+		rel="icon" href="{{ asset('./icons/logo.svg') }}">
 
 		<!-- Font Awesome CSS -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -33,13 +33,13 @@
 		<header class="header" data-header>
 			<div class="container">
 				<a href="#" class="logo">
-					<img src="{{ asset('images/logo.svg') }}" width="32" height="32" alt="Cryptex logo">
+					<img src="{{ asset('./icons/logo.svg') }}" width="32" height="32" alt="Cryptex logo">
 					Prosync
 				</a>
 				<nav class="navbar" data-navbar>
 					<ul class="navbar-list">
 						<li class="navbar-item">
-							<a href="#" class="navbar-link active" data-nav-link>Homepage</a>
+							<a href="#" class="navbar-link" data-nav-link>Homepage</a>
 						</li>
 						<li class="navbar-item">
 							<a href="#" class="navbar-link" data-nav-link>Investissement</a>
@@ -54,7 +54,7 @@
 							<a href="#" class="navbar-link" data-nav-link>Blog</a>
 						</li>
 						<li class="navbar-item">
-							<a href="#" class="navbar-link" data-nav-link>Stock</a>
+							<a href{{ path('app_products_all') }} class="navbar-link active" data-nav-link>Order</a>
 						</li>
 					</ul>
 				</nav>
@@ -78,7 +78,7 @@
 						<div class="footer-brand">
 
 							<a href="#" class="logo">
-								<img src="{{ asset('images/logo.svg') }}" width="50" height="50" alt="Prosync logo">
+								<img src="{{ asset('./icons/logo.svg') }}" width="40" height="40" alt="Prosync logo">
 								Prosync
 							</a>
 

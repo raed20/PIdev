@@ -50,15 +50,7 @@ class PanierController extends AbstractController
         ]);
     }
 
-    #[Route('/checkout', name: 'app_panier1_all')]
-    public function getAll1(ManagerRegistry $doctrine): Response
-    {
-        $repo = $doctrine->getRepository(Panier::class);
-        $paniers = $repo->findAll();
-        return $this->render('front_office/checkout.html.twig', [
-            'paniers' => $paniers,
-        ]);
-    }
+
 
     #[Route('/panier/{id}', name: 'app_panier_show')]
     public function show(int $id, ManagerRegistry $doctrine): Response
@@ -102,4 +94,48 @@ class PanierController extends AbstractController
         $em->flush();
         return $this->redirectToRoute('app_panier_all');
     }
+
+
+    //Back Controller
+
+
+    #[Route('/checkout', name: 'app_panier1_all')]
+    public function getAll1(ManagerRegistry $doctrine): Response
+    {
+        $repo = $doctrine->getRepository(Panier::class);
+        $paniers = $repo->findAll();
+        return $this->render('front_office/checkout.html.twig', [
+            'paniers' => $paniers,
+        ]);
+    }
+
+    #[Route('/productDelete/{ref}', name: 'app_delete1_panier')]
+    public function deleteP($ref, PanierRepository $repository, ManagerRegistry $doctrine)
+    {
+        $panier = $repository->find($ref);
+        $em = $doctrine->getManager();
+        $em->remove($panier);
+        $em->flush();
+        return $this->redirectToRoute('app_panier1_all');
+    }
+    
+    #[Route('/productEdit/{ref}', name: 'app_edit1_panier')]
+    public function editProduct(PanierRepository $repository, $ref, Request $request, ManagerRegistry $doctrine)
+    {
+        $panier = $repository->find($ref);
+        $form = $this->createForm(PanierType::class, $panier);
+    
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $doctrine->getManager();
+            $em->flush();
+            return $this->redirectToRoute("app_panier1_all");
+        }
+    
+        return $this->renderForm('front_office/productUpdate.html.twig', [
+            'panier' => $panier,
+            'myForm' => $form, // Pass the form to the template
+        ]);
+    }
+    
 }

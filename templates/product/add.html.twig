@@ -14,7 +14,6 @@
                         <h3 class="text-center mb-1 mt-1">Add Product</h3>
                     </div>
                     <div class="card-body">
-                        <form method="post" class="add-product-form" novalidate>
                             {{ form_start(myForm, {'attr': {'novalidate': 'novalidate'}}) }}
                             <div class="form-group mt-3">
                                 {{ form_label(myForm.name) }}
@@ -35,11 +34,13 @@
                                 {{ form_label(myForm.category) }}
                                 {{ form_widget(myForm.category, {'attr': {'class': 'form-control product-category-input'}}) }}
                             </div>
+                            <div class="form-group mt-3">
+                                {{ form_row(myForm.image) }}
+                            </div>
                             <div class="form-group text-center">
                                 {{ form_widget(myForm.Save, {'attr': {'class': 'btn btn-primary save-product-btn'}}) }}
                             </div>
                             {{ form_end(myForm) }}
-                        </form>
                     </div>
                 </div>
             </div>

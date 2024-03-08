@@ -3,8 +3,11 @@
 namespace App\Repository;
 
 use App\Entity\Product;
+use App\Model\SearchDataProduct;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Knp\Component\Pager\Pagination\PaginationInterface;
+use Knp\Component\Pager\PaginatorInterface;
 
 /**
  * @extends ServiceEntityRepository<Product>
@@ -16,9 +19,26 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class ProductRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+    public function __construct(ManagerRegistry $registry,private PaginatorInterface $paginatorInterface)
     {
         parent::__construct($registry, Product::class);
+    }
+
+    public function findBySearch(SearchDataProduct $searchData):PaginationInterface
+    {
+        $data=$this->createQueryBuilder('p')
+            ->where('p.name LIKE :name')
+            ->setParameter('name', "%{$searchData->prod}%");
+        if(!empty($searchData->prod)){
+            $data=$data
+                ->andWhere('p.name LIKE :prod')
+                ->setParameter('prod',"%{$searchData->prod}%");
+        } 
+        $data= $data
+            ->getQuery()   
+            ->getResult();
+            $blog = $this->paginatorInterface->paginate($data, $searchData->page, 9);
+        return $blog ;
     }
 
 //    /**

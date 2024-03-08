@@ -3,14 +3,19 @@
 namespace App\Controller;
 
 use App\Entity\Order;
+
+use App\Entity\Panier;
 use App\Form\OrderType;
 use App\Repository\OrderRepository;
+use App\Repository\PanierRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
+use Doctrine\ORM\EntityManagerInterface; // Importer EntityManagerInterface
+
 
 class OrderController extends AbstractController
 {
@@ -22,23 +27,38 @@ class OrderController extends AbstractController
         ]);
     }
 
-    #[Route('/order/add', name: 'app_order_add')]
-    public function add(ManagerRegistry $doctrine, Request $req): Response
+    #[Route('/order/add/{id}', name: 'app_order_add')]
+    public function add(ManagerRegistry $doctrine, Request $request,EntityManagerInterface $entityManager, $id): Response
     {
         $order = new Order();
-        $f = $this->createForm(OrderType::class, $order);
-        $f->handleRequest($req);
+        $form = $this->createForm(OrderType::class, $order);
+        $form->handleRequest($request);
+        $panier = $entityManager->getRepository(Panier::class)->find($id);
 
-        if ($f->isSubmitted() && $f->isValid()) {
-            $em = $doctrine->getManager();
-            $em->persist($order);
-            $em->flush();
+
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $doctrine->getManager();
+
+            // Get the Cart entity by its ID
+            if (!$panier) {
+                throw $this->createNotFoundException('Cart not found');
+            }
+
+            // Set the cart for the order
+            $order->setPanier($panier);
+            // Persist and flush the order
+            $entityManager->persist($order);
+            $entityManager->flush();
+
             return $this->redirectToRoute('app_order_all');
         }
+
         return $this->renderForm('order/add.html.twig', [
-            'myForm' => $f,
+            'myForm' => $form->createView(),
         ]);
     }
+
 
     #[Route('/order/all', name: 'app_order_all')]
     public function getAll(ManagerRegistry $doctrine): Response

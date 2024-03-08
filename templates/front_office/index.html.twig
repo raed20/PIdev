@@ -1,5 +1,4 @@
-
-{% extends 'front_office/shoppage.html.twig' %}
+{% extends 'base_front.html.twig' %}
 
 {% block stylesheets %}
     {{ parent() }}
@@ -20,65 +19,97 @@
 <header>
     <!-- SECTION -->
     <div class="section">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
       <!-- container -->
       <div class="container">
         <!-- row -->
         <div class="row">
-          <!-- section title -->
-          <div class="col-md-12">
-            <div class="section-title">
-              <h3 class="title">Our Products</h3>
-              <div class="section-nav">
-                <ul class="section-tab-nav tab-nav">
-                  <li><a data-toggle="tab" href="#tab1">Smartphones</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <!-- /section title -->
+          <!-- Search bar and cart logo -->
+<!-- Search bar and cart logo -->
+<div class="search-bar-container">
+    
+{% include 'front_office/searchproduct.html.twig' with{
+  form:form
+} only %}
 
-          <!-- Products tab & slick -->
-          
-          <div class="col-md-12">
-            <div class="row">
-              <div class="products-tabs">
-                <!-- tab -->
-                <div id="tab1" class="tab-pane active">
-                  <div class="products-slick" data-nav="#slick-nav-1">
-                    <!-- product -->
-                    {% for product in products %}
-                    <div class="product">
-                      <div class="product-img">
-                        <img src="{{ asset('images/product01.png') }}" alt="" />
-                        <div class="product-label">
-                        </div>
-                      </div>
-                      <div class="product-body">
-                        <p class="product-category">{{ product.Category }}</p>
-                        <h3 class="product-name">
-                          <a href="#">{{ product.name }}</a>
-                        </h3>
-                        <h4 class="product-price">
-                          {{ product.price }}TND 
-                        </h4>
-                      </div>
-                      <div class="add-to-cart">
-                        <button class="add-to-cart-btn">
-                          <i class="fa fa-shopping-cart"></i> add to cart
-                        </button>
-                      </div>
-                    </div>
-                    {% endfor %}
-                    <!-- /product -->
-                    
-                  </div>
-                  <div id="slick-nav-1" class="products-slick-nav"></div>
+
+
+
+    <div class="cart-container">
+        <div class="basket-logo">
+            <a href="{{ path('app_panier1_all') }}">
+                <img src="{{ asset('./icons/shopping-cart.png') }}" style="width: 30px; height: 30px;">
+            </a>
+        </div>
+        <div class="cart-text ">
+        <a href="{{ path('app_panier1_all') }}" style="color: #1F75FE; font-weight: 700; text-decoration: none;">
+            Your Cart
+        </a>
+
+
+        </div>
+    </div>
+</div>
+<br>
+    <br><br>
+    <br>
+<!-- /Search bar and cart logo -->
+
+<!-- Products tab & slick -->
+{% for product in products %}
+    <div class="product">
+            <form method="POST" action="{{ path('app_product_add_to_cart', {'id': product.id}) }}">
+
+        <div class="product-img">
+            <td class="column4"><img src="{{ asset('images/products/'~ product.image) }}" width="150px"/></td>
+            <div class="product-label"></div>
+        </div>
+        <div class="product-body">
+            <p class="product-category">{{ product.Category }}</p>
+            <h3 class="product-name">
+                <a href="{{ path('app_product_show', {'id': product.id}) }}">{{ product.name }}</a>
+            </h3>
+            <h4 class="product-price">{{ product.price }}TND</h4>
+            <div class="qty-label">
+                <p class="product-category">Quantity</p>
+                <div class="input-number">
+                    <input type="number" name="quantity" value="1" min="1" required> 
+                    <span class="qty-up">+</span>
+                    <span class="qty-down">-</span>
                 </div>
-                <!-- /tab -->
-              </div>
             </div>
-          </div>
-          <!-- Products tab & slick -->
+        </div>
+        <div class="add-to-cart">
+    <button onclick="addToCart('{{ path('app_panier_add', {'id': product.id}) }}')" class="add-to-cart-btn">
+        <i class="fa fa-shopping-cart"></i> add to cart
+    </button>
+</div>
+</form>
+    </div>
+{% endfor %}
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const inputField = document.querySelector('input[name="quantity"]');
+        const increaseBtn = document.querySelector('.qty-up');
+        const decreaseBtn = document.querySelector('.qty-down');
+
+        increaseBtn.addEventListener('click', function() {
+            inputField.value = parseInt(inputField.value) + 1;
+        });
+
+        decreaseBtn.addEventListener('click', function() {
+            if (parseInt(inputField.value) > 1) {
+                inputField.value = parseInt(inputField.value) - 1;
+            }
+        });
+    });
+</script>
+<!-- /Products tab & slick -->
+
         </div>
         <!-- /row -->
       </div>

@@ -17,6 +17,8 @@ Encore
     .addStyleEntry('shopPage1','./assets/css/front_office/bootstrap.min.css')
     .addStyleEntry('shopPage2','./assets/css/front_office/slick.css')
     .addStyleEntry('shopPage3','./assets/css/front_office/style.css')
+    // back office
+    .addStyleEntry('styles_backaddopp','./assets/css/back_office/style_backaddopp.css')
 
 
     // Add entry points for your JavaScript files

@@ -1,0 +1,158 @@
+{% extends 'base_front.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('shopPage1') }}
+    {{ encore_entry_link_tags('shopPage2') }}
+    {{ encore_entry_link_tags('shopPage3') }}
+{% endblock %}
+    
+{% block js %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('app_shop1') }}
+    {{ encore_entry_script_tags('app_shop2') }}
+    {{ encore_entry_script_tags('app_shop3') }}
+{% endblock %}
+
+{% block body %}
+<!-- NAVIGATION -->
+<nav id="navigation">
+    <!-- container -->
+    <div class="container">
+        <!-- responsive-nav -->
+    </div>
+    <!-- /container -->
+</nav>
+<!-- /NAVIGATION -->
+
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <!-- Product main img -->
+            <div class="col-md-5 col-md-push-1 ">
+                <br>
+                <br>
+                <br>
+                <br>
+                <div id="product-main-img">
+                    <div class="product-preview">
+                    <img src="{{ panier.product.image }}" alt="{{ panier.product.name }}"  style="width: 400px; height: 400px;"/>
+                    </div>
+                </div>
+            </div>
+            <!-- /Product main img -->
+
+            <!-- Product thumb imgs -->
+            <div class="col-md-2 col-md-pull-5">
+                <div id="product-imgs">
+                    <div class="product-preview">
+                    </div>
+                </div>
+            </div>
+            <!-- /Product thumb imgs -->
+
+            <!-- Product details -->
+            <div class="col-md-5 ">
+                <div class="product-details">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <h2 class="product-name">{{ panier.product.name }}</h2>
+                    <div>
+                        <h3 class="product-price">{{ panier.product.price }}</h3>
+                        <span class="product-available">In Stock</span>
+                    </div>
+                    <p>Description: {{ panier.product.description }}</p>
+
+                    <form method="POST" action="{{ path('app_product_update', {'id': panier.product.id}) }}">
+                        <div class="add-to-cart">
+                            <div class="qty-label">
+                                Quantity
+                                <div class="input-number">
+                                    <input type="number" name="quantity" value="{{ panier.quantity }}" min="1" required>
+                                    <span class="qty-up">+</span>
+                                    <span class="qty-down">-</span>
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+                            <button onclick="updateCart('{{ path('app_edit1_panier', {'id': panier.product.id}) }}')" class="add-to-cart-btn">
+                                <i class="fa fa-save"></i> Save
+                            </button>
+                        </div>
+                    </form>
+
+                    <ul class="product-links">
+                        <li>Category:</li>
+                        <li><a href="#">{{ panier.product.category }}</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /Product details -->
+
+
+            <!-- Product tab -->
+            <div class="col-md-12">
+                <div id="product-tab">
+                    <!-- product tab nav -->
+                    <ul class="tab-nav">
+                        <li class="active">
+                            <a data-toggle="tab">Details</a>
+                        </li>
+                    </ul>
+                    <!-- /product tab nav -->
+
+
+                    <!-- product tab content -->
+                    <div class="tab-content">
+                        <!-- tab1  -->
+                        <div id="tab1" class="tab-pane fade in active">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-8 mx-auto">
+                                        <p>
+                                            "Welcome to our product page! Here, you'll find detailed information about {{product.name}}. 
+                                            Explore its features, specifications, and benefits to help you make an informed decision. 
+                                            If you have any questions or need assistance, feel free to reach out to our support team. 
+                                            Thank you for choosing PROSYNC for your shopping needs!"
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /product tab content -->
+                </div>
+            </div>
+            <!-- /Product tab -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /Section -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const inputFields = document.querySelectorAll('input[name="quantity"]');
+
+        inputFields.forEach(function(inputField) {
+            const increaseBtn = inputField.nextElementSibling;
+            const decreaseBtn = increaseBtn.nextElementSibling;
+
+            increaseBtn.addEventListener('click', function() {
+                inputField.value = parseInt(inputField.value) + 1;
+            });
+
+            decreaseBtn.addEventListener('click', function() {
+                if (parseInt(inputField.value) > 1) {
+                    inputField.value = parseInt(inputField.value) - 1;
+                }
+            });
+        });
+    });
+</script>
+{% endblock %}
