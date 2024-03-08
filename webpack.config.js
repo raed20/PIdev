@@ -25,6 +25,7 @@ Encore
     // only needed for CDN's or subdirectory deploy
     //.setManifestKeyPrefix('build/')
     .addEntry('app', './assets/js/script.js')
+    .addEntry('translation', './assets/js/translation.js')
     .addEntry('app_back', './assets/js/back_office/backoffice.js')
     
     

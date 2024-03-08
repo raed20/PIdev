@@ -22,10 +22,10 @@
           <!-- item -->
           {% for b in blog %}
           <div class = "blog-item">
-            <div class = "blog-img">
-              <img class="tsawer" src = "images/stocks.jpg" alt = "">
+            
+              <img src="{{ asset('/uploades/images/blog/' ~ b.image) }}" class="blog-img"/>
               
-            </div>
+            
             <div class = "blog-text">
               
               <h2>{{b.titre}}</h2>

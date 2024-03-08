@@ -3,11 +3,14 @@
     {{ parent() }}
     {{ encore_entry_link_tags('styles_blog_single') }}
 {% endblock %}
-
+{% block javascripts %}
+			{{ encore_entry_script_tags('translation') }}
+		{% endblock %}
 
 
 {% block body %}
-
+ <!DOCTYPE html>
+    <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,7 +36,7 @@
   <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=65e0f279c6f7450019c08fdc&product=inline-share-buttons&source=platform" async="async"></script>
 
 
-  
+  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 
 <body>
@@ -68,7 +71,13 @@
           </div>
 
 
-          
+           <div id="google_translate_element"></div>
+
+        <script>
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement({ autoDisplay: false }, 'google_translate_element');
+            }
+        </script>
   
 
           <div class="pt-5 comment-wrap">
@@ -129,7 +138,7 @@
   
 
    
-    
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/tiny-slider.js"></script>

@@ -1,16 +1,19 @@
 <?php
 
 namespace App\Entity;
+
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Doctrine\DBAL\Types\Types;
 use Symfony\Component\Validator\Constraints as Assert;
 use App\Repository\BlogRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
+use Doctrine\DBAL\Types\Types;
 
 
 
-
+#[Vich\Uploadable]
 #[ORM\Entity(repositoryClass: BlogRepository::class)]
 class Blog
 {
@@ -27,7 +30,11 @@ class Blog
     #[Assert\Length(min:10)]
     private ?string $description = null;
 
-    
+    #[ORM\Column(nullable: true)]
+    private ?string $image = null;
+
+    #[Vich\UploadableField(mapping: "blog_images", fileNameProperty: "image")]
+    private ?File $imageFile = null;
 
     #[ORM\Column(type: Types::TEXT)]
     #[Assert\Length(min:10)]
@@ -35,12 +42,14 @@ class Blog
 
     #[ORM\OneToMany(targetEntity: Commentaire::class, mappedBy: 'idblog')]
     private Collection $commentaires;
+    
 
     
 
-    #[ORM\ManyToMany(targetEntity: User::class)]
-    #[JoinTable('user_post_like')]
-    private Collection $likes;
+
+
+
+
 
     public function __construct()
     {
@@ -66,30 +75,33 @@ class Blog
         return $this;
     }
 
-    public function getLikes(): ?string
+    public function setImageFile(File $imageFile)
     {
-        return $this->liks;
+        $this->imageFile = $imageFile;
     }
 
-     public function addLike(User $like): self
+    public function getImageFile()
     {
-        if(!$this->likes->contains($like)){
-            $this->likes[] = $like;
-        }
+        return $this->imageFile;
+    }
+
+    public function setImage($image): static
+    {
+        $this->image = $image;
         return $this;
     }
 
-    public function removeLike(User $like): self
+    public function getImage()
     {
-        $this->likes->removeElement($like);
-        return $this;
+        return $this->image;
     }
 
-    public function isLikedByUser(User $user): bool
-    {
-        return $this->likes->contains($user);
-    }
+    
 
+     
+
+    
+    
 
     public function getDescription(): ?string
     {

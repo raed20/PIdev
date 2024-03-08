@@ -2,16 +2,26 @@
 
 namespace App\Controller;
 
+
+
+
+namespace App\Controller;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\Blog;
+use App\Repository\BlogRepository;
+use Symfony\Contracts\HttpClient\HttpClientInterface;
+
+
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
-use App\Entity\Blog;
+
 use App\Form\BlogType;
 use App\Form\SearchType;
-use App\Repository\BlogRepository;
+
 use Doctrine\Persistence\ManagerRegistry;
 use App\Model\SearchData;
 use App\blackknight467\StarRatingBundle\StarRatingBundle;
@@ -59,17 +69,17 @@ class BlogController extends AbstractController
             if ($form -> isSubmitted() && $form->isValid()){
                 $em->persist($blog);
                 $em->flush();
-                return $this->redirectToRoute("app_afficherliste");
+                return $this->redirectToRoute("app_afficherlisteblog");
             }   
         return $this->render('blog/add.html.twig', ['f' => $form->createView()]);
 
     }
 
-#[Route('/AfficherListe', name: 'app_afficherliste')]
+#[Route('/AfficherListeblog', name: 'app_afficherlisteblog')]
     public function Show(BlogRepository $repository)
     {
         $blog=$repository->findall();
-        return $this->render('blog/Affiche.html.twig',['blog'=>$blog]);
+        return $this->render('blog/Afficheblog.html.twig',['blog'=>$blog]);
     }
 
     
@@ -86,7 +96,7 @@ class BlogController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->flush(); 
-            return $this->redirectToRoute("app_afficherliste");
+            return $this->redirectToRoute("app_afficherlisteblog");
         }
 
         return $this->render('blog/edit.html.twig', [
@@ -106,7 +116,7 @@ class BlogController extends AbstractController
         $em = $this->getDoctrine()->getManager();
         $em->remove($blog);
         $em->flush();
-        return $this->redirectToRoute('app_afficherliste');
+        return $this->redirectToRoute('app_afficherlisteblog');
 } 
 
     #[Route('/blogdetails/{id}', name: 'blogdetails' )]
