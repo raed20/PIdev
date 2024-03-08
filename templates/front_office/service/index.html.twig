@@ -1,0 +1,62 @@
+{% extends 'front_office/base_front.html.twig' %}
+{% block stylesheets %}
+	{{ parent() }}
+	{{ encore_entry_link_tags('styles_front') }}
+	{{ encore_entry_link_tags('styles_profile') }}
+		  <style>
+        /* Style pour le formulaire */
+        .form-control-lg {
+            padding: 1.5rem 1rem;
+            border-radius: 0.5rem;
+        }
+
+        .password-toggle-btn {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            right: 1rem;
+            transform: translateY(-50%);
+        }
+        /* Styles spécifiques pour le contenu de la page */
+        .profile-card {
+            border: 1px solid #e3e3e3;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .profile-card img {
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+
+        .profile-card .social-buttons button {
+            margin-right: 10px;
+        }
+
+        /* Styles spécifiques pour le formulaire */
+        .update-profile-form input[type="text"],
+        .update-profile-form input[type="email"] {
+            border: none;
+            border-bottom: 1px solid #ced4da;
+            border-radius: 0;
+            box-shadow: none;
+        }
+    </style>
+	{% endblock %}
+   
+
+
+
+
+
+
+			{% block body %}
+
+
+
+				
+{% block javascripts %}
+    <script src="{{ asset('webpack/assets/js/front_office/frontoffice.js') }}"></script>
+{% endblock %}
+{% endblock %}

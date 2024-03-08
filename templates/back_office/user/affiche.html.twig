@@ -1,0 +1,129 @@
+{% extends 'back_office/base_back.html.twig' %}
+{% block stylesheets %}
+	{{ parent() }}
+	{{ encore_entry_link_tags('styles_dashbaord') }}
+    
+{% endblock %}
+	{% block body %}
+
+<div class="container-fluid">
+    <!-- ============================================================== -->
+    <!-- Start Page Content -->
+    <!-- ============================================================== -->
+    {% block javascripts %}
+ 
+{{ encore_entry_script_tags('app_back') }}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+        {% for flashMessage in app.session.flashbag.get('success') %}
+        
+        Swal.fire({
+            icon: 'success',
+            title: 'Suppression réussie!',
+            text: '{{ flashMessage }}',
+            showConfirmButton: true
+        });
+        {% endfor %}
+    </script>
+    {% endblock %}
+    <div class="container-fluid">
+          
+  
+          <div class="row">
+            <!-- column -->
+            <div class="col-lg-15">
+             
+
+    <div class="card">
+        <div class="card-body">
+            <h3 class="card-title">User table</h3>
+            <form class="d-flex me-2" method="get" action="{{ path('app_afficherlisteusers') }}">
+                <input class="form-control" type="text" name="search" value="{{ searchQuery }}" placeholder="Search user here" aria-label="Search">
+            </form><br>
+            <div class="table-responsive">
+                <table id="zero_config" class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th><h5>Image</h5></th>
+                            <th><h5>Name</h5></th>
+                            <th><h5>Email</h5></th>
+                            <th><h5>Address</h5></th>
+                            <th><h5>NumTel</h5></th>
+                            <th><h5>Role</h5></th>
+                            <th><h5>Edit</h5></th>
+                            <th><h5>Delete</h5></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for a in user %}
+                        <tr>
+                            <td><div class="col-md-4">
+                
+                                     {% if a.image %}
+                                            <img src="{{ asset('uploads/images/' ~ a.image) }}" alt="Photo de profil de l'utilisateur" class="img-fluid" width="150" height="150">
+                                     {% endif %}
+
+                            </div></td>
+                            <td>{{ a.lastname }}</td>
+                            <td>{{ a.email }}</td>
+                            <td>{{ a.adresse }}</td>
+                            <td>{{ a.numtel }}</td>
+                            <td>
+                                {% if a.roles is not empty %}
+                                {% for role in a.roles %}
+                                {% set badgeColor = role == 'ROLE_ADMIN' ? 'success' : (role == 'ROLE_FOURNISSEUR' ? 'primary' : 'info') %}
+                                <span class="badge bg-{{ badgeColor }}">{{ role }}</span>
+                                {% endfor %}
+                                {% else %}
+                                <p>No roles assigned</p>
+                                {% endif %}
+                            </td>
+                            <td><a href="{{ path('app_edit', {'id': a.id}) }}"><i class="fas fa-edit" style="color:black"></i></a></td>
+                            <td><a href="{{ path('app_delete', {'id': a.id}) }}"><i class="fas fa-trash-alt" style="color:red"></i></a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <div class="row">
+                    <div class="col">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination justify-content-center">
+                                {% for page in 1..totalPages %}
+                                <li class="page-item {% if page == currentPage %}active{% endif %}">
+                                    <a class="page-link" href="{{ path('app_afficherlisteusers', {'page': page}) }}">{{ page }}</a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Page Content -->
+    <!-- ============================================================== -->
+</div>
+<footer class="footer text-center">
+    All Rights Reserved by ProSync. Designed and Developed by
+    <a href="https://www.Prosync.com">ProSync</a>.
+</footer>
+
+
+
+<script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+<script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+<script src="../assets/extra-libs/sparkline/sparkline.js"></script>
+<script src="../dist/js/waves.js"></script>
+<script src="../dist/js/sidebarmenu.js"></script>
+<script src="../dist/js/custom.min.js"></script>
+<script src="../assets/extra-libs/multicheck/datatable-checkbox-init.js"></script>
+<script src="../assets/extra-libs/multicheck/jquery.multicheck.js"></script>
+<script src="../assets/extra-libs/DataTables/datatables.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#zero_config").DataTable();
+    });
+</script>
+{% endblock %}

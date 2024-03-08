@@ -1,0 +1,60 @@
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	 <title>ProSync</title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+	<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+	<!-- Favicon -->
+	<link
+	 src="{{ asset('uploads/images/' ~ app.user.image) }}">
+
+	<!-- Symfony Encore CSS -->
+	{% block stylesheets %}
+
+		{{ encore_entry_link_tags('styles_back') }}
+	{% endblock %}
+</head>
+<body>
+	<!-- =============== Navigation ================ -->
+	<div class="container_side">
+		<div class="navigation">
+			<div class="scrollable">
+			<ul>
+				<li><a href="#"><span class="icon"><img class="ion-icon logo"src="{{ asset('assets/images/favicon.png') }}" width="32" height="32" alt="Prosync logo"></span><span class="title">Prosync</span></a></li>
+				<li><a href="#"><span class="icon"><i class="fas fa-home ion-icon"></i></span><span class="title">Dashboard</span></a></li>
+				<li><a href="#"><span class="icon"><i class="fas fa-users ion-icon"></i></span><span class="title">CRM</span></a></li>
+				<li><a href="#"><span class="icon"><i class="fas fa-chart-line ion-icon"></i></span><span class="title">Gestion investissement</span></a></li>
+				<li><a href="#"><span class="icon"><i class="fas fa-money-bill-alt ion-icon"></i></span><span class="title">Pret</span></a></li>
+				<li><a href="#"><span class="icon"><i class="fa fa-newspaper ion-icon"></i></span><span class="title">Blog</span></a></li>
+				<li><a href="#"><span class="icon"><i class="fas fa-briefcase ion-icon"></i></span><span class="title">Categories</span></a></li>
+				<li><a href="#"><span class="icon"><i class="fas fa-shopping-bag ion-icon"></i></span><span class="title">Porducts</span></a></li>
+				<li><a href="/AfficherListeUsers"><span class="icon"><i class="fas fa-users ion-icon"></i></span><span class="title">Utilisateurs</span></a></li>
+				<li><a href="/home/Adduser"><span class="icon"><i class="fas fa-user-plus ion-icon"></i></span><span class="title">Ajouter utilisateur</span></a></li>
+                <li><a href="/profile"><span class="icon"><i class="fas fa-user ion-icon"></i></span><span class="title">Mon profile</span></a></li>
+				<li><a href="{{ path('app_logout') }}"><span class="icon"><i class="fas fa-sign-out-alt ion-icon"></i></span><span class="title">Sign Out</span></a></li>
+			</ul>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- ========================= Main ==================== -->
+	<div class="main">
+		<div class="topbar">
+			<div class="toggle">
+				<i class="fas fa-bars fa-2x ion-icon"></i>
+			</div>
+
+			<div class="user"><img src="#" alt=""></div>
+		</div>
+
+		{% block body %}{% endblock %}<!-- Symfony Encore JS -->{% block javascripts %}
+			{{ encore_entry_script_tags('app_back') }}
+		{% endblock %}

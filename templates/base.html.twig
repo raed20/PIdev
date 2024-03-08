@@ -175,8 +175,8 @@
                   aria-expanded="false"
                 >
                   <img
-                    src="../assets/images/users/5.jpg"
-                    alt="user"
+                    src="{{ asset('uploads/images/' ~ app.user.image) }}" 
+                   
                     class="rounded-circle"
                     width="31"
                   />
@@ -186,7 +186,7 @@
                   aria-labelledby="navbarDropdown"
                 >
                   <a class="dropdown-item" href="profileadmin.html"
-                    ><i class="mdi mdi-account me-1 ms-1"></i> My Profile</a
+                    ><i class="mdi mdi-account me-1 ms-1"></i> My Profile : {{app.user.email}}</a
                   >
                   <a class="dropdown-item" href="javascript:void(0)"
                     ><i class="mdi mdi-wallet me-1 ms-1"></i> My Balance</a
@@ -230,7 +230,7 @@
               <li class="sidebar-item">
                 <a
                   class="sidebar-link waves-effect waves-dark sidebar-link"
-                  href="index.html"
+                  href="/home"
                   aria-expanded="false"
                   ><i class="mdi mdi-view-dashboard"></i
                   ><span class="hide-menu">Dashboard</span></a
@@ -259,7 +259,7 @@
               <li class="sidebar-item">
                 <a
                   class="sidebar-link waves-effect waves-dark sidebar-link"
-                  href="/Adduser"
+                  href="/home/Adduser"
                   aria-expanded="false"
                   ><i class="me-2 mdi mdi-account-multiple-plus"></i
                   ><span class="hide-menu">Add User</span></a
@@ -277,13 +277,22 @@
                 >
                 <ul aria-expanded="false" class="collapse first-level">
                   <li class="sidebar-item">
-                    <a href="profileadmin.html" class="sidebar-link"
+                    <a href="/profile" class="sidebar-link"
                       ><i class="mdi mdi-all-inclusive"></i
                       ><span class="hide-menu"> Admin </span></a
                     >
                   </li>
             
                 </ul>
+              </li>
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link waves-effect waves-dark sidebar-link"
+                  href="{{ path('app_logout') }}"
+                  aria-expanded="false"
+                  ><i class="fas fa-sign-out-alt ion-icon"></i
+                  ><span class="hide-menu">Logout</span></a
+                >
               </li>
             </ul>
           </nav>
@@ -317,7 +326,7 @@
   
           <div class="row">
             <!-- column -->
-            <div class="col-lg-6">
+            <div class="col-lg-15">
               <div class="card">
                 <div class="card-body">
                 {% block body %}

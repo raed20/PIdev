@@ -9,6 +9,9 @@ use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -18,19 +21,31 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('email')
-            ->add('lastname')
-            ->add('numtel')
-            ->add('adresse')
+        ->add('email')
+        ->add('lastname', null, [
+            'constraints' => [
+                new NotBlank(['message' => 'Please enter your last name.']),
+            ],
+        ])
+        ->add('numtel', null, [
+            'constraints' => [
+                new NotBlank(['message' => 'Please enter your phone number.']),
+            ],
+        ])
+        ->add('adresse', null, [
+            'constraints' => [
+                new NotBlank(['message' => 'Please enter your address.']),
+            ],
+        ])
             ->add('roles', ChoiceType::class, [
                 'choices' => [
-                    'Admin' => 'ROLE_ADMIN',
-                    'User' => 'ROLE_USER',
-                    // Ajoutez d'autres rôles selon vos besoins
+                    'Fournisseur' => 'ROLE_FOURNISSEUR',
+                    'Client' => 'ROLE_CLIENT',
+                    
                 ],
-                'placeholder' => 'Sélectionner un rôle', // Optionnel : Ajoutez un élément de placeholder
-                'required' => true, // Optionnel : Définissez si le champ est obligatoire
-                // Ajoutez d'autres options selon vos besoins
+                
+                'required' => true, 
+                
                 'multiple' => true,
                 'expanded' => true,
             ])
@@ -48,8 +63,7 @@ class RegistrationFormType extends AbstractType
                 ],
             ])
             ->add('plainPassword', PasswordType::class, [
-                // instead of being set onto the object directly,
-                // this is read and encoded in the controller
+            
                 'mapped' => false,
                 'attr' => ['autocomplete' => 'new-password'],
                 'constraints' => [
@@ -59,10 +73,15 @@ class RegistrationFormType extends AbstractType
                     new Length([
                         'min' => 6,
                         'minMessage' => 'Your password should be at least {{ limit }} characters',
-                        // max length allowed by Symfony for security reasons
+                       
                         'max' => 4096,
                     ]),
                 ],
+            ])
+            ->add('image', FileType::class, [
+                'label' => 'User Image',
+                'required' => false, 
+                'mapped' => true, 
             ])
         ;
     }

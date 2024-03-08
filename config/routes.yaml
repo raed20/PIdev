@@ -6,9 +6,19 @@ app_home:
     controller: App\Controller\HomeController::index
 
 
+app_home1:
+    path: /home1
+    controller: App\Controller\HomeController::index1
+
+
 app_register:
     path: /register
     controller: App\Controller\RegistrationController::register
+
+
+app_dashboard:
+    path: /dashboard
+    controller: App\Controller\HomeController::dashboard
 
 
 
@@ -21,9 +31,9 @@ app_logout:
     path: /logout
     controller: App\Controller\SecurityController::logout
 
-app_afficherliste:
-    path: /AfficherListe
-    controller: App\Controller\UserController::Show
+app_afficherlisteusers:
+    path: /AfficherListeUsers
+    controller: App\Controller\UserController::ShowUsers
 
 
 
@@ -32,22 +42,46 @@ app_edit:
     controller: App\Controller\UserController::edit
 
 
+app_editfront:
+    path: /editfront/{id}
+    controller: App\Controller\UserController::editfront
+
+
 
 app_delete:
     path: /delete/{id}
     controller: App\Controller\UserController::delete
 
+
+app_deletefront:
+    path: /deletefront/{id}
+    controller: App\Controller\UserController::deletefront
+
+
+
+
 app_AddUser:
-    path: /Adduser
-    controller: App\Controller\UserController::Add
+    path: /home/Adduser
+    controller: App\Controller\UserController::Add  
 
 
-app_site:
-    path: /site
-    controller: App\Controller\HomeController::test    
+app_profile:
+    path: /profile
+    controller: App\Controller\UserController::profile
 
+app_profilefont:
+    path: /profilefront
+    controller: App\Controller\UserController::profilefront
 
-app_user:
-    path: /user
-    controller: App\Controller\UserController::User
+app_verify_email:
+    path: '/verifyemail'
+    controller: App\Controller\RegistrationController::verifyEmail
+    
  
+
+
+
+
+
+
+

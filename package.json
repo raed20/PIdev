@@ -4,7 +4,8 @@
   "description": "Landwind is a free and open-source landing page built with Tailwind CSS and Flowbite for SaaS and product websites.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "encore dev"
   },
   "repository": {
     "type": "git",
@@ -30,9 +31,23 @@
   },
   "homepage": "https://github.com/themesberg/landwind#readme",
   "devDependencies": {
-    "tailwindcss": "^3.1.4"
+    "@hotwired/stimulus": "^3.0.0",
+    "@hotwired/turbo": "^7.0.1",
+    "@symfony/stimulus-bridge": "^3.2.0",
+    "@symfony/ux-turbo": "file:vendor/symfony/ux-turbo/assets",
+    "@symfony/webpack-encore": "^4.6.1",
+    "core-js": "^3.36.0",
+    "sass": "^1.71.1",
+    "sass-loader": "^14.0.0",
+    "tailwindcss": "^3.1.4",
+    "webpack": "^5.90.3",
+    "webpack-cli": "^5.1.4",
+    "webpack-notifier": "^1.15.0"
   },
   "dependencies": {
     "flowbite": "^1.4.7"
+  },
+  "directories": {
+    "test": "tests"
   }
 }

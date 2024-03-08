@@ -1,5 +1,15 @@
 {
-  "build/app.css": "/build/app.b75294ae.css",
-  "build/app.js": "/build/app.53d71f57.js",
-  "build/runtime.js": "/build/runtime.05dacd30.js"
+  "build/app_front.js": "/build/app_front.1e98c051.js",
+  "build/app_back.js": "/build/app_back.5aa7bfb4.js",
+  "build/styles_front.css": "/build/styles_front.4196f0fb.css",
+  "build/styles_back.css": "/build/styles_back.4c31ff19.css",
+  "build/styles_invest_main_front.css": "/build/styles_invest_main_front.6f668664.css",
+  "build/styles_dashbaord.css": "/build/styles_dashbaord.ce479934.css",
+  "build/styles_backopp.css": "/build/styles_backopp.15991627.css",
+  "build/styles_backaddopp.css": "/build/styles_backaddopp.46c5bf00.css",
+  "build/styles_invest_front.css": "/build/styles_invest_front.6a9fad2e.css",
+  "build/styles_inv_front.css": "/build/styles_inv_front.d5c576c6.css",
+  "build/styles_profile.css": "/build/styles_profile.4d2bcc1e.css",
+  "build/runtime.js": "/build/runtime.e6046c0c.js",
+  "build/vendors-node_modules_core-js_modules_es_array_for-each_js-node_modules_core-js_modules_es_obj-7bb33f.d8542db0.js": "/build/vendors-node_modules_core-js_modules_es_array_for-each_js-node_modules_core-js_modules_es_obj-7bb33f.d8542db0.js"
 }

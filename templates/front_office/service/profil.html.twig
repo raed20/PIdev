@@ -1,0 +1,188 @@
+{% extends 'front_office/base_front.html.twig' %}
+{% block stylesheets %}
+	{{ parent() }}
+	{{ encore_entry_link_tags('styles_front') }}
+	{{ encore_entry_link_tags('styles_profile') }}
+		  <style>
+        /* Style pour le formulaire */
+        .form-control-lg {
+            padding: 1.5rem 1rem;
+            border-radius: 0.5rem;
+        }
+
+        .password-toggle-btn {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            right: 1rem;
+            transform: translateY(-50%);
+        }
+        /* Styles spécifiques pour le contenu de la page */
+        .profile-card {
+            border: 1px solid #e3e3e3;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .profile-card img {
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+
+        .profile-card .social-buttons button {
+            margin-right: 10px;
+        }
+
+        /* Styles spécifiques pour le formulaire */
+        .update-profile-form input[type="text"],
+        .update-profile-form input[type="email"] {
+            border: none;
+            border-bottom: 1px solid #ced4da;
+            border-radius: 0;
+            box-shadow: none;
+        }
+       
+    .larger-font {
+        font-size: 20px;
+    }
+</style>
+    </style>
+	{% endblock %}
+   
+{% block body %}
+
+        <div class="container mt-4" style="background-color: #f7f7f7; padding: 100px; padding-bottom: 40px;">
+          
+  
+        
+            <div class="card">
+                <div class="card-body">
+   <h1 class="page-title">User Profil</h1>
+        <div class="container-fluid" >
+            <!-- ============================================================== -->
+            <!-- Start Page Content -->
+            <!-- ============================================================== -->
+            <!-- Row -->
+            <div class="row" >
+                <!-- Column -->
+                <div class="col-lg-4 col-xlg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <center class="mt-4"> 
+                            <img src="{{ asset('uploads/images/' ~ app.user.image) }}"  
+                                    class="rounded-circle" height="200" width="200" />
+                                <h2 class="card-title mt-2">{{ app.user.lastname }}</h2>
+                                <h2 class="card-subtitle">  
+                                {% for role in user.roles %}
+                                {% set badgeColor = 'primary' %}
+<span class="badge bg-{{ badgeColor }}">{{ role }}</span>
+                              {% endfor %}</h2>
+                                
+                            </center>
+                        </div>
+                        <div>
+                            <hr>
+                        </div>
+                        <div class="card-body"> <small class="text-muted larger-font">Email address </small>
+                            <h4>{{ user.email }}</h4> <small class="text-muted larger-font">Phone</small>
+                            <h4>{{ user.numtel }}</h4> <small class="text-muted larger-font">Address</small>
+                                <h4>{{ user.adresse }}</h4>
+                                <small class="text-muted larger-font">Social Profile</small>
+                                <br />
+                                <button class="btn btn-circle btn-secondary"><i class="mdi mdi-facebook"></i></button>
+                                <button class="btn btn-circle btn-secondary"><i class="mdi mdi-twitter"></i></button>
+                                <button class="btn btn-circle btn-secondary"><i
+                                        class="mdi mdi-youtube-play"></i></button>
+                            </div>
+                    </div>
+                </div>
+                <!-- Column -->
+                <!-- Column -->
+                <div class="col-lg-8 col-xlg-9">
+    <div class="card">
+        <div class="card-body">
+            <form class="form-horizontal form-material mx-2" style="background-color: #f7f7f7; padding: 20px;">
+                <div class="form-group row">
+                    <label for="full-name" class="col-md-3 col-form-label">Full Name</label>
+                    <div class="col-md-9">
+                        <input type="text" id="full-name" value="{{ app.user.lastname }}"
+                               class="form-control form-control-lg form-control-line">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="email" class="col-md-3 col-form-label">Email</label>
+                    <div class="col-md-9">
+                        <input type="email" id="email" value="{{ app.user.email }}"
+                               class="form-control form-control-lg form-control-line">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="phone" class="col-md-3 col-form-label">Phone No</label>
+                    <div class="col-md-9">
+                        <input type="text" id="phone" value="{{ app.user.numtel }}"
+                               class="form-control form-control-lg form-control-line">
+                    </div>
+                </div></br>
+                <div class="form-group row">
+                    <div class="col-md-9 offset-md-3">
+                        <button type="submit" class="btn btn-success">
+                            <a href="{{ path('app_editfront', {'id': app.user.id}) }}" class="text-white">Update Profile</a>
+                        </button>
+                        <button type="submit" class="btn btn-danger" id="delete-profile-btn">
+                            <a href="{{ path('app_deletefront', {'id': app.user.id}) }}" class="text-white">Delete Profile</a>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+                <!-- Column -->
+            </div>
+            <!-- Row -->
+            <!-- ============================================================== -->
+            <!-- End PAge Content -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Right sidebar -->
+            <!-- ============================================================== -->
+            <!-- .right-sidebar -->
+            <!-- ============================================================== -->
+            <!-- End Right sidebar -->
+            <!-- ============================================================== -->
+        </div>
+    </div>
+</div>
+</div>
+
+        
+        
+        
+       
+     
+
+  
+
+
+
+
+
+ {% block javascripts %}
+
+{{ encore_entry_script_tags('app_back') }}
+
+</section>
+<script>
+document.getElementById('delete-profile-btn').addEventListener('click', function(event) {
+    event.preventDefault(); 
+
+    var confirmation = confirm("Are you sure you want to delete your profile?");
+    if (confirmation) {
+        window.location.href = "{{ path('app_deletefront', {'id': app.user.id}) }}";
+    }
+});
+</script>
+{% endblock %}
+{% endblock %}

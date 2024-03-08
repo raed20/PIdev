@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services https://symfony.com/schema/dic/services/services-1.0.xsd">
   <parameters>
-    <parameter key="kernel.project_dir">C:\xampp\htdocs\ProjetDev</parameter>
+    <parameter key="kernel.project_dir">C:\xampp\htdocs\lekhreni\PIdev</parameter>
     <parameter key="kernel.environment">dev</parameter>
     <parameter key="kernel.runtime_environment">%env(default:kernel.environment:APP_RUNTIME_ENV)%</parameter>
     <parameter key="kernel.debug">true</parameter>
-    <parameter key="kernel.build_dir">C:\xampp\htdocs\ProjetDev\var\cache\dev</parameter>
-    <parameter key="kernel.cache_dir">C:\xampp\htdocs\ProjetDev\var\cache\dev</parameter>
-    <parameter key="kernel.logs_dir">C:\xampp\htdocs\ProjetDev\var\log</parameter>
+    <parameter key="kernel.build_dir">C:\xampp\htdocs\lekhreni\PIdev\var\cache\dev</parameter>
+    <parameter key="kernel.cache_dir">C:\xampp\htdocs\lekhreni\PIdev\var\cache\dev</parameter>
+    <parameter key="kernel.logs_dir">C:\xampp\htdocs\lekhreni\PIdev\var\log</parameter>
     <parameter key="kernel.bundles" type="collection">
       <parameter key="FrameworkBundle">Symfony\Bundle\FrameworkBundle\FrameworkBundle</parameter>
       <parameter key="DoctrineBundle">Doctrine\Bundle\DoctrineBundle\DoctrineBundle</parameter>
@@ -21,59 +21,77 @@
       <parameter key="SecurityBundle">Symfony\Bundle\SecurityBundle\SecurityBundle</parameter>
       <parameter key="MonologBundle">Symfony\Bundle\MonologBundle\MonologBundle</parameter>
       <parameter key="MakerBundle">Symfony\Bundle\MakerBundle\MakerBundle</parameter>
+      <parameter key="WebpackEncoreBundle">Symfony\WebpackEncoreBundle\WebpackEncoreBundle</parameter>
+      <parameter key="SymfonyCastsVerifyEmailBundle">SymfonyCasts\Bundle\VerifyEmail\SymfonyCastsVerifyEmailBundle</parameter>
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
-        <parameter key="path">C:\xampp\htdocs\ProjetDev\vendor\symfony\framework-bundle</parameter>
+        <parameter key="path">C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\framework-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\FrameworkBundle</parameter>
       </parameter>
       <parameter key="DoctrineBundle" type="collection">
-        <parameter key="path">C:\xampp\htdocs\ProjetDev\vendor\doctrine\doctrine-bundle</parameter>
+        <parameter key="path">C:\xampp\htdocs\lekhreni\PIdev\vendor\doctrine\doctrine-bundle</parameter>
         <parameter key="namespace">Doctrine\Bundle\DoctrineBundle</parameter>
       </parameter>
       <parameter key="DoctrineMigrationsBundle" type="collection">
-        <parameter key="path">C:\xampp\htdocs\ProjetDev\vendor\doctrine\doctrine-migrations-bundle</parameter>
+        <parameter key="path">C:\xampp\htdocs\lekhreni\PIdev\vendor\doctrine\doctrine-migrations-bundle</parameter>
         <parameter key="namespace">Doctrine\Bundle\MigrationsBundle</parameter>
       </parameter>
       <parameter key="DebugBundle" type="collection">
-        <parameter key="path">C:\xampp\htdocs\ProjetDev\vendor\symfony\debug-bundle</parameter>
+        <parameter key="path">C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\debug-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\DebugBundle</parameter>
       </parameter>
       <parameter key="TwigBundle" type="collection">
-        <parameter key="path">C:\xampp\htdocs\ProjetDev\vendor\symfony\twig-bundle</parameter>
+        <parameter key="path">C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\twig-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\TwigBundle</parameter>
       </parameter>
       <parameter key="WebProfilerBundle" type="collection">
-        <parameter key="path">C:\xampp\htdocs\ProjetDev\vendor\symfony\web-profiler-bundle</parameter>
+        <parameter key="path">C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\web-profiler-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\WebProfilerBundle</parameter>
       </parameter>
       <parameter key="StimulusBundle" type="collection">
-        <parameter key="path">C:\xampp\htdocs\ProjetDev\vendor\symfony\stimulus-bundle</parameter>
+        <parameter key="path">C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\stimulus-bundle</parameter>
         <parameter key="namespace">Symfony\UX\StimulusBundle</parameter>
       </parameter>
       <parameter key="TurboBundle" type="collection">
-        <parameter key="path">C:\xampp\htdocs\ProjetDev\vendor\symfony\ux-turbo</parameter>
+        <parameter key="path">C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\ux-turbo</parameter>
         <parameter key="namespace">Symfony\UX\Turbo</parameter>
       </parameter>
       <parameter key="TwigExtraBundle" type="collection">
-        <parameter key="path">C:\xampp\htdocs\ProjetDev\vendor\twig\extra-bundle</parameter>
+        <parameter key="path">C:\xampp\htdocs\lekhreni\PIdev\vendor\twig\extra-bundle</parameter>
         <parameter key="namespace">Twig\Extra\TwigExtraBundle</parameter>
       </parameter>
       <parameter key="SecurityBundle" type="collection">
-        <parameter key="path">C:\xampp\htdocs\ProjetDev\vendor\symfony\security-bundle</parameter>
+        <parameter key="path">C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\SecurityBundle</parameter>
       </parameter>
       <parameter key="MonologBundle" type="collection">
-        <parameter key="path">C:\xampp\htdocs\ProjetDev\vendor\symfony\monolog-bundle</parameter>
+        <parameter key="path">C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\monolog-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\MonologBundle</parameter>
       </parameter>
       <parameter key="MakerBundle" type="collection">
-        <parameter key="path">C:\xampp\htdocs\ProjetDev\vendor\symfony\maker-bundle\src</parameter>
+        <parameter key="path">C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\maker-bundle\src</parameter>
         <parameter key="namespace">Symfony\Bundle\MakerBundle</parameter>
+      </parameter>
+      <parameter key="WebpackEncoreBundle" type="collection">
+        <parameter key="path">C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\webpack-encore-bundle\src</parameter>
+        <parameter key="namespace">Symfony\WebpackEncoreBundle</parameter>
+      </parameter>
+      <parameter key="SymfonyCastsVerifyEmailBundle" type="collection">
+        <parameter key="path">C:\xampp\htdocs\lekhreni\PIdev\vendor\symfonycasts\verify-email-bundle\src</parameter>
+        <parameter key="namespace">SymfonyCasts\Bundle\VerifyEmail</parameter>
       </parameter>
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
     <parameter key="kernel.container_class">App_KernelDevDebugContainer</parameter>
+    <parameter key="image_directory">C:\xampp\htdocs\lekhreni\PIdev/public/uploads/images</parameter>
+    <parameter key="App\Twig\AppExtension" type="collection">
+      <parameter key="tags" type="collection">
+        <parameter type="collection">
+          <parameter key="name">twig.extension</parameter>
+        </parameter>
+      </parameter>
+    </parameter>
     <parameter key="event_dispatcher.event_aliases" type="collection">
       <parameter key="Symfony\Component\Console\Event\ConsoleCommandEvent">console.command</parameter>
       <parameter key="Symfony\Component\Console\Event\ConsoleErrorEvent">console.error</parameter>
@@ -109,17 +127,17 @@
     <parameter key="asset.request_context.base_path">null</parameter>
     <parameter key="asset.request_context.secure">null</parameter>
     <parameter key="translator.logging">false</parameter>
-    <parameter key="translator.default_path">C:\xampp\htdocs\ProjetDev/translations</parameter>
+    <parameter key="translator.default_path">C:\xampp\htdocs\lekhreni\PIdev/translations</parameter>
     <parameter key="debug.error_handler.throw_at">-1</parameter>
-    <parameter key="debug.container.dump">C:\xampp\htdocs\ProjetDev\var\cache\dev/App_KernelDevDebugContainer.xml</parameter>
+    <parameter key="debug.container.dump">C:\xampp\htdocs\lekhreni\PIdev\var\cache\dev/App_KernelDevDebugContainer.xml</parameter>
     <parameter key="router.request_context.host">localhost</parameter>
     <parameter key="router.request_context.scheme">http</parameter>
     <parameter key="router.request_context.base_url"></parameter>
     <parameter key="router.resource">kernel::loadRoutes</parameter>
     <parameter key="request_listener.http_port">80</parameter>
     <parameter key="request_listener.https_port">443</parameter>
-    <parameter key="serializer.mapping.cache.file">C:\xampp\htdocs\ProjetDev\var\cache\dev/serialization.php</parameter>
-    <parameter key="cache.prefix.seed">_C:\xampp\htdocs\ProjetDev.App_KernelDevDebugContainer</parameter>
+    <parameter key="serializer.mapping.cache.file">C:\xampp\htdocs\lekhreni\PIdev\var\cache\dev/serialization.php</parameter>
+    <parameter key="cache.prefix.seed">_C:\xampp\htdocs\lekhreni\PIdev.App_KernelDevDebugContainer</parameter>
     <parameter key="session.metadata.storage_key">_sf2_meta</parameter>
     <parameter key="session.storage.options" type="collection">
       <parameter key="cache_limiter" type="string">0</parameter>
@@ -132,11 +150,11 @@
     <parameter key="session.metadata.update_threshold">0</parameter>
     <parameter key="form.type_extension.csrf.enabled">true</parameter>
     <parameter key="form.type_extension.csrf.field_name">_token</parameter>
-    <parameter key="validator.mapping.cache.file">C:\xampp\htdocs\ProjetDev\var\cache\dev/validation.php</parameter>
+    <parameter key="validator.mapping.cache.file">C:\xampp\htdocs\lekhreni\PIdev\var\cache\dev/validation.php</parameter>
     <parameter key="validator.translation_domain">validators</parameter>
     <parameter key="profiler_listener.only_exceptions">false</parameter>
     <parameter key="profiler_listener.only_main_requests">false</parameter>
-    <parameter key="profiler.storage.dsn">file:C:\xampp\htdocs\ProjetDev\var\cache\dev/profiler</parameter>
+    <parameter key="profiler.storage.dsn">file:C:\xampp\htdocs\lekhreni\PIdev\var\cache\dev/profiler</parameter>
     <parameter key="doctrine.dbal.configuration.class">Doctrine\DBAL\Configuration</parameter>
     <parameter key="doctrine.data_collector.class">Doctrine\Bundle\DoctrineBundle\DataCollector\DoctrineDataCollector</parameter>
     <parameter key="doctrine.dbal.connection.event_manager.class">Symfony\Bridge\Doctrine\ContainerAwareEventManager</parameter>
@@ -201,7 +219,7 @@
     <parameter key="doctrine.orm.second_level_cache.regions_configuration.class">Doctrine\ORM\Cache\RegionsConfiguration</parameter>
     <parameter key="doctrine.orm.auto_generate_proxy_classes">true</parameter>
     <parameter key="doctrine.orm.enable_lazy_ghost_objects">true</parameter>
-    <parameter key="doctrine.orm.proxy_dir">C:\xampp\htdocs\ProjetDev\var\cache\dev/doctrine/orm/Proxies</parameter>
+    <parameter key="doctrine.orm.proxy_dir">C:\xampp\htdocs\lekhreni\PIdev\var\cache\dev/doctrine/orm/Proxies</parameter>
     <parameter key="doctrine.orm.proxy_namespace">Proxies</parameter>
     <parameter key="doctrine.migrations.preferred_em">null</parameter>
     <parameter key="doctrine.migrations.preferred_connection">null</parameter>
@@ -209,7 +227,7 @@
     <parameter key="twig.form.resources" type="collection">
       <parameter>form_div_layout.html.twig</parameter>
     </parameter>
-    <parameter key="twig.default_path">C:\xampp\htdocs\ProjetDev/templates</parameter>
+    <parameter key="twig.default_path">C:\xampp\htdocs\lekhreni\PIdev/templates</parameter>
     <parameter key="web_profiler.debug_toolbar.intercept_redirects">false</parameter>
     <parameter key="web_profiler.debug_toolbar.mode">2</parameter>
     <parameter key="security.role_hierarchy.roles" type="collection"/>
@@ -344,6 +362,7 @@
     <service id="App\Controller\RegistrationController" class="App\Controller\RegistrationController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
+      <argument type="service" id="symfonycasts.verify_email.helper"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.mx0UMmY.App\Controller\RegistrationController"/>
       </call>
@@ -355,9 +374,17 @@
         <argument type="service" id=".service_locator.mx0UMmY.App\Controller\SecurityController"/>
       </call>
     </service>
+    <service id="App\Controller\ServiceController" class="App\Controller\ServiceController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.mx0UMmY.App\Controller\ServiceController"/>
+      </call>
+    </service>
     <service id="App\Controller\UserController" class="App\Controller\UserController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
+      <argument type="service" id="security.helper"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.mx0UMmY.App\Controller\UserController"/>
       </call>
@@ -367,10 +394,6 @@
     </service>
     <service id="App\Form\UserType" class="App\Form\UserType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
-    </service>
-    <service id="App\Repository\TestRepository" class="App\Repository\TestRepository" autowire="true" autoconfigure="true">
-      <tag name="doctrine.repository_service"/>
-      <argument type="service" id="doctrine"/>
     </service>
     <service id="App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
@@ -448,7 +471,7 @@
       </argument>
     </service>
     <service id="http_cache.store" class="Symfony\Component\HttpKernel\HttpCache\Store">
-      <argument>C:\xampp\htdocs\ProjetDev\var\cache\dev/http_cache</argument>
+      <argument>C:\xampp\htdocs\lekhreni\PIdev\var\cache\dev/http_cache</argument>
     </service>
     <service id="url_helper" class="Symfony\Component\HttpFoundation\UrlHelper">
       <argument type="service" id="request_stack"/>
@@ -458,7 +481,7 @@
       <tag name="container.no_preload"/>
       <argument type="tagged_iterator" tag="kernel.cache_warmer"/>
       <argument>true</argument>
-      <argument>C:\xampp\htdocs\ProjetDev\var\cache\dev/App_KernelDevDebugContainerDeprecations.log</argument>
+      <argument>C:\xampp\htdocs\lekhreni\PIdev\var\cache\dev/App_KernelDevDebugContainerDeprecations.log</argument>
     </service>
     <service id="cache_clearer" class="Symfony\Component\HttpKernel\CacheClearer\ChainCacheClearer" public="true">
       <tag name="container.private" package="symfony/framework-bundle" version="5.2"/>
@@ -513,6 +536,9 @@
         <argument key="debug.security.firewall.authenticator.main" type="service" id="debug.security.firewall.authenticator.main" on-invalid="ignore_uninitialized"/>
         <argument key="monolog.handler.main" type="service" id="monolog.handler.main" on-invalid="ignore_uninitialized"/>
         <argument key="monolog.handler.console" type="service" id="monolog.handler.console" on-invalid="ignore_uninitialized"/>
+        <argument key="webpack_encore.tag_renderer" type="service" id="webpack_encore.tag_renderer" on-invalid="ignore_uninitialized"/>
+        <argument key="cache.webpack_encore" type="service" id="cache.webpack_encore" on-invalid="ignore_uninitialized"/>
+        <argument key="webpack_encore.entrypoint_lookup[_default]" type="service" id="webpack_encore.entrypoint_lookup[_default]" on-invalid="ignore_uninitialized"/>
         <argument key=".debug.http_client" type="service" id=".debug.http_client" on-invalid="ignore_uninitialized"/>
       </argument>
       <argument type="collection">
@@ -601,6 +627,15 @@
         <argument key="monolog.handler.console" type="collection">
           <argument>reset</argument>
         </argument>
+        <argument key="webpack_encore.tag_renderer" type="collection">
+          <argument>reset</argument>
+        </argument>
+        <argument key="cache.webpack_encore" type="collection">
+          <argument>reset</argument>
+        </argument>
+        <argument key="webpack_encore.entrypoint_lookup[_default]" type="collection">
+          <argument>reset</argument>
+        </argument>
         <argument key=".debug.http_client" type="collection">
           <argument>reset</argument>
         </argument>
@@ -674,7 +709,7 @@
       </argument>
       <argument>UTF-8</argument>
       <argument type="service" id="debug.file_link_formatter" on-invalid="null"/>
-      <argument>C:\xampp\htdocs\ProjetDev</argument>
+      <argument>C:\xampp\htdocs\lekhreni\PIdev</argument>
       <argument type="service">
         <service>
           <argument type="service" id="request_stack"/>
@@ -707,7 +742,7 @@
       <tag name="console.command"/>
       <tag name="container.no_preload"/>
       <argument type="service" id="filesystem"/>
-      <argument>C:\xampp\htdocs\ProjetDev</argument>
+      <argument>C:\xampp\htdocs\lekhreni\PIdev</argument>
       <call method="setName">
         <argument>assets:install</argument>
       </call>
@@ -744,6 +779,7 @@
         <argument>cache.doctrine.orm.default.query</argument>
         <argument>cache.security_expression_language</argument>
         <argument>cache.security_token_verifier</argument>
+        <argument>cache.webpack_encore</argument>
       </argument>
       <call method="setName">
         <argument>cache:pool:clear</argument>
@@ -780,6 +816,7 @@
         <argument>cache.doctrine.orm.default.query</argument>
         <argument>cache.security_expression_language</argument>
         <argument>cache.security_token_verifier</argument>
+        <argument>cache.webpack_encore</argument>
       </argument>
       <call method="setName">
         <argument>cache:pool:delete</argument>
@@ -804,6 +841,7 @@
         <argument>cache.doctrine.orm.default.query</argument>
         <argument>cache.security_expression_language</argument>
         <argument>cache.security_token_verifier</argument>
+        <argument>cache.webpack_encore</argument>
       </argument>
       <call method="setName">
         <argument>cache:pool:list</argument>
@@ -879,7 +917,7 @@
       <tag name="console.command"/>
       <tag name="container.no_preload"/>
       <argument>dev</argument>
-      <argument>C:\xampp\htdocs\ProjetDev</argument>
+      <argument>C:\xampp\htdocs\lekhreni\PIdev</argument>
       <call method="setName">
         <argument>debug:dotenv</argument>
       </call>
@@ -1055,16 +1093,16 @@
       <argument type="service" id="translator.data_collector"/>
       <argument type="service" id="translation.reader"/>
       <argument type="service" id="translation.extractor"/>
-      <argument>C:\xampp\htdocs\ProjetDev/translations</argument>
-      <argument>C:\xampp\htdocs\ProjetDev/templates</argument>
+      <argument>C:\xampp\htdocs\lekhreni\PIdev/translations</argument>
+      <argument>C:\xampp\htdocs\lekhreni\PIdev/templates</argument>
       <argument type="collection">
-        <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations</argument>
-        <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations</argument>
-        <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations</argument>
+        <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations</argument>
+        <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations</argument>
+        <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations</argument>
       </argument>
       <argument type="collection">
-        <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\twig-bridge/Resources/views/Email</argument>
-        <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\twig-bridge/Resources/views/Form</argument>
+        <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\twig-bridge/Resources/views/Email</argument>
+        <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\twig-bridge/Resources/views/Form</argument>
       </argument>
       <argument type="collection"/>
       <call method="setName">
@@ -1081,16 +1119,16 @@
       <argument type="service" id="translation.reader"/>
       <argument type="service" id="translation.extractor"/>
       <argument>en</argument>
-      <argument>C:\xampp\htdocs\ProjetDev/translations</argument>
-      <argument>C:\xampp\htdocs\ProjetDev/templates</argument>
+      <argument>C:\xampp\htdocs\lekhreni\PIdev/translations</argument>
+      <argument>C:\xampp\htdocs\lekhreni\PIdev/templates</argument>
       <argument type="collection">
-        <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations</argument>
-        <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations</argument>
-        <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations</argument>
+        <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations</argument>
+        <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations</argument>
+        <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations</argument>
       </argument>
       <argument type="collection">
-        <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\twig-bridge/Resources/views/Email</argument>
-        <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\twig-bridge/Resources/views/Form</argument>
+        <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\twig-bridge/Resources/views/Email</argument>
+        <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\twig-bridge/Resources/views/Form</argument>
       </argument>
       <argument type="collection"/>
       <call method="setName">
@@ -1322,7 +1360,7 @@
       <argument></argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:\xampp\htdocs\ProjetDev\var\cache\dev/pools/system</argument>
+      <argument>C:\xampp\htdocs\lekhreni\PIdev\var\cache\dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -1352,7 +1390,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>C:\xampp\htdocs\ProjetDev\var\cache\dev/pools/app</argument>
+      <argument>C:\xampp\htdocs\lekhreni\PIdev\var\cache\dev/pools/app</argument>
       <argument type="service" id="cache.default_marshaller" on-invalid="ignore"/>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
@@ -1452,6 +1490,7 @@
         <argument key="cache.validator_expression_language" type="service" id="cache.validator_expression_language" on-invalid="ignore_uninitialized"/>
         <argument key="cache.security_expression_language" type="service" id="cache.security_expression_language" on-invalid="ignore_uninitialized"/>
         <argument key="cache.security_token_verifier" type="service" id="cache.security_token_verifier" on-invalid="ignore_uninitialized"/>
+        <argument key="cache.webpack_encore" type="service" id="cache.webpack_encore" on-invalid="ignore_uninitialized"/>
       </argument>
     </service>
     <service id="cache.global_clearer" class="Symfony\Component\HttpKernel\CacheClearer\Psr6CacheClearer" public="true">
@@ -1469,6 +1508,7 @@
         <argument key="cache.doctrine.orm.default.query" type="service" id="cache.doctrine.orm.default.query" on-invalid="ignore_uninitialized"/>
         <argument key="cache.security_expression_language" type="service" id="cache.security_expression_language" on-invalid="ignore_uninitialized"/>
         <argument key="cache.security_token_verifier" type="service" id="cache.security_token_verifier" on-invalid="ignore_uninitialized"/>
+        <argument key="cache.webpack_encore" type="service" id="cache.webpack_encore" on-invalid="ignore_uninitialized"/>
       </argument>
     </service>
     <service id="identity_translator" class="Symfony\Component\Translation\IdentityTranslator"/>
@@ -1517,9 +1557,14 @@
       <argument type="service" id=".debug.http_client"/>
       <deprecated package="symfony/framework-bundle" version="5.3">The "%service_id%" service is deprecated, use "assets.json_manifest_version_strategy" instead.</deprecated>
     </service>
+    <service id="assets._version__default" class="Symfony\Component\Asset\VersionStrategy\JsonManifestVersionStrategy">
+      <argument>C:\xampp\htdocs\lekhreni\PIdev/public/build/manifest.json</argument>
+      <argument type="service" id=".debug.http_client" on-invalid="null"/>
+      <argument>false</argument>
+    </service>
     <service id="assets._default_package" class="Symfony\Component\Asset\PathPackage">
       <argument></argument>
-      <argument type="service" id="assets.empty_version_strategy"/>
+      <argument type="service" id="assets._version__default"/>
       <argument type="service" id="assets.context"/>
     </service>
     <service id="http_client.abstract_retry_strategy" class="Symfony\Component\HttpClient\Retry\GenericRetryStrategy" abstract="true">
@@ -1633,331 +1678,362 @@
         </argument>
       </argument>
       <argument type="collection">
-        <argument key="cache_dir">C:\xampp\htdocs\ProjetDev\var\cache\dev/translations</argument>
+        <argument key="cache_dir">C:\xampp\htdocs\lekhreni\PIdev\var\cache\dev/translations</argument>
         <argument key="debug">true</argument>
         <argument key="resource_files" type="collection">
           <argument key="af" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.af.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.af.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.af.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.af.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.af.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.af.xlf</argument>
           </argument>
           <argument key="ar" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.ar.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.ar.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.ar.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.ar.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.ar.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.ar.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfonycasts\verify-email-bundle\src/Resources/translations\VerifyEmailBundle.ar.xlf</argument>
           </argument>
           <argument key="az" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.az.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.az.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.az.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.az.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.az.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.az.xlf</argument>
           </argument>
           <argument key="be" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.be.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.be.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.be.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.be.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.be.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.be.xlf</argument>
           </argument>
           <argument key="bg" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.bg.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.bg.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.bg.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.bg.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.bg.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.bg.xlf</argument>
           </argument>
           <argument key="bs" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.bs.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.bs.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.bs.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.bs.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.bs.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.bs.xlf</argument>
           </argument>
           <argument key="ca" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.ca.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.ca.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.ca.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.ca.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.ca.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.ca.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfonycasts\verify-email-bundle\src/Resources/translations\VerifyEmailBundle.ca.xlf</argument>
           </argument>
           <argument key="cs" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.cs.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.cs.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.cs.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.cs.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.cs.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.cs.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfonycasts\verify-email-bundle\src/Resources/translations\VerifyEmailBundle.cs.xlf</argument>
           </argument>
           <argument key="cy" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.cy.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.cy.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.cy.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.cy.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.cy.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.cy.xlf</argument>
           </argument>
           <argument key="da" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.da.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.da.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.da.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.da.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.da.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.da.xlf</argument>
           </argument>
           <argument key="de" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.de.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.de.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.de.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.de.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.de.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.de.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfonycasts\verify-email-bundle\src/Resources/translations\VerifyEmailBundle.de.xlf</argument>
           </argument>
           <argument key="el" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.el.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.el.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.el.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.el.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.el.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.el.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfonycasts\verify-email-bundle\src/Resources/translations\VerifyEmailBundle.el.xlf</argument>
           </argument>
           <argument key="en" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.en.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.en.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.en.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.en.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.en.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.en.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfonycasts\verify-email-bundle\src/Resources/translations\VerifyEmailBundle.en.xlf</argument>
           </argument>
           <argument key="es" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.es.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.es.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.es.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.es.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.es.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.es.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfonycasts\verify-email-bundle\src/Resources/translations\VerifyEmailBundle.es.xlf</argument>
           </argument>
           <argument key="et" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.et.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.et.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.et.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.et.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.et.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.et.xlf</argument>
           </argument>
           <argument key="eu" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.eu.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.eu.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.eu.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.eu.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.eu.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.eu.xlf</argument>
           </argument>
           <argument key="fa" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.fa.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.fa.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.fa.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.fa.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.fa.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.fa.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfonycasts\verify-email-bundle\src/Resources/translations\VerifyEmailBundle.fa.xlf</argument>
           </argument>
           <argument key="fi" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.fi.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.fi.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.fi.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.fi.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.fi.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.fi.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfonycasts\verify-email-bundle\src/Resources/translations\VerifyEmailBundle.fi.xlf</argument>
           </argument>
           <argument key="fr" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.fr.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.fr.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.fr.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.fr.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.fr.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.fr.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfonycasts\verify-email-bundle\src/Resources/translations\VerifyEmailBundle.fr.xlf</argument>
           </argument>
           <argument key="gl" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.gl.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.gl.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.gl.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.gl.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.gl.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.gl.xlf</argument>
           </argument>
           <argument key="he" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.he.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.he.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.he.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.he.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.he.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.he.xlf</argument>
           </argument>
           <argument key="hr" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.hr.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.hr.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.hr.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.hr.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.hr.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.hr.xlf</argument>
           </argument>
           <argument key="hu" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.hu.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.hu.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.hu.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.hu.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.hu.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.hu.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfonycasts\verify-email-bundle\src/Resources/translations\VerifyEmailBundle.hu.xlf</argument>
           </argument>
           <argument key="hy" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.hy.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.hy.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.hy.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.hy.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.hy.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.hy.xlf</argument>
           </argument>
           <argument key="id" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.id.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.id.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.id.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.id.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.id.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.id.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfonycasts\verify-email-bundle\src/Resources/translations\VerifyEmailBundle.id.xlf</argument>
           </argument>
           <argument key="it" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.it.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.it.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.it.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.it.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.it.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.it.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfonycasts\verify-email-bundle\src/Resources/translations\VerifyEmailBundle.it.xlf</argument>
           </argument>
           <argument key="ja" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.ja.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.ja.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.ja.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.ja.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.ja.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.ja.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfonycasts\verify-email-bundle\src/Resources/translations\VerifyEmailBundle.ja.xlf</argument>
           </argument>
           <argument key="lb" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.lb.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.lb.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.lb.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.lb.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.lb.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.lb.xlf</argument>
           </argument>
           <argument key="lt" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.lt.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.lt.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.lt.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.lt.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.lt.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.lt.xlf</argument>
           </argument>
           <argument key="lv" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.lv.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.lv.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.lv.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.lv.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.lv.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.lv.xlf</argument>
           </argument>
           <argument key="mk" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.mk.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.mk.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.mk.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.mk.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.mk.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.mk.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfonycasts\verify-email-bundle\src/Resources/translations\VerifyEmailBundle.mk.xlf</argument>
           </argument>
           <argument key="mn" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.mn.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.mn.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.mn.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.mn.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.mn.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.mn.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfonycasts\verify-email-bundle\src/Resources/translations\VerifyEmailBundle.mn.xlf</argument>
           </argument>
           <argument key="my" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.my.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.my.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.my.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.my.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.my.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.my.xlf</argument>
           </argument>
           <argument key="nb" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.nb.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.nb.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.nb.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.nb.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.nb.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.nb.xlf</argument>
           </argument>
           <argument key="nl" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.nl.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.nl.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.nl.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.nl.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.nl.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.nl.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfonycasts\verify-email-bundle\src/Resources/translations\VerifyEmailBundle+intl-icu.nl.xlf</argument>
           </argument>
           <argument key="nn" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.nn.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.nn.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.nn.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.nn.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.nn.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.nn.xlf</argument>
           </argument>
           <argument key="no" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.no.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.no.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.no.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.no.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.no.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.no.xlf</argument>
           </argument>
           <argument key="pl" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.pl.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.pl.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.pl.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.pl.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.pl.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.pl.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfonycasts\verify-email-bundle\src/Resources/translations\VerifyEmailBundle.pl.xlf</argument>
           </argument>
           <argument key="pt" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.pt.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.pt.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.pt.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.pt.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.pt.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.pt.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfonycasts\verify-email-bundle\src/Resources/translations\VerifyEmailBundle.pt.xlf</argument>
           </argument>
           <argument key="pt_BR" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.pt_BR.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.pt_BR.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.pt_BR.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.pt_BR.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.pt_BR.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.pt_BR.xlf</argument>
           </argument>
           <argument key="ro" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.ro.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.ro.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.ro.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.ro.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.ro.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.ro.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfonycasts\verify-email-bundle\src/Resources/translations\VerifyEmailBundle.ro.xlf</argument>
           </argument>
           <argument key="ru" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.ru.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.ru.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.ru.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.ru.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.ru.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.ru.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfonycasts\verify-email-bundle\src/Resources/translations\VerifyEmailBundle.ru.xlf</argument>
           </argument>
           <argument key="sk" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.sk.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.sk.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.sk.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.sk.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.sk.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.sk.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfonycasts\verify-email-bundle\src/Resources/translations\VerifyEmailBundle.sk.xlf</argument>
           </argument>
           <argument key="sl" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.sl.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.sl.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.sl.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.sl.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.sl.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.sl.xlf</argument>
           </argument>
           <argument key="sq" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.sq.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.sq.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.sq.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.sq.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.sq.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.sq.xlf</argument>
           </argument>
           <argument key="sr_Cyrl" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.sr_Cyrl.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.sr_Cyrl.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.sr_Cyrl.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.sr_Cyrl.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.sr_Cyrl.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.sr_Cyrl.xlf</argument>
           </argument>
           <argument key="sr_Latn" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.sr_Latn.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.sr_Latn.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.sr_Latn.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.sr_Latn.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.sr_Latn.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.sr_Latn.xlf</argument>
           </argument>
           <argument key="sv" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.sv.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.sv.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.sv.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.sv.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.sv.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.sv.xlf</argument>
           </argument>
           <argument key="th" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.th.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.th.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.th.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.th.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.th.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.th.xlf</argument>
           </argument>
           <argument key="tl" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.tl.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.tl.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.tl.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.tl.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.tl.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.tl.xlf</argument>
           </argument>
           <argument key="tr" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.tr.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.tr.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.tr.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.tr.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.tr.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.tr.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfonycasts\verify-email-bundle\src/Resources/translations\VerifyEmailBundle.tr.xlf</argument>
           </argument>
           <argument key="uk" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.uk.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.uk.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.uk.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.uk.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.uk.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.uk.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfonycasts\verify-email-bundle\src/Resources/translations\VerifyEmailBundle.uk.xlf</argument>
           </argument>
           <argument key="ur" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.ur.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.ur.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.ur.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.ur.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.ur.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.ur.xlf</argument>
           </argument>
           <argument key="uz" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.uz.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.uz.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.uz.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.uz.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.uz.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.uz.xlf</argument>
           </argument>
           <argument key="vi" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.vi.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.vi.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.vi.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.vi.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.vi.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.vi.xlf</argument>
           </argument>
           <argument key="zh_CN" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.zh_CN.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.zh_CN.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.zh_CN.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.zh_CN.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.zh_CN.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.zh_CN.xlf</argument>
           </argument>
           <argument key="zh_TW" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations\validators.zh_TW.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations\validators.zh_TW.xlf</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations\security.zh_TW.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations\validators.zh_TW.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations\validators.zh_TW.xlf</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations\security.zh_TW.xlf</argument>
+          </argument>
+          <argument key="sr" type="collection">
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfonycasts\verify-email-bundle\src/Resources/translations\VerifyEmailBundle.sr.xlf</argument>
           </argument>
         </argument>
         <argument key="scanned_directories" type="collection">
-          <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations</argument>
-          <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations</argument>
-          <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations</argument>
-          <argument>C:\xampp\htdocs\ProjetDev/translations</argument>
-          <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\framework-bundle/translations</argument>
-          <argument>C:\xampp\htdocs\ProjetDev\vendor\doctrine\doctrine-bundle/translations</argument>
-          <argument>C:\xampp\htdocs\ProjetDev\vendor\doctrine\doctrine-migrations-bundle/translations</argument>
-          <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\debug-bundle/translations</argument>
-          <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\twig-bundle/translations</argument>
-          <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\web-profiler-bundle/translations</argument>
-          <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\stimulus-bundle/translations</argument>
-          <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\ux-turbo/translations</argument>
-          <argument>C:\xampp\htdocs\ProjetDev\vendor\twig\extra-bundle/translations</argument>
-          <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-bundle/translations</argument>
-          <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\monolog-bundle/translations</argument>
-          <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\maker-bundle\src/translations</argument>
+          <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations</argument>
+          <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations</argument>
+          <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations</argument>
+          <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfonycasts\verify-email-bundle\src/Resources/translations</argument>
+          <argument>C:\xampp\htdocs\lekhreni\PIdev/translations</argument>
+          <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\framework-bundle/translations</argument>
+          <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\doctrine\doctrine-bundle/translations</argument>
+          <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\doctrine\doctrine-migrations-bundle/translations</argument>
+          <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\debug-bundle/translations</argument>
+          <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\twig-bundle/translations</argument>
+          <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\web-profiler-bundle/translations</argument>
+          <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\stimulus-bundle/translations</argument>
+          <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\ux-turbo/translations</argument>
+          <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\twig\extra-bundle/translations</argument>
+          <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-bundle/translations</argument>
+          <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\monolog-bundle/translations</argument>
+          <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\maker-bundle\src/translations</argument>
+          <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\webpack-encore-bundle\src/translations</argument>
         </argument>
         <argument key="cache_vary" type="collection">
           <argument key="scanned_directories" type="collection">
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\validator/Resources/translations</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/translations</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-core/Resources/translations</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\validator/Resources/translations</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/translations</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-core/Resources/translations</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfonycasts\verify-email-bundle\src/Resources/translations</argument>
             <argument>translations</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\framework-bundle/translations</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\doctrine\doctrine-bundle/translations</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\doctrine\doctrine-migrations-bundle/translations</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\debug-bundle/translations</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\twig-bundle/translations</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\web-profiler-bundle/translations</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\stimulus-bundle/translations</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\ux-turbo/translations</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\twig\extra-bundle/translations</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-bundle/translations</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\monolog-bundle/translations</argument>
-            <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\maker-bundle\src/translations</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\framework-bundle/translations</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\doctrine\doctrine-bundle/translations</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\doctrine\doctrine-migrations-bundle/translations</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\debug-bundle/translations</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\twig-bundle/translations</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\web-profiler-bundle/translations</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\stimulus-bundle/translations</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\ux-turbo/translations</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\twig\extra-bundle/translations</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-bundle/translations</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\monolog-bundle/translations</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\maker-bundle\src/translations</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\webpack-encore-bundle\src/translations</argument>
           </argument>
         </argument>
       </argument>
@@ -2190,7 +2266,7 @@
     <service id="debug.file_link_formatter" class="Symfony\Component\HttpKernel\Debug\FileLinkFormatter">
       <argument>null</argument>
       <argument type="service" id="request_stack" on-invalid="ignore"/>
-      <argument>C:\xampp\htdocs\ProjetDev</argument>
+      <argument>C:\xampp\htdocs\lekhreni\PIdev</argument>
       <argument type="service_closure" id="debug.file_link_formatter.url_format"/>
     </service>
     <service id="debug.stopwatch" class="Symfony\Component\Stopwatch\Stopwatch">
@@ -2227,6 +2303,14 @@
         <argument type="collection">
           <argument type="service_closure" id="security.context_listener.0"/>
           <argument>onKernelResponse</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.exception</argument>
+        <argument type="collection">
+          <argument type="service_closure" id="webpack_encore.exception_listener"/>
+          <argument>onKernelException</argument>
         </argument>
         <argument>0</argument>
       </call>
@@ -2679,6 +2763,14 @@
         <argument>0</argument>
       </call>
       <call method="addListener">
+        <argument>kernel.finish_request</argument>
+        <argument type="collection">
+          <argument type="service_closure" id="Symfony\WebpackEncoreBundle\EventListener\ResetAssetsEventListener"/>
+          <argument>resetAssets</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
         <argument>Symfony\Component\Security\Http\Event\CheckPassportEvent</argument>
         <argument type="collection">
           <argument type="service_closure" id="security.listener.csrf_protection"/>
@@ -2779,7 +2871,7 @@
       <argument type="service" id=".service_locator.gOdCe1K.router.default"/>
       <argument>kernel::loadRoutes</argument>
       <argument type="collection">
-        <argument key="cache_dir">C:\xampp\htdocs\ProjetDev\var\cache\dev</argument>
+        <argument key="cache_dir">C:\xampp\htdocs\lekhreni\PIdev\var\cache\dev</argument>
         <argument key="debug">true</argument>
         <argument key="generator_class">Symfony\Component\Routing\Generator\CompiledUrlGenerator</argument>
         <argument key="generator_dumper_class">Symfony\Component\Routing\Generator\Dumper\CompiledUrlGeneratorDumper</argument>
@@ -2829,7 +2921,7 @@
       <argument type="service" id="request_stack"/>
       <argument type="service" id="router.request_context" on-invalid="ignore"/>
       <argument type="service" id="monolog.logger.request" on-invalid="ignore"/>
-      <argument>C:\xampp\htdocs\ProjetDev</argument>
+      <argument>C:\xampp\htdocs\lekhreni\PIdev</argument>
       <argument>true</argument>
     </service>
     <service id="Symfony\Bundle\FrameworkBundle\Controller\RedirectController" class="Symfony\Bundle\FrameworkBundle\Controller\RedirectController" public="true">
@@ -2850,7 +2942,7 @@
     </service>
     <service id="routing.loader.annotation" class="Symfony\Bundle\FrameworkBundle\Routing\AnnotatedRouteControllerLoader">
       <tag name="routing.loader" priority="-10"/>
-      <argument>null</argument>
+      <argument type="service" id="annotations.cached_reader" on-invalid="null"/>
       <argument>dev</argument>
     </service>
     <service id="routing.loader.annotation.directory" class="Symfony\Component\Routing\Loader\AnnotationDirectoryLoader">
@@ -2863,6 +2955,50 @@
       <argument type="service" id="file_locator"/>
       <argument type="service" id="routing.loader.annotation"/>
     </service>
+    <service id="annotations.reader" class="Doctrine\Common\Annotations\AnnotationReader">
+      <call method="addGlobalIgnoredName">
+        <argument>required</argument>
+        <argument>null</argument>
+      </call>
+    </service>
+    <service id="annotations.cached_reader" class="Doctrine\Common\Annotations\PsrCachedReader">
+      <tag name="annotations.cached_reader"/>
+      <tag name="container.do_not_inline"/>
+      <argument type="service" id="annotations.reader"/>
+      <argument type="service">
+        <service class="Symfony\Component\Cache\Adapter\ArrayAdapter"/>
+      </argument>
+      <argument>true</argument>
+      <argument type="service_closure" id="annotations.cache_adapter"/>
+    </service>
+    <service id="annotations.filesystem_cache_adapter" class="Symfony\Component\Cache\Adapter\FilesystemAdapter">
+      <argument></argument>
+      <argument>0</argument>
+      <argument type="abstract">Cache-Directory</argument>
+    </service>
+    <service id="annotations.filesystem_cache" class="Doctrine\Common\Cache\Psr6\DoctrineProvider">
+      <argument type="service" id="annotations.filesystem_cache_adapter"/>
+      <factory class="Doctrine\Common\Cache\Psr6\DoctrineProvider" method="wrap"/>
+      <deprecated package="symfony/framework-bundle" version="5.4">"%service_id% is deprecated"</deprecated>
+    </service>
+    <service id="annotations.cache_warmer" class="Symfony\Bundle\FrameworkBundle\CacheWarmer\AnnotationsCacheWarmer">
+      <tag name="kernel.cache_warmer"/>
+      <argument type="service" id="annotations.reader"/>
+      <argument>C:\xampp\htdocs\lekhreni\PIdev\var\cache\dev/annotations.php</argument>
+      <argument>#^Symfony\\(?:Component\\HttpKernel\\|Bundle\\FrameworkBundle\\Controller\\(?!.*Controller$))#</argument>
+      <argument>true</argument>
+    </service>
+    <service id="annotations.cache_adapter" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter">
+      <tag name="container.hot_path"/>
+      <argument>C:\xampp\htdocs\lekhreni\PIdev\var\cache\dev/annotations.php</argument>
+      <argument type="service" id="cache.annotations"/>
+      <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
+    </service>
+    <service id="annotations.cache" class="Doctrine\Common\Cache\Psr6\DoctrineProvider">
+      <argument type="service" id="annotations.cache_adapter"/>
+      <factory class="Doctrine\Common\Cache\Psr6\DoctrineProvider" method="wrap"/>
+      <deprecated package="symfony/framework-bundle" version="5.4">"%service_id% is deprecated"</deprecated>
+    </service>
     <service id="property_accessor" class="Symfony\Component\PropertyAccess\PropertyAccessor">
       <argument>3</argument>
       <argument>2</argument>
@@ -2872,7 +3008,7 @@
     </service>
     <service id="secrets.vault" class="Symfony\Bundle\FrameworkBundle\Secrets\SodiumVault">
       <tag name="container.env_var_loader"/>
-      <argument>C:\xampp\htdocs\ProjetDev/config/secrets/%env(default:kernel.environment:APP_RUNTIME_ENV)%</argument>
+      <argument>C:\xampp\htdocs\lekhreni\PIdev/config/secrets/%env(default:kernel.environment:APP_RUNTIME_ENV)%</argument>
       <argument type="service" id="secrets.decryption_key" on-invalid="ignore"/>
     </service>
     <service id="secrets.decryption_key" class="Symfony\Component\String\LazyString">
@@ -2881,7 +3017,7 @@
       <factory class="Symfony\Component\String\LazyString" method="fromCallable"/>
     </service>
     <service id="secrets.local_vault" class="Symfony\Bundle\FrameworkBundle\Secrets\DotenvVault">
-      <argument>C:\xampp\htdocs\ProjetDev/.env.dev.local</argument>
+      <argument>C:\xampp\htdocs\lekhreni\PIdev/.env.dev.local</argument>
     </service>
     <service id="serializer" class="Symfony\Component\Serializer\Serializer" public="true">
       <tag name="container.private" package="symfony/framework-bundle" version="5.2"/>
@@ -2976,7 +3112,7 @@
       <argument type="collection">
         <argument type="service">
           <service class="Symfony\Component\Serializer\Mapping\Loader\AnnotationLoader">
-            <argument>null</argument>
+            <argument type="service" id="annotations.cached_reader" on-invalid="null"/>
           </service>
         </argument>
       </argument>
@@ -2989,14 +3125,14 @@
       <argument type="collection">
         <argument type="service">
           <service class="Symfony\Component\Serializer\Mapping\Loader\AnnotationLoader">
-            <argument>null</argument>
+            <argument type="service" id="annotations.cached_reader" on-invalid="null"/>
           </service>
         </argument>
       </argument>
-      <argument>C:\xampp\htdocs\ProjetDev\var\cache\dev/serialization.php</argument>
+      <argument>C:\xampp\htdocs\lekhreni\PIdev\var\cache\dev/serialization.php</argument>
     </service>
     <service id="serializer.mapping.cache.symfony" class="Psr\Cache\CacheItemPoolInterface">
-      <argument>C:\xampp\htdocs\ProjetDev\var\cache\dev/serialization.php</argument>
+      <argument>C:\xampp\htdocs\lekhreni\PIdev\var\cache\dev/serialization.php</argument>
       <argument type="service" id="cache.serializer"/>
       <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
     </service>
@@ -3135,7 +3271,7 @@
       <argument>true</argument>
     </service>
     <service id="session.storage.factory.mock_file" class="Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorageFactory">
-      <argument>C:\xampp\htdocs\ProjetDev\var\cache\dev/sessions</argument>
+      <argument>C:\xampp\htdocs\lekhreni\PIdev\var\cache\dev/sessions</argument>
       <argument>MOCKSESSID</argument>
       <argument type="service">
         <service class="Symfony\Component\HttpFoundation\Session\Storage\MetadataBag">
@@ -3331,11 +3467,14 @@
       </call>
       <call method="addXmlMappings">
         <argument type="collection">
-          <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\form/Resources/config/validation.xml</argument>
+          <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\form/Resources/config/validation.xml</argument>
         </argument>
       </call>
       <call method="enableAnnotationMapping">
         <argument>true</argument>
+      </call>
+      <call method="setDoctrineAnnotationReader">
+        <argument type="service" id="annotations.cached_reader"/>
       </call>
       <call method="addMethodMapping">
         <argument>loadValidatorMetadata</argument>
@@ -3356,10 +3495,10 @@
     <service id="validator.mapping.cache_warmer" class="Symfony\Bundle\FrameworkBundle\CacheWarmer\ValidatorCacheWarmer">
       <tag name="kernel.cache_warmer"/>
       <argument type="service" id="validator.builder"/>
-      <argument>C:\xampp\htdocs\ProjetDev\var\cache\dev/validation.php</argument>
+      <argument>C:\xampp\htdocs\lekhreni\PIdev\var\cache\dev/validation.php</argument>
     </service>
     <service id="validator.mapping.cache.adapter" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter">
-      <argument>C:\xampp\htdocs\ProjetDev\var\cache\dev/validation.php</argument>
+      <argument>C:\xampp\htdocs\lekhreni\PIdev\var\cache\dev/validation.php</argument>
       <argument type="service" id="cache.validator"/>
       <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
     </service>
@@ -3746,7 +3885,7 @@
       </call>
     </service>
     <service id="profiler.storage" class="Symfony\Component\HttpKernel\Profiler\FileProfilerStorage">
-      <argument>file:C:\xampp\htdocs\ProjetDev\var\cache\dev/profiler</argument>
+      <argument>file:C:\xampp\htdocs\lekhreni\PIdev\var\cache\dev/profiler</argument>
     </service>
     <service id="profiler_listener" class="Symfony\Component\HttpKernel\EventListener\ProfilerListener">
       <tag name="kernel.event_subscriber"/>
@@ -3793,7 +3932,7 @@
       <tag name="monolog.logger" channel="profiler"/>
       <tag name="data_collector" template="@WebProfiler/Collector/logger.html.twig" id="logger" priority="300"/>
       <argument type="service" id="monolog.logger.profiler" on-invalid="ignore"/>
-      <argument>C:\xampp\htdocs\ProjetDev\var\cache\dev/App_KernelDevDebugContainer</argument>
+      <argument>C:\xampp\htdocs\lekhreni\PIdev\var\cache\dev/App_KernelDevDebugContainer</argument>
       <argument type="service" id="request_stack" on-invalid="ignore"/>
     </service>
     <service id="data_collector.time" class="Symfony\Component\HttpKernel\DataCollector\TimeDataCollector">
@@ -3858,6 +3997,10 @@
       <call method="addInstance">
         <argument>cache.security_token_verifier</argument>
         <argument type="service" id="cache.security_token_verifier"/>
+      </call>
+      <call method="addInstance">
+        <argument>cache.webpack_encore</argument>
+        <argument type="service" id="cache.webpack_encore"/>
       </call>
     </service>
     <service id="cache_pool_clearer.cache_warmer" class="Symfony\Bundle\FrameworkBundle\CacheWarmer\CachePoolClearerCacheWarmer">
@@ -4127,7 +4270,7 @@
       <tag name="doctrine.event_subscriber"/>
       <argument type="tagged_iterator" tag="messenger.receiver"/>
     </service>
-    <service id=".1_ServiceLocator~RCtEEqm" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".1_ServiceLocator~X_ou2ev" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <argument type="collection"/>
     </service>
     <service id="doctrine.orm.proxy_cache_warmer" class="Symfony\Bridge\Doctrine\CacheWarmer\ProxyCacheWarmer">
@@ -4146,7 +4289,7 @@
     <service id="doctrine.orm.configuration" class="Doctrine\ORM\Configuration" abstract="true"/>
     <service id="doctrine.orm.entity_manager.abstract" class="Doctrine\ORM\EntityManager" lazy="true" abstract="true"/>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory">
-      <argument type="service" id=".service_locator.tUmh8HO"/>
+      <argument type="service" id=".service_locator._inl0RG"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -4311,7 +4454,7 @@
         <argument type="service" id=".doctrine.orm.default_metadata_driver"/>
       </call>
       <call method="setProxyDir">
-        <argument>C:\xampp\htdocs\ProjetDev\var\cache\dev/doctrine/orm/Proxies</argument>
+        <argument>C:\xampp\htdocs\lekhreni\PIdev\var\cache\dev/doctrine/orm/Proxies</argument>
       </call>
       <call method="setProxyNamespace">
         <argument>Proxies</argument>
@@ -4346,7 +4489,7 @@
     </service>
     <service id="doctrine.orm.default_attribute_metadata_driver" class="Doctrine\ORM\Mapping\Driver\AttributeDriver">
       <argument type="collection">
-        <argument>C:\xampp\htdocs\ProjetDev\src\Entity</argument>
+        <argument>C:\xampp\htdocs\lekhreni\PIdev\src\Entity</argument>
       </argument>
       <argument>true</argument>
     </service>
@@ -4413,7 +4556,7 @@
     <service id="doctrine.migrations.configuration" class="Doctrine\Migrations\Configuration\Configuration">
       <call method="addMigrationsDirectory">
         <argument>DoctrineMigrations</argument>
-        <argument>C:\xampp\htdocs\ProjetDev/migrations</argument>
+        <argument>C:\xampp\htdocs\lekhreni\PIdev/migrations</argument>
       </call>
       <call method="setAllOrNothing">
         <argument>false</argument>
@@ -4631,7 +4774,7 @@
         <argument key="source" type="service">
           <service class="Symfony\Component\VarDumper\Dumper\ContextProvider\SourceContextProvider">
             <argument>UTF-8</argument>
-            <argument>C:\xampp\htdocs\ProjetDev</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev</argument>
             <argument type="service" id="debug.file_link_formatter" on-invalid="null"/>
           </service>
         </argument>
@@ -4653,7 +4796,7 @@
         <argument key="source" type="service">
           <service class="Symfony\Component\VarDumper\Dumper\ContextProvider\SourceContextProvider">
             <argument>UTF-8</argument>
-            <argument>C:\xampp\htdocs\ProjetDev</argument>
+            <argument>C:\xampp\htdocs\lekhreni\PIdev</argument>
             <argument type="service" id="debug.file_link_formatter" on-invalid="null"/>
           </service>
         </argument>
@@ -4718,7 +4861,7 @@
       <argument type="service" id="twig.loader.native_filesystem"/>
       <argument type="collection">
         <argument key="autoescape">name</argument>
-        <argument key="cache">C:\xampp\htdocs\ProjetDev\var\cache\dev/twig</argument>
+        <argument key="cache">C:\xampp\htdocs\lekhreni\PIdev\var\cache\dev/twig</argument>
         <argument key="charset">UTF-8</argument>
         <argument key="debug">true</argument>
         <argument key="strict_variables">true</argument>
@@ -4787,6 +4930,9 @@
         <argument type="service" id="turbo.twig.extension"/>
       </call>
       <call method="addExtension">
+        <argument type="service" id="webpack_encore.twig_entry_files_extension"/>
+      </call>
+      <call method="addExtension">
         <argument type="service" id="stimulus.twig_extension"/>
       </call>
       <call method="addGlobal">
@@ -4833,10 +4979,10 @@
     <service id="twig.template_iterator" class="Symfony\Bundle\TwigBundle\TemplateIterator">
       <argument type="service" id="kernel"/>
       <argument type="collection">
-        <argument key="C:\xampp\htdocs\ProjetDev\vendor\symfony\twig-bridge/Resources/views/Email">email</argument>
-        <argument key="C:\xampp\htdocs\ProjetDev\vendor\symfony\twig-bridge/Resources/views/Form">null</argument>
+        <argument key="C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\twig-bridge/Resources/views/Email">email</argument>
+        <argument key="C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\twig-bridge/Resources/views/Form">null</argument>
       </argument>
-      <argument>C:\xampp\htdocs\ProjetDev/templates</argument>
+      <argument>C:\xampp\htdocs\lekhreni\PIdev/templates</argument>
     </service>
     <service id="twig.template_cache_warmer" class="Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheWarmer">
       <tag name="kernel.cache_warmer"/>
@@ -4847,60 +4993,60 @@
     <service id="twig.loader.native_filesystem" class="Twig\Loader\FilesystemLoader">
       <tag name="twig.loader"/>
       <argument type="collection"/>
-      <argument>C:\xampp\htdocs\ProjetDev</argument>
+      <argument>C:\xampp\htdocs\lekhreni\PIdev</argument>
       <call method="addPath">
-        <argument>C:\xampp\htdocs\ProjetDev\vendor\doctrine\doctrine-bundle/Resources/views</argument>
+        <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\doctrine\doctrine-bundle/Resources/views</argument>
         <argument>Doctrine</argument>
       </call>
       <call method="addPath">
-        <argument>C:\xampp\htdocs\ProjetDev\vendor\doctrine\doctrine-bundle/Resources/views</argument>
+        <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\doctrine\doctrine-bundle/Resources/views</argument>
         <argument>!Doctrine</argument>
       </call>
       <call method="addPath">
-        <argument>C:\xampp\htdocs\ProjetDev\vendor\doctrine\doctrine-migrations-bundle/Resources/views</argument>
+        <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\doctrine\doctrine-migrations-bundle/Resources/views</argument>
         <argument>DoctrineMigrations</argument>
       </call>
       <call method="addPath">
-        <argument>C:\xampp\htdocs\ProjetDev\vendor\doctrine\doctrine-migrations-bundle/Resources/views</argument>
+        <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\doctrine\doctrine-migrations-bundle/Resources/views</argument>
         <argument>!DoctrineMigrations</argument>
       </call>
       <call method="addPath">
-        <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\debug-bundle/Resources/views</argument>
+        <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\debug-bundle/Resources/views</argument>
         <argument>Debug</argument>
       </call>
       <call method="addPath">
-        <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\debug-bundle/Resources/views</argument>
+        <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\debug-bundle/Resources/views</argument>
         <argument>!Debug</argument>
       </call>
       <call method="addPath">
-        <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\web-profiler-bundle/Resources/views</argument>
+        <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\web-profiler-bundle/Resources/views</argument>
         <argument>WebProfiler</argument>
       </call>
       <call method="addPath">
-        <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\web-profiler-bundle/Resources/views</argument>
+        <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\web-profiler-bundle/Resources/views</argument>
         <argument>!WebProfiler</argument>
       </call>
       <call method="addPath">
-        <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-bundle/Resources/views</argument>
+        <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-bundle/Resources/views</argument>
         <argument>Security</argument>
       </call>
       <call method="addPath">
-        <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\security-bundle/Resources/views</argument>
+        <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\security-bundle/Resources/views</argument>
         <argument>!Security</argument>
       </call>
       <call method="addPath">
-        <argument>C:\xampp\htdocs\ProjetDev/templates</argument>
+        <argument>C:\xampp\htdocs\lekhreni\PIdev/templates</argument>
       </call>
       <call method="addPath">
-        <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\twig-bridge/Resources/views/Email</argument>
+        <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\twig-bridge/Resources/views/Email</argument>
         <argument>email</argument>
       </call>
       <call method="addPath">
-        <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\twig-bridge/Resources/views/Email</argument>
+        <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\twig-bridge/Resources/views/Email</argument>
         <argument>!email</argument>
       </call>
       <call method="addPath">
-        <argument>C:\xampp\htdocs\ProjetDev\vendor\symfony\twig-bridge/Resources/views/Form</argument>
+        <argument>C:\xampp\htdocs\lekhreni\PIdev\vendor\symfony\twig-bridge/Resources/views/Form</argument>
       </call>
     </service>
     <service id="twig.loader.chain" class="Twig\Loader\ChainLoader"/>
@@ -4926,7 +5072,7 @@
     <service id="twig.extension.code" class="Symfony\Bridge\Twig\Extension\CodeExtension">
       <tag name="twig.extension"/>
       <argument type="service" id="debug.file_link_formatter" on-invalid="ignore"/>
-      <argument>C:\xampp\htdocs\ProjetDev</argument>
+      <argument>C:\xampp\htdocs\lekhreni\PIdev</argument>
       <argument>UTF-8</argument>
     </service>
     <service id="twig.extension.routing" class="Symfony\Bridge\Twig\Extension\RoutingExtension">
@@ -5012,9 +5158,9 @@
       <tag name="console.command"/>
       <tag name="container.no_preload"/>
       <argument type="service" id="twig"/>
-      <argument>C:\xampp\htdocs\ProjetDev</argument>
+      <argument>C:\xampp\htdocs\lekhreni\PIdev</argument>
       <argument>%kernel.bundles_metadata%</argument>
-      <argument>C:\xampp\htdocs\ProjetDev/templates</argument>
+      <argument>C:\xampp\htdocs\lekhreni\PIdev/templates</argument>
       <argument type="service" id="debug.file_link_formatter" on-invalid="null"/>
       <call method="setName">
         <argument>debug:twig</argument>
@@ -5048,7 +5194,7 @@
       <argument type="service" id="twig"/>
       <argument>%data_collector.templates%</argument>
       <argument type="service" id="web_profiler.csp.handler"/>
-      <argument>C:\xampp\htdocs\ProjetDev</argument>
+      <argument>C:\xampp\htdocs\lekhreni\PIdev</argument>
     </service>
     <service id="web_profiler.controller.router" class="Symfony\Bundle\WebProfilerBundle\Controller\RouterController" public="true">
       <argument type="service" id="profiler" on-invalid="null"/>
@@ -5107,7 +5253,7 @@
       <argument type="service" id="stimulus.helper"/>
     </service>
     <service id="stimulus.asset_mapper.ux_package_reader" class="Symfony\UX\StimulusBundle\Ux\UxPackageReader">
-      <argument>C:\xampp\htdocs\ProjetDev</argument>
+      <argument>C:\xampp\htdocs\lekhreni\PIdev</argument>
     </service>
     <service id="stimulus.ux_controllers_twig_extension" class="Symfony\UX\StimulusBundle\Twig\UxControllersTwigExtension">
       <tag name="twig.extension"/>
@@ -5133,7 +5279,7 @@
       <tag name="doctrine.event_listener" event="onFlush"/>
       <tag name="doctrine.event_listener" event="postFlush"/>
       <argument type="service" id="turbo.broadcaster.action_renderer"/>
-      <argument>null</argument>
+      <argument type="service" id="annotations.cached_reader" on-invalid="null"/>
     </service>
     <service id="twig.missing_extension_suggestor" class="Twig\Extra\TwigExtraBundle\MissingExtensionSuggestor"/>
     <service id="security.authorization_checker" class="Symfony\Component\Security\Core\Authorization\AuthorizationChecker" public="true">
@@ -5342,7 +5488,29 @@
         </service>
       </argument>
     </service>
-    <service id="security.access_map" class="Symfony\Component\Security\Http\AccessMap"/>
+    <service id="security.access_map" class="Symfony\Component\Security\Http\AccessMap">
+      <call method="add">
+        <argument type="service" id=".security.request_matcher.pbyKmZE"/>
+        <argument type="collection">
+          <argument>ROLE_ADMIN</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+      <call method="add">
+        <argument type="service" id=".security.request_matcher.HNmpn_s"/>
+        <argument type="collection">
+          <argument>ROLE_ADMIN</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+      <call method="add">
+        <argument type="service" id=".security.request_matcher.rzapPmp"/>
+        <argument type="collection">
+          <argument>ROLE_ADMIN</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+    </service>
     <service id="security.context_listener" class="Symfony\Component\Security\Http\Firewall\ContextListener">
       <tag name="monolog.logger" channel="security"/>
       <argument type="service" id="security.untracked_token_storage"/>
@@ -6033,6 +6201,15 @@
         <argument key="security.firewall.map.context.main" type="service_closure" id="security.firewall.map.context.main"/>
       </argument>
     </service>
+    <service id=".security.request_matcher.pbyKmZE" class="Symfony\Component\HttpFoundation\RequestMatcher">
+      <argument>^/dashboard</argument>
+    </service>
+    <service id=".security.request_matcher.HNmpn_s" class="Symfony\Component\HttpFoundation\RequestMatcher">
+      <argument>/home/Adduser</argument>
+    </service>
+    <service id=".security.request_matcher.rzapPmp" class="Symfony\Component\HttpFoundation\RequestMatcher">
+      <argument>/AfficherListeUsers</argument>
+    </service>
     <service id="security.command.user_password_encoder" class="Symfony\Bundle\SecurityBundle\Command\UserPasswordEncoderCommand">
       <tag name="console.command" command="security:encode-password"/>
       <tag name="container.no_preload"/>
@@ -6105,7 +6282,7 @@
     <service id="monolog.processor.psr_log_message" class="Monolog\Processor\PsrLogMessageProcessor"/>
     <service id="monolog.handler.main" class="Monolog\Handler\StreamHandler">
       <tag name="kernel.reset" method="reset"/>
-      <argument>C:\xampp\htdocs\ProjetDev\var\log/dev.log</argument>
+      <argument>C:\xampp\htdocs\lekhreni\PIdev\var\log/dev.log</argument>
       <argument>debug</argument>
       <argument>true</argument>
       <argument>null</argument>
@@ -6127,8 +6304,8 @@
       <argument type="service" id="filesystem"/>
       <argument type="service" id="maker.autoloader_util"/>
       <argument type="service" id="maker.file_link_formatter"/>
-      <argument>C:\xampp\htdocs\ProjetDev</argument>
-      <argument>C:\xampp\htdocs\ProjetDev/templates</argument>
+      <argument>C:\xampp\htdocs\lekhreni\PIdev</argument>
+      <argument>C:\xampp\htdocs\lekhreni\PIdev/templates</argument>
     </service>
     <service id="maker.autoloader_finder" class="Symfony\Bundle\MakerBundle\Util\ComposerAutoloaderFinder">
       <argument>App</argument>
@@ -6293,7 +6470,7 @@
     </service>
     <service id="maker.maker.make_migration" class="Symfony\Bundle\MakerBundle\Maker\MakeMigration">
       <tag name="maker.command"/>
-      <argument>C:\xampp\htdocs\ProjetDev</argument>
+      <argument>C:\xampp\htdocs\lekhreni\PIdev</argument>
       <argument type="service" id="maker.file_link_formatter"/>
     </service>
     <service id="maker.maker.make_stimulus_controller" class="Symfony\Bundle\MakerBundle\Maker\MakeStimulusController">
@@ -6305,6 +6482,95 @@
       <argument type="service" id="maker.security_config_updater"/>
       <argument type="service" id="maker.security_controller_builder"/>
     </service>
+    <service id=".1_ServiceLocator~wqaZZgO" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="webpack_encore.entrypoint_lookup_collection" type="service_closure" id="webpack_encore.entrypoint_lookup_collection"/>
+        <argument key="webpack_encore.tag_renderer" type="service_closure" id="webpack_encore.tag_renderer"/>
+      </argument>
+    </service>
+    <service id="webpack_encore.entrypoint_lookup_collection" class="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupCollection">
+      <argument type="service" id=".service_locator.Yi4Ff.p"/>
+      <argument>_default</argument>
+    </service>
+    <service id="webpack_encore.tag_renderer" class="Symfony\WebpackEncoreBundle\Asset\TagRenderer">
+      <tag name="kernel.reset" method="reset"/>
+      <argument type="service" id="webpack_encore.entrypoint_lookup_collection"/>
+      <argument type="service" id="assets.packages"/>
+      <argument type="collection"/>
+      <argument type="collection">
+        <argument key="defer">true</argument>
+      </argument>
+      <argument type="collection"/>
+      <argument type="service" id="debug.event_dispatcher"/>
+    </service>
+    <service id="webpack_encore.twig_entry_files_extension" class="Symfony\WebpackEncoreBundle\Twig\EntryFilesTwigExtension">
+      <tag name="twig.extension"/>
+      <argument type="service" id=".1_ServiceLocator~wqaZZgO"/>
+    </service>
+    <service id="webpack_encore.entrypoint_lookup.cache_warmer" class="Symfony\WebpackEncoreBundle\CacheWarmer\EntrypointCacheWarmer">
+      <tag name="kernel.cache_warmer"/>
+      <argument type="collection">
+        <argument key="_default">C:\xampp\htdocs\lekhreni\PIdev/public/build/entrypoints.json</argument>
+      </argument>
+      <argument>C:\xampp\htdocs\lekhreni\PIdev\var\cache\dev/webpack_encore.cache.php</argument>
+    </service>
+    <service id="webpack_encore.cache" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter">
+      <argument>C:\xampp\htdocs\lekhreni\PIdev\var\cache\dev/webpack_encore.cache.php</argument>
+      <argument type="service" id="cache.webpack_encore"/>
+      <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
+    </service>
+    <service id="cache.webpack_encore" class="Symfony\Component\Cache\Adapter\TraceableAdapter">
+      <tag name="cache.pool"/>
+      <tag name="kernel.reset" method="reset"/>
+      <argument type="service" id="cache.webpack_encore.recorder_inner"/>
+    </service>
+    <service id="webpack_encore.exception_listener" class="Symfony\WebpackEncoreBundle\EventListener\ExceptionListener">
+      <tag name="kernel.event_listener" event="kernel.exception"/>
+      <argument type="service" id="webpack_encore.entrypoint_lookup_collection"/>
+      <argument type="collection">
+        <argument>_default</argument>
+      </argument>
+    </service>
+    <service id="Symfony\WebpackEncoreBundle\EventListener\ResetAssetsEventListener" class="Symfony\WebpackEncoreBundle\EventListener\ResetAssetsEventListener">
+      <tag name="kernel.event_subscriber"/>
+      <tag name="container.hot_path"/>
+      <argument type="service" id="webpack_encore.entrypoint_lookup_collection"/>
+      <argument type="collection">
+        <argument>_default</argument>
+      </argument>
+    </service>
+    <service id="webpack_encore.entrypoint_lookup[_default]" class="Symfony\WebpackEncoreBundle\Asset\EntrypointLookup">
+      <tag name="kernel.reset" method="reset"/>
+      <argument>C:\xampp\htdocs\lekhreni\PIdev/public/build/entrypoints.json</argument>
+      <argument>null</argument>
+      <argument>_default</argument>
+      <argument>true</argument>
+    </service>
+    <service id=".service_locator.Yi4Ff.p" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="_default" type="service_closure" id="webpack_encore.entrypoint_lookup[_default]"/>
+      </argument>
+    </service>
+    <service id="symfonycasts.verify_email.token_generator" class="SymfonyCasts\Bundle\VerifyEmail\Generator\VerifyEmailTokenGenerator">
+      <argument>%env(APP_SECRET)%</argument>
+    </service>
+    <service id="symfonycasts.verify_email.query_utility" class="SymfonyCasts\Bundle\VerifyEmail\Util\VerifyEmailQueryUtility"/>
+    <service id="symfonycasts.verify_email.uri_signer_factory" class="SymfonyCasts\Bundle\VerifyEmail\Factory\UriSignerFactory">
+      <argument>%env(APP_SECRET)%</argument>
+      <argument>signature</argument>
+    </service>
+    <service id="symfonycasts.verify_email.uri_signer" class="Symfony\Component\HttpFoundation\UriSigner">
+      <factory service="symfonycasts.verify_email.uri_signer_factory" method="createUriSigner"/>
+    </service>
+    <service id="symfonycasts.verify_email.helper" class="SymfonyCasts\Bundle\VerifyEmail\VerifyEmailHelper">
+      <argument type="service" id="router.default"/>
+      <argument type="service" id="symfonycasts.verify_email.uri_signer"/>
+      <argument type="service" id="symfonycasts.verify_email.query_utility"/>
+      <argument type="service" id="symfonycasts.verify_email.token_generator"/>
+      <argument>3600</argument>
+    </service>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -6314,6 +6580,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ServiceController" class="App\Controller\ServiceController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ServiceController" class="App\Controller\ServiceController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\ServiceController" class="App\Controller\ServiceController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\UserController" class="App\Controller\UserController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\UserController" class="App\Controller\UserController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\UserController" class="App\Controller\UserController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -6321,8 +6590,6 @@
     <service id=".abstract.instanceof.App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\UserType" class="App\Form\UserType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\UserType" class="App\Form\UserType" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\TestRepository" class="App\Repository\TestRepository" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Repository\TestRepository" class="App\Repository\TestRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".service_locator.gSv9zYw" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -6697,20 +6964,27 @@
         <argument key="loader" type="service_closure" id=".errored..service_locator.xUrKPVU.Symfony\Component\Config\Loader\LoaderInterface"/>
       </argument>
     </service>
-    <service id=".service_locator.iQAD6w2" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.usFLA2y" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="authenticator" type="service_closure" id="App\Security\AppCustomAuthenticator"/>
         <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+        <argument key="mailer" type="service_closure" id="mailer.mailer"/>
         <argument key="userAuthenticator" type="service_closure" id="security.user_authenticator"/>
         <argument key="userPasswordHasher" type="service_closure" id="security.user_password_hasher"/>
       </argument>
     </service>
-    <service id=".service_locator.2Vyv7xS" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.8C5AXya" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="authChecker" type="service_closure" id="security.authorization_checker"/>
         <argument key="authenticationUtils" type="service_closure" id="security.authentication_utils"/>
+        <argument key="doctrine" type="service_closure" id="doctrine"/>
+      </argument>
+    </service>
+    <service id=".service_locator.tXM58lC" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="passwordEncoder" type="service_closure" id="security.user_password_encoder.generic"/>
       </argument>
     </service>
     <service id=".service_locator.GQZbvNR" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -6719,29 +6993,42 @@
         <argument key="doctrine" type="service_closure" id="doctrine"/>
       </argument>
     </service>
+    <service id=".service_locator.3risv2s" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="passwordEncoder" type="service_closure" id="security.user_password_encoder.generic"/>
+        <argument key="repository" type="service_closure" id="App\Repository\UserRepository"/>
+      </argument>
+    </service>
     <service id=".service_locator.DNF0f.K" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="repository" type="service_closure" id="App\Repository\UserRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.O1UJjO6" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.rT6en1C" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="App\Controller\RegistrationController::register" type="service_closure" id=".service_locator.iQAD6w2"/>
-        <argument key="App\Controller\SecurityController::login" type="service_closure" id=".service_locator.2Vyv7xS"/>
-        <argument key="App\Controller\UserController::Show" type="service_closure" id=".service_locator.GQZbvNR"/>
+        <argument key="App\Controller\RegistrationController::register" type="service_closure" id=".service_locator.usFLA2y"/>
+        <argument key="App\Controller\SecurityController::login" type="service_closure" id=".service_locator.8C5AXya"/>
+        <argument key="App\Controller\UserController::Add" type="service_closure" id=".service_locator.tXM58lC"/>
+        <argument key="App\Controller\UserController::ShowUsers" type="service_closure" id=".service_locator.GQZbvNR"/>
         <argument key="App\Controller\UserController::delete" type="service_closure" id=".service_locator.DNF0f.K"/>
-        <argument key="App\Controller\UserController::edit" type="service_closure" id=".service_locator.DNF0f.K"/>
+        <argument key="App\Controller\UserController::deletefront" type="service_closure" id=".service_locator.DNF0f.K"/>
+        <argument key="App\Controller\UserController::edit" type="service_closure" id=".service_locator.3risv2s"/>
+        <argument key="App\Controller\UserController::editfront" type="service_closure" id=".service_locator.3risv2s"/>
         <argument key="App\Kernel::loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="App\Kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="kernel::loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
-        <argument key="App\Controller\RegistrationController:register" type="service_closure" id=".service_locator.iQAD6w2"/>
-        <argument key="App\Controller\SecurityController:login" type="service_closure" id=".service_locator.2Vyv7xS"/>
-        <argument key="App\Controller\UserController:Show" type="service_closure" id=".service_locator.GQZbvNR"/>
+        <argument key="App\Controller\RegistrationController:register" type="service_closure" id=".service_locator.usFLA2y"/>
+        <argument key="App\Controller\SecurityController:login" type="service_closure" id=".service_locator.8C5AXya"/>
+        <argument key="App\Controller\UserController:Add" type="service_closure" id=".service_locator.tXM58lC"/>
+        <argument key="App\Controller\UserController:ShowUsers" type="service_closure" id=".service_locator.GQZbvNR"/>
         <argument key="App\Controller\UserController:delete" type="service_closure" id=".service_locator.DNF0f.K"/>
-        <argument key="App\Controller\UserController:edit" type="service_closure" id=".service_locator.DNF0f.K"/>
+        <argument key="App\Controller\UserController:deletefront" type="service_closure" id=".service_locator.DNF0f.K"/>
+        <argument key="App\Controller\UserController:edit" type="service_closure" id=".service_locator.3risv2s"/>
+        <argument key="App\Controller\UserController:editfront" type="service_closure" id=".service_locator.3risv2s"/>
         <argument key="kernel:loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="kernel:registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
       </argument>
@@ -6896,10 +7183,9 @@
         <argument key="turbo.doctrine.event_listener" type="service_closure" id="turbo.doctrine.event_listener"/>
       </argument>
     </service>
-    <service id=".service_locator.tUmh8HO" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator._inl0RG" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="App\Repository\TestRepository" type="service_closure" id="App\Repository\TestRepository"/>
         <argument key="App\Repository\UserRepository" type="service_closure" id="App\Repository\UserRepository"/>
       </argument>
     </service>
@@ -7187,6 +7473,12 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.mx0UMmY" method="withContext"/>
     </service>
+    <service id=".service_locator.mx0UMmY.App\Controller\ServiceController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\ServiceController"/>
+      <argument>App\Controller\ServiceController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.mx0UMmY" method="withContext"/>
+    </service>
     <service id=".service_locator.mx0UMmY.App\Controller\UserController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\UserController"/>
       <argument>App\Controller\UserController</argument>
@@ -7376,12 +7668,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.O1UJjO6"/>
+      <argument type="service" id=".service_locator.rT6en1C"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.O1UJjO6"/>
+      <argument type="service" id=".service_locator.rT6en1C"/>
     </service>
     <service id="debug.traced.messenger.bus.default.inner" class="Symfony\Component\Messenger\MessageBus">
       <argument type="iterator">
@@ -8191,86 +8483,94 @@
       </argument>
     </service>
     <service id="cache.app.recorder_inner" class="Symfony\Component\Cache\Adapter\FilesystemAdapter">
-      <argument>tPw3pwQmoQ</argument>
+      <argument>A9I2OK3TJ9</argument>
       <argument>0</argument>
-      <argument>C:\xampp\htdocs\ProjetDev\var\cache\dev/pools/app</argument>
+      <argument>C:\xampp\htdocs\lekhreni\PIdev\var\cache\dev/pools/app</argument>
       <argument type="service" id="cache.default_marshaller" on-invalid="ignore"/>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       </call>
     </service>
     <service id="cache.system.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface">
-      <argument>-m3-4TtjDJ</argument>
+      <argument>t7M34W0RrB</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:\xampp\htdocs\ProjetDev\var\cache\dev/pools/system</argument>
+      <argument>C:\xampp\htdocs\lekhreni\PIdev\var\cache\dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.validator.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface">
-      <argument>yJA9YpPOJX</argument>
+      <argument>9xJoINaDtY</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:\xampp\htdocs\ProjetDev\var\cache\dev/pools/system</argument>
+      <argument>C:\xampp\htdocs\lekhreni\PIdev\var\cache\dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.serializer.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface">
-      <argument>GPRXSVXfQm</argument>
+      <argument>grwj9qbKea</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:\xampp\htdocs\ProjetDev\var\cache\dev/pools/system</argument>
+      <argument>C:\xampp\htdocs\lekhreni\PIdev\var\cache\dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.annotations.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface">
-      <argument>hcjw5KwUsu</argument>
+      <argument>DECHlZKx1z</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:\xampp\htdocs\ProjetDev\var\cache\dev/pools/system</argument>
+      <argument>C:\xampp\htdocs\lekhreni\PIdev\var\cache\dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.property_info.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface">
-      <argument>Fxqms2wYPl</argument>
+      <argument>2mXPxtitc0</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:\xampp\htdocs\ProjetDev\var\cache\dev/pools/system</argument>
+      <argument>C:\xampp\htdocs\lekhreni\PIdev\var\cache\dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.messenger.restart_workers_signal.recorder_inner" class="Symfony\Component\Cache\Adapter\FilesystemAdapter">
-      <argument>BhXjn2836B</argument>
+      <argument>rKLcNcGNzS</argument>
       <argument>0</argument>
-      <argument>C:\xampp\htdocs\ProjetDev\var\cache\dev/pools/app</argument>
+      <argument>C:\xampp\htdocs\lekhreni\PIdev\var\cache\dev/pools/app</argument>
       <argument type="service" id="cache.default_marshaller" on-invalid="ignore"/>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       </call>
     </service>
     <service id="cache.validator_expression_language.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface">
-      <argument>EpTchmUgG9</argument>
+      <argument>0KsRhMkcWT</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:\xampp\htdocs\ProjetDev\var\cache\dev/pools/system</argument>
+      <argument>C:\xampp\htdocs\lekhreni\PIdev\var\cache\dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.doctrine.orm.default.result.recorder_inner" class="Symfony\Component\Cache\Adapter\ArrayAdapter"/>
     <service id="cache.doctrine.orm.default.query.recorder_inner" class="Symfony\Component\Cache\Adapter\ArrayAdapter"/>
     <service id="cache.security_expression_language.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface">
-      <argument>iRxvmidTb8</argument>
+      <argument>m55MHbU6rQ</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:\xampp\htdocs\ProjetDev\var\cache\dev/pools/system</argument>
+      <argument>C:\xampp\htdocs\lekhreni\PIdev\var\cache\dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.security_token_verifier.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface">
-      <argument>MBybqVRxlm</argument>
+      <argument>G3sbyDO+Tb</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:\xampp\htdocs\ProjetDev\var\cache\dev/pools/system</argument>
+      <argument>C:\xampp\htdocs\lekhreni\PIdev\var\cache\dev/pools/system</argument>
+      <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
+      <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
+    </service>
+    <service id="cache.webpack_encore.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface">
+      <argument>VpuwoctRSu</argument>
+      <argument>0</argument>
+      <argument>%container.build_id%</argument>
+      <argument>C:\xampp\htdocs\lekhreni\PIdev\var\cache\dev/pools/system</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -8338,6 +8638,8 @@
     <service id="Symfony\Component\Routing\Matcher\UrlMatcherInterface" alias="router.default"/>
     <service id="Symfony\Component\Routing\RequestContextAwareInterface" alias="router.default"/>
     <service id="Symfony\Component\Routing\RequestContext" alias="router.request_context"/>
+    <service id="annotation_reader" alias="annotations.cached_reader"/>
+    <service id="Doctrine\Common\Annotations\Reader" alias="annotations.cached_reader"/>
     <service id="Symfony\Component\PropertyAccess\PropertyAccessorInterface" alias="property_accessor"/>
     <service id="Symfony\Component\Serializer\SerializerInterface" alias="serializer"/>
     <service id="Symfony\Component\Serializer\Normalizer\NormalizerInterface" alias="serializer"/>
@@ -8394,6 +8696,7 @@
     <service id="doctrine.dbal.event_manager" alias="doctrine.dbal.default_connection.event_manager"/>
     <service id="Doctrine\DBAL\Connection $defaultConnection" alias="doctrine.dbal.default_connection"/>
     <service id="Doctrine\ORM\EntityManagerInterface" alias="doctrine.orm.default_entity_manager"/>
+    <service id="doctrine.orm.metadata.annotation_reader" alias="annotations.cached_reader"/>
     <service id="doctrine.orm.entity_manager" alias="doctrine.orm.default_entity_manager" public="true"/>
     <service id="doctrine.orm.default_metadata_cache" alias="cache.doctrine.orm.default.metadata"/>
     <service id="doctrine.orm.default_result_cache" alias="cache.doctrine.orm.default.result"/>
@@ -8442,9 +8745,12 @@
     <service id="Symfony\Component\Security\Core\User\UserCheckerInterface" alias="security.user_checker"/>
     <service id="logger" alias="monolog.logger"/>
     <service id="Psr\Log\LoggerInterface" alias="monolog.logger"/>
+    <service id="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupCollectionInterface" alias="webpack_encore.entrypoint_lookup_collection"/>
+    <service id="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupInterface" alias="webpack_encore.entrypoint_lookup[_default]"/>
+    <service id="SymfonyCasts\Bundle\VerifyEmail\VerifyEmailHelperInterface" alias="symfonycasts.verify_email.helper"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.O1UJjO6"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.rT6en1C"/>
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>
@@ -8467,10 +8773,11 @@
     <service id="Psr\Log\LoggerInterface $deprecationLogger" alias="monolog.logger.deprecation"/>
     <service id=".service_locator.80edgLI" alias="messenger.receiver_locator"/>
     <service id=".service_locator.h8Jkkd2" alias="messenger.retry_strategy_locator"/>
+    <service id=".service_locator.XDGmiR3" alias=".1_ServiceLocator~wqaZZgO"/>
     <service id=".service_locator.0GV1BZZ" alias=".service_locator.gSv9zYw"/>
-    <service id=".service_locator.x__eXbe" alias=".service_locator.iQAD6w2"/>
-    <service id=".service_locator.AZqGVSx" alias=".service_locator.2Vyv7xS"/>
-    <service id=".service_locator.AzXcM1L" alias=".service_locator.O1UJjO6"/>
+    <service id=".service_locator.QALt72t" alias=".service_locator.usFLA2y"/>
+    <service id=".service_locator.GLSWPJR" alias=".service_locator.3risv2s"/>
+    <service id=".service_locator.dHZRttn" alias=".service_locator.rT6en1C"/>
     <service id=".service_locator.wKF4yn1" alias=".service_locator.19_mNxd"/>
     <service id=".service_locator.gsli3Hv" alias=".service_locator._e4mFUf"/>
     <service id=".service_locator.A4k6Zds" alias=".service_locator.YXH_UHb"/>
@@ -8499,9 +8806,11 @@
     <service id="messenger.bus.default" alias="debug.traced.messenger.bus.default"/>
     <service id="doctrine.orm.default_metadata_driver" alias=".doctrine.orm.default_metadata_driver"/>
     <service id=".service_locator.uo5c0SP" alias=".service_locator.xUrKPVU"/>
-    <service id=".service_locator.yhWEeZ1" alias=".service_locator.iQAD6w2"/>
-    <service id=".service_locator.Y497mwI" alias=".service_locator.2Vyv7xS"/>
+    <service id=".service_locator.wz37GeU" alias=".service_locator.usFLA2y"/>
+    <service id=".service_locator.gYAjnQ5" alias=".service_locator.8C5AXya"/>
+    <service id=".service_locator.Olb.a6H" alias=".service_locator.tXM58lC"/>
     <service id=".service_locator.FPFiL9q" alias=".service_locator.GQZbvNR"/>
+    <service id=".service_locator.eeVDjGk" alias=".service_locator.3risv2s"/>
     <service id=".service_locator.0L1tcFA" alias=".service_locator.DNF0f.K"/>
     <service id=".service_locator.A740LBW" alias=".service_locator.mx0UMmY"/>
     <service id=".service_locator.L0rFhJm" alias=".service_locator.GVyCdgr"/>

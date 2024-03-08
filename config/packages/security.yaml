@@ -1,4 +1,14 @@
 security:
+
+
+    access_control:
+        - { path: ^/dashboard, roles: ROLE_ADMIN }
+        - { path: /home/Adduser, roles: ROLE_ADMIN }        
+        - { path: /AfficherListeUsers, roles: ROLE_ADMIN }
+
+        
+
+
     enable_authenticator_manager: true
     # https://symfony.com/doc/current/security.html#registering-the-user-hashing-passwords
     password_hashers:
@@ -37,9 +47,13 @@ security:
 
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
-    access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
+     
+        
+
         # - { path: ^/profile, roles: ROLE_USER }
+  #  role_hierarchy:
+     #  ROLE_ADMIN: [ROLE_ADMIN]
+      # ROLE_OTHER_USER: [ROLE_CLIENT , ROLE_FOURNISSEUR]
 
 when@test:
     security:

@@ -1,0 +1,104 @@
+{% extends 'back_office/base_back.html.twig' %}
+{% block stylesheets %}
+	{{ parent() }}
+	{{ encore_entry_link_tags('styles_dashbaord') }}
+    <!-- Ajout de styles spécifiques pour la page -->
+    <style>
+        /* Style pour le formulaire */
+        .form-control-lg {
+            padding: 1.5rem 1rem;
+            border-radius: 0.5rem;
+        }
+
+        .password-toggle-btn {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            right: 1rem;
+            transform: translateY(-50%);
+        }
+    </style>
+{% endblock %}
+    {% block javascripts %}
+
+{{ encore_entry_script_tags('app_back') }}
+{% endblock %}
+
+
+{% block body %}
+<div class="container-fluid">
+          
+  
+          <div class="row justify-content-center">
+            <!-- column -->
+            <div class="col-lg-10">
+            
+
+            <div class="card">
+                <div class="card-body">
+            <h3>Add User</h3></br></br>
+            <form method="post" novalidate enctype="multipart/form-data" >
+                {{ form_start(f) }}
+                <div class="row mb-4"> 
+                    <div class="col">
+                        {{ form_row(f.email, {'attr': {'class': 'form-control form-control-lg', 'placeholder': 'Email Here'}}) }}
+                    </div>
+                    <div class="col">
+                        {{ form_row(f.roles) }}
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col">
+                    <label for="{{ f.password.vars.id }}" class="form-label">Password</label>
+                        <div class="input-group">
+                          {{ form_widget(f.password, {'attr': {'class': 'form-control form-control-lg password-toggle', 'placeholder': 'Password Here'}}) }}    
+                             <i class="bi bi-eye-slash"></i>          
+                       </div>
+                    </div>
+                </div>
+                <div class="row mb-4"> 
+                    <div class="col">
+                        {{ form_row(f.lastname, {'attr': {'class': 'form-control form-control-lg', 'placeholder': 'Lastname Here'}}) }}
+                    </div>
+                    <div class="col">
+                        {{ form_row(f.numtel, {'attr': {'class': 'form-control form-control-lg', 'placeholder': 'Phone number Here'}}) }}
+                    </div>
+                </div>
+                <div class="row mb-4"> 
+                    <div class="col">
+                        {{ form_row(f.adresse, {'attr': {'class': 'form-control form-control-lg', 'placeholder': 'Address Here'}}) }}
+                    </div>
+                </div>                
+                <div class="row mb-4">
+                        {{ form_row(f.image, {'attr': {'class': 'form-control form-control-lg'}}) }}
+                </div>
+                <div class="row mb-4"> 
+                    <div class="col">
+                        <button type="submit" class="btn btn-primary">AddUser</button>
+                    </div>
+                </div>
+                {{ form_end(f) }}
+            </form>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+$(document).ready(function() {
+    $('.password-toggle').each(function() {
+        var $input = $(this);
+        var $toggle = $('<span class="password-toggle-btn"><i class="fa fa-eye"></i></span>');
+        $input.after($toggle);
+
+        $toggle.on('click', function() {
+            var type = $input.attr('type') === 'password' ? 'text' : 'password';
+            $input.attr('type', type);
+        
+        
+            $(this).find('i').toggleClass('fa-eye fa-eye-slash');
+        });
+    });
+});
+</script>
+{% endblock %}

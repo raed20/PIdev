@@ -8,30 +8,42 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
 {
-    #[Route('/home', name: 'app_home')]
-    public function index(): Response
+    
+
+
+
+    #[Route('/dashboard', name: 'app_dashboard')]
+    public function dashboard(): Response
     {
-        return $this->render('home/index.html.twig', [
+        return $this->render('back_office/dashboard_back.html.twig', [
             'controller_name' => 'HomeController',
         ]);
     }
 
 
-    #[Route('/site', name: 'app_site')]
-    public function test(): Response
+    #[Route('/', name: '')]
+    public function home(): Response
     {
-        return $this->render('home/test.html.twig');
+        return $this->render('front_office/base_front.html.twig', [
+            '' => '',
+        ]);
     }
 
 
+    #[Route('/home1', name: 'app_home1')]
+    public function index1(): Response
+    {
+        return $this->render('front_office/service/index.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
+    }
 
-
-
-    
-
-
-
-    
-
+    #[Route('/home', name: 'app_home')]
+    public function index(): Response
+    {
+        return $this->render('front_office/homeAdmin/index.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
+    }
     
 }

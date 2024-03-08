@@ -1,12 +1,88 @@
 {
   "entrypoints": {
-    "app": {
+    "app_front": {
       "js": [
-        "/build/runtime.05dacd30.js",
-        "/build/app.53d71f57.js"
+        "/build/runtime.e6046c0c.js",
+        "/build/app_front.1e98c051.js"
+      ]
+    },
+    "app_back": {
+      "js": [
+        "/build/runtime.e6046c0c.js",
+        "/build/vendors-node_modules_core-js_modules_es_array_for-each_js-node_modules_core-js_modules_es_obj-7bb33f.d8542db0.js",
+        "/build/app_back.5aa7bfb4.js"
+      ]
+    },
+    "styles_front": {
+      "js": [
+        "/build/runtime.e6046c0c.js"
       ],
       "css": [
-        "/build/app.b75294ae.css"
+        "/build/styles_front.4196f0fb.css"
+      ]
+    },
+    "styles_back": {
+      "js": [
+        "/build/runtime.e6046c0c.js"
+      ],
+      "css": [
+        "/build/styles_back.4c31ff19.css"
+      ]
+    },
+    "styles_invest_main_front": {
+      "js": [
+        "/build/runtime.e6046c0c.js"
+      ],
+      "css": [
+        "/build/styles_invest_main_front.6f668664.css"
+      ]
+    },
+    "styles_dashbaord": {
+      "js": [
+        "/build/runtime.e6046c0c.js"
+      ],
+      "css": [
+        "/build/styles_dashbaord.ce479934.css"
+      ]
+    },
+    "styles_backopp": {
+      "js": [
+        "/build/runtime.e6046c0c.js"
+      ],
+      "css": [
+        "/build/styles_backopp.15991627.css"
+      ]
+    },
+    "styles_backaddopp": {
+      "js": [
+        "/build/runtime.e6046c0c.js"
+      ],
+      "css": [
+        "/build/styles_backaddopp.46c5bf00.css"
+      ]
+    },
+    "styles_invest_front": {
+      "js": [
+        "/build/runtime.e6046c0c.js"
+      ],
+      "css": [
+        "/build/styles_invest_front.6a9fad2e.css"
+      ]
+    },
+    "styles_inv_front": {
+      "js": [
+        "/build/runtime.e6046c0c.js"
+      ],
+      "css": [
+        "/build/styles_inv_front.d5c576c6.css"
+      ]
+    },
+    "styles_profile": {
+      "js": [
+        "/build/runtime.e6046c0c.js"
+      ],
+      "css": [
+        "/build/styles_profile.4d2bcc1e.css"
       ]
     }
   }
