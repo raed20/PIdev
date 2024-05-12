@@ -27,14 +27,14 @@ class Product
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-   
-    #[Assert\NotBlank(message:"Price cannot be blank")]
-    #[Assert\Type(type:"numeric", message:"Price must be numeric")]
+
+    #[Assert\NotBlank(message: "Price cannot be blank")]
+    #[Assert\Type(type: "numeric", message: "Price must be numeric")]
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 3)]
     private ?string $price = null;
 
-    #[Assert\NotBlank(message:"Description cannot be blank")]
-    #[Assert\Length(max:255, maxMessage:"Description cannot be longer than {{ limit }} characters")]
+    #[Assert\NotBlank(message: "Description cannot be blank")]
+    #[Assert\Length(max: 255, maxMessage: "Description cannot be longer than {{ limit }} characters")]
     #[ORM\Column(length: 255)]
     private ?string $description = null;
 
@@ -88,7 +88,7 @@ class Product
 
         return $this;
     }
-    
+
     public function __toString()
     {
         return $this->name;

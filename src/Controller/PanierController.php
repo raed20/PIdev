@@ -119,23 +119,23 @@ class PanierController extends AbstractController
         return $this->redirectToRoute('app_panier1_all');
     }
     
-    #[Route('/productEdit/{ref}', name: 'app_edit1_panier')]
-    public function editProduct(PanierRepository $repository, $ref, Request $request, ManagerRegistry $doctrine)
-    {
-        $panier = $repository->find($ref);
-        $form = $this->createForm(PanierType::class, $panier);
-    
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $doctrine->getManager();
-            $em->flush();
-            return $this->redirectToRoute("app_panier1_all");
-        }
-    
-        return $this->renderForm('front_office/productUpdate.html.twig', [
-            'panier' => $panier,
-            'myForm' => $form, // Pass the form to the template
-        ]);
+#[Route('/productEdit/{ref}', name: 'app_edit1_panier')]
+public function editProduct(PanierRepository $repository, $ref, Request $request, ManagerRegistry $doctrine)
+{
+    $panier = $repository->find($ref);
+    $form = $this->createForm(PanierType::class, $panier);
+
+    $form->handleRequest($request);
+    if ($form->isSubmitted() && $form->isValid()) {
+        $em = $doctrine->getManager();
+        $em->flush();
+        return $this->redirectToRoute("app_panier1_all");
     }
-    
+
+    return $this->renderForm('front_office/productUpdate.html.twig', [
+        'panier' => $panier,
+        'myForm' => $form, // Pass the form to the template
+    ]);
+}
+
 }

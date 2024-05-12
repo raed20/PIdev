@@ -19,11 +19,11 @@ class Category
     #[ORM\Column(length: 255)]
     #[Assert\NotBlank(message: "The name field cannot be empty.")]
     #[Assert\Length(
-           min : 3,
-           max : 15,
-           minMessage : "The name must be at least {{ limit }} characters long.",
-           maxMessage : "The name cannot be longer than {{ limit }} characters."
-           )]
+        min: 3,
+        max: 15,
+        minMessage: "The name must be at least {{ limit }} characters long.",
+        maxMessage: "The name cannot be longer than {{ limit }} characters."
+    )]
     private ?string $name = null;
 
 
@@ -84,6 +84,6 @@ class Category
     }
     public function __toString()
     {
-       return $this->name;
+        return $this->name;
     }
 }
